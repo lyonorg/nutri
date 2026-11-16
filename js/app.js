@@ -1,6 +1,7 @@
 // Nutri — la app. Toda la matemática vive en ../motor; aquí solo hay pantallas y guardado.
 import * as M from '../motor/index.js';
 import * as db from './db.js';
+import * as nube from './nube.js';
 
 /* ------------------------------------------------------------------ estado */
 const S = {
@@ -136,6 +137,26 @@ function comidaDesdeReceta(slot, recetaId, factor) {
   };
 }
 
+/** Veces que se planeó cada receta en las 4 semanas anteriores. */
+async function usosMes(desde) {
+  const usos = new Map();
+  for (const p of await db.todos('plan')) {
+    if (p.fecha < desde && p.fecha >= sumarDias(desde, -28)) for (const c of p.comidas) usos.set(c.recetaId, (usos.get(c.recetaId) ?? 0) + 1);
+  }
+  return usos;
+}
+
+/** Variedad de mes a mes: lo que se comió 3 o más veces el último mes descansa, si quedan opciones de sobra. */
+function rotarMes(banco, usos) {
+  const minimo = { desayuno: 6, almuerzo: 10, cena: 10, snack: 3 };
+  const cansadas = new Set(banco.filter((r) => r.id !== 'batido-proteina' && (usos.get(r.id) ?? 0) >= 3).map((r) => r.id));
+  for (const [tipo, n] of Object.entries(minimo)) {
+    const quedan = banco.filter((r) => r.tipos.includes(tipo) && !cansadas.has(r.id)).length;
+    if (quedan < n) banco.filter((r) => r.tipos.includes(tipo)).forEach((r) => cansadas.delete(r.id));
+  }
+  return banco.filter((r) => !cansadas.has(r.id));
+}
+
 async function historialReciente(desde) {
   const planes = await db.todos('plan');
   return planes.filter((p) => p.fecha < desde && p.fecha >= sumarDias(desde, -14))
@@ -249,15 +270,22 @@ async function vistaHoy() {
   const v = $('#vista');
   if (!S.dia) {
     const plan = await db.leer('plan', hoyFecha());
+    const cal = turnoCalendario(hoyFecha());
+    const sugerido = cal ?? plan?.turno;
+    const conSesion = !!(await nube.sesion());
     v.innerHTML = `
       <div class="semana">${semanaHTML()}</div>
+      ${conSesion || localStorage.getItem('nutri-sin-cuenta') ? '' : `<section class="card" style="margin-bottom:12px"><div class="etq">Tu cuenta</div><p class="sub" style="margin-top:6px">Entra con tu usuario para guardar en la nube y leer tus turnos del calendario.</p><div class="duo" style="margin-top:10px"><button class="btn pri chico" data-accion="ajustes">Entrar</button><button class="btn sec chico" data-accion="sin-cuenta">Ahora no</button></div></section>`}
       <section class="card">
         <i class="escalon esquina"></i>
         <div class="etq">Empieza tu día</div>
-        <h2 class="titulo-vista" style="margin-top:10px">¿En qué turno estás hoy?</h2>
-        <p class="sub">Define los horarios de comida, tus calorías del día y hasta cuándo cuenta el día.${plan ? ` Tu plan dice: <b>${TURNO_CORTO[plan.turno]}</b>.` : ''}</p>
+        ${sugerido ? `<h2 class="titulo-vista" style="margin-top:10px">Hoy: ${TURNOS[sugerido][0]}</h2>
+        <p class="sub">${cal ? 'Según tu calendario.' : 'Según tu plan.'} ${TURNOS[sugerido][1]}</p>
+        <button class="btn pri ancho" style="margin-top:14px" data-abrir="${sugerido}">Empezar el día</button>
+        <div class="etq" style="margin-top:18px">¿Otro turno?</div>` : `<h2 class="titulo-vista" style="margin-top:10px">¿En qué turno estás hoy?</h2>
+        <p class="sub">Define los horarios de comida, tus calorías del día y hasta cuándo cuenta el día.</p>`}
         <div style="display:grid;gap:8px;margin-top:14px">
-          ${Object.entries(TURNOS).map(([k, [n, h, ico]]) => `<button class="op ${plan?.turno === k ? 'sel' : ''}" data-abrir="${k}"><span style="display:flex;gap:12px;align-items:center">${ICON[ico]}<span><b>${n}</b><small>${h}</small></span></span></button>`).join('')}
+          ${Object.entries(TURNOS).filter(([k]) => k !== sugerido).map(([k, [n, h, ico]]) => `<button class="op" data-abrir="${k}"><span style="display:flex;gap:12px;align-items:center">${ICON[ico]}<span><b>${n}</b><small>${h}</small></span></span></button>`).join('')}
         </div>
       </section>`;
     marcarSemanaCumplida();
@@ -406,7 +434,7 @@ async function vistaPlan() {
   if (S.planConCasa === undefined) S.planConCasa = S.hayCasa;
   const fechas = Array.from({ length: 7 }, (_, i) => sumarDias(hoy, i));
   const planes = Object.fromEntries((await db.todos('plan')).map((p) => [p.fecha, p]));
-  const turnos = fechas.map((f) => planes[f]?.turno ?? (S.dia?.fecha === f ? S.dia.turno : 'libre'));
+  const turnos = fechas.map((f) => (S.dia?.fecha === f ? S.dia.turno : turnoCalendario(f) ?? planes[f]?.turno ?? 'libre'));
   S.turnosPlan = turnos;
   $('#vista').innerHTML = `
     <div style="margin-bottom:14px"><div class="etq">Próximos 7 días</div><h2 class="titulo-vista" style="margin-top:6px">Plan de comidas</h2>
@@ -440,7 +468,7 @@ async function generarPlan() {
   const desp = await despensaMapa();
   const noHay = await noHayIds();
   const conCasa = S.planConCasa && Object.keys(desp).length > 0;
-  const banco = conCasa ? recetasConDespensa(recetasPlan(), desp, noHay) : recetasPlan();
+  const banco = rotarMes(conCasa ? recetasConDespensa(recetasPlan(), desp, noHay) : recetasPlan(), await usosMes(fechas[0]));
   const plan = M.planificarSemana({ dias, meta: S.perfil.meta, recetas: banco, historial, alimentos: alimentosParaPlan(desp, noHay) });
   for (const d of plan.dias) {
     await db.guardar('plan', { fecha: d.fecha, turno: d.turno, comidas: d.comidas.map((c) => ({ slot: c.slot, recetaId: c.recetaId, factor: c.factor })) });
@@ -815,7 +843,7 @@ function hoja(html) {
 function cerrarHoja() { $('#hoja').classList.remove('on'); $('#velo').classList.remove('on'); }
 
 async function hojaAbrirDia() {
-  const plan = await db.leer('plan', hoyFecha());
+  const plan = { turno: turnoCalendario(hoyFecha()) ?? (await db.leer('plan', hoyFecha()))?.turno };
   hoja(`<h3>Hoy estoy en…</h3><p class="t">Define los horarios de comida y hasta cuándo cuenta el día.</p>
     ${Object.entries(TURNOS).map(([k, [n, h, ico]]) => `<button class="op ${plan?.turno === k ? 'sel' : ''}" data-abrir="${k}"><span style="display:flex;gap:12px;align-items:center">${ICON[ico]}<span><b>${n}</b><small>${h}</small></span></span></button>`).join('')}`);
 }
@@ -1000,6 +1028,25 @@ function hojaDormir() {
     <button class="op" data-cerrar="0"><span><b>Me faltó registrar algo</b><small>Se guarda, pero no cuenta para el cálculo del gasto</small></span></button>`);
 }
 
+async function pintarCuenta(modo = 'entrar') {
+  if (!$('#cuenta')) return;
+  const usuario = await nube.usuarioActual().catch(() => null);
+  const el = $('#cuenta');
+  if (!el) return;
+  if (usuario) {
+    const t = S.turnosCal;
+    el.innerHTML = `<p class="t" style="margin-top:6px">Conectado como <b>${esc(usuario)}</b>. Se sincroniza solo. ${t ? `Calendario: ${t.length} turnos leídos.` : 'Calendario: todavía sin leer.'}</p>
+      <div class="duo"><button class="btn sec chico" data-accion="sync-ahora">Sincronizar ahora</button><button class="btn sec chico" data-accion="salir">Salir</button></div>`;
+    return;
+  }
+  el.innerHTML = `<p class="t" style="margin-top:6px">${modo === 'crear' ? 'Una sola cuenta para todas tus apps. Te llega un correo para confirmarla.' : 'La misma cuenta para nutri, Misión Diaria y las que vengan.'}</p>
+    <div class="campo"><label for="cu">Usuario</label><input class="entrada" id="cu" autocomplete="username" autocapitalize="none" placeholder="michael"></div>
+    ${modo === 'crear' ? '<div class="campo"><label for="ce">Correo</label><input class="entrada" id="ce" type="email" autocomplete="email"></div>' : ''}
+    <div class="campo"><label for="cc">Contraseña</label><input class="entrada" id="cc" type="password" autocomplete="${modo === 'crear' ? 'new-password' : 'current-password'}"></div>
+    <button class="btn pri ancho" style="margin-top:12px" data-accion="${modo === 'crear' ? 'crear-cuenta' : 'entrar'}">${modo === 'crear' ? 'Crear cuenta' : 'Entrar'}</button>
+    <button class="btn sec ancho chico" style="margin-top:8px" data-accion="${modo === 'crear' ? 'modo-entrar' : 'modo-crear'}">${modo === 'crear' ? 'Ya tengo cuenta' : 'Crear cuenta'}</button>`;
+}
+
 function hojaAjustes() {
   const p = S.perfil; const b = datosBatido();
   hoja(`<h3>Ajustes</h3>
@@ -1022,8 +1069,11 @@ function hojaAjustes() {
     <button class="btn sec ancho chico" style="margin-top:10px" data-copiar="${encodeURIComponent(PROMPT_ETIQUETA)}">Copiar prompt para leer la etiqueta</button>
     <button class="btn pri ancho" style="margin-top:14px" data-accion="guardar-ajustes">Guardar</button>
 
+    <div class="etq" style="margin-top:22px">Tu cuenta</div>
+    <div id="cuenta"><p class="t">Cargando…</p></div>
+
     <div class="etq" style="margin-top:22px">Tus datos</div>
-    <p class="t" style="margin-top:6px">${db.persistente ? 'Todo se guarda en este teléfono.' : 'Este navegador no deja guardar: los datos se pierden al cerrar.'} La cuenta para sincronizar con tus otras apps viene después.</p>
+    <p class="t" style="margin-top:6px">${db.persistente ? 'Todo se guarda primero en este teléfono.' : 'Este navegador no deja guardar: los datos se pierden al cerrar.'}</p>
     <div class="duo"><button class="btn sec chico" data-accion="exportar">Copiar respaldo</button><button class="btn sec chico" data-accion="importar">Restaurar</button></div>`);
 }
 
@@ -1169,9 +1219,25 @@ async function onClick(e) {
     toast('Meta actualizada'); return vistaProgreso();
   }
 
-  if (d.accion === 'ajustes') return hojaAjustes();
-  if (d.paleta) { S.tema.paleta = d.paleta; await db.guardar('ajustes', S.tema); aplicarTema(); return hojaAjustes(); }
-  if (d.modo) { S.tema.modo = d.modo; await db.guardar('ajustes', S.tema); aplicarTema(); return hojaAjustes(); }
+  if (d.accion === 'ajustes') { hojaAjustes(); return pintarCuenta(); }
+  if (d.accion === 'sin-cuenta') { localStorage.setItem('nutri-sin-cuenta', '1'); return render(); }
+  if (d.accion === 'modo-crear') return pintarCuenta('crear');
+  if (d.accion === 'modo-entrar') return pintarCuenta('entrar');
+  if (d.accion === 'entrar') {
+    try { const u = await nube.entrar($('#cu').value, $('#cc').value); toast(`Hola, ${u}`); await conNube(); return pintarCuenta(); } catch (err) { return toast(err.message); }
+  }
+  if (d.accion === 'crear-cuenta') {
+    try {
+      const r = await nube.crearCuenta($('#cu').value, $('#ce').value, $('#cc').value);
+      if (r.listo) { toast('Cuenta creada'); await conNube(); return pintarCuenta(); }
+      $('#cuenta').innerHTML = '<div class="aviso">Te llegó un correo para confirmar la cuenta. Ábrelo, toca el enlace y vuelve aquí a entrar con tu usuario y contraseña.</div><button class="btn pri ancho" style="margin-top:12px" data-accion="modo-entrar">Ya confirmé</button>';
+      return;
+    } catch (err) { return toast(err.message); }
+  }
+  if (d.accion === 'sync-ahora') { toast('Sincronizando…'); await conNube(); toast('Listo'); return pintarCuenta(); }
+  if (d.accion === 'salir') { await nube.salir(); toast('Sesión cerrada'); return pintarCuenta(); }
+  if (d.paleta) { S.tema.paleta = d.paleta; await db.guardar('ajustes', S.tema); aplicarTema(); hojaAjustes(); return pintarCuenta(); }
+  if (d.modo) { S.tema.modo = d.modo; await db.guardar('ajustes', S.tema); aplicarTema(); hojaAjustes(); return pintarCuenta(); }
   if (d.etapa) { b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b)); return; }
   if (d.accion === 'guardar-ajustes') {
     const kcal = Math.max(1400, Math.round(+$('#mk').value || S.perfil.meta.kcal));
@@ -1223,10 +1289,47 @@ async function render() {
   if (S.vista === 'progreso') return vistaProgreso();
 }
 
+/* ------------------------------------------------------------------ nube y calendario */
+let syncTimer = null;
+let sincronizando = false;
+function programarSync() { clearTimeout(syncTimer); syncTimer = setTimeout(() => conNube({ soloSubir: true }), 4000); }
+
+/** Sincroniza con la cuenta y trae los turnos del calendario. Sin sesión o sin internet no hace nada. */
+async function conNube({ soloSubir = false } = {}) {
+  if (sincronizando || !navigator.onLine) return;
+  sincronizando = true;
+  try {
+    if (!(await nube.sesion())) return;
+    const r = await nube.sincronizar();
+    if (!soloSubir) {
+      try {
+        const lista = await nube.turnosCalendario();
+        if (lista) { S.turnosCal = lista; await db.guardar('ajustes', { id: 'turnos', lista, leido: new Date().toISOString() }); }
+      } catch (e) { console.warn('calendario', e); }
+    }
+    if (r.bajadas) { await iniciarDatos(); if (!$('#hoja').classList.contains('on')) render(); }
+    else if (!soloSubir && !$('#hoja').classList.contains('on')) render();
+  } catch (e) { console.warn('sync', e); } finally { sincronizando = false; }
+}
+
+/** Turno de una fecha según el calendario: el evento de ese día; si no hay y ayer fue noche, post-noche; si no, libre. */
+function turnoCalendario(fecha) {
+  if (!S.turnosCal?.length) return null;
+  const delDia = S.turnosCal.filter((t) => t.fecha === fecha);
+  if (delDia.length) return delDia.find((t) => t.turno === 'noche')?.turno ?? delDia[0].turno;
+  if (S.turnosCal.some((t) => t.fecha === sumarDias(fecha, -1) && t.turno === 'noche')) return 'post-noche';
+  // fuera del rango que tiene el calendario no se adivina
+  const ultima = S.turnosCal.map((t) => t.fecha).sort().pop();
+  if (fecha > ultima) return null;
+  return 'libre';
+}
+
 async function iniciarDatos() {
-  S.perfil = (await db.leer('ajustes', 'perfil')) ?? (await db.guardar('ajustes', PERFIL_INICIAL));
-  S.tema = (await db.leer('ajustes', 'tema')) ?? (await db.guardar('ajustes', TEMA_INICIAL));
-  S.rapidos = (await db.leer('ajustes', 'rapidos')) ?? (await db.guardar('ajustes', { id: 'rapidos', items: RAPIDOS_INICIALES }));
+  const inicial = async (v) => { const f = { ...v, actualizado_en: '2000-01-01T00:00:00Z' }; await db.escribirCrudo('ajustes', f); return f; };
+  S.perfil = (await db.leer('ajustes', 'perfil')) ?? (await inicial(PERFIL_INICIAL));
+  S.tema = (await db.leer('ajustes', 'tema')) ?? (await inicial(TEMA_INICIAL));
+  S.rapidos = (await db.leer('ajustes', 'rapidos')) ?? (await inicial({ id: 'rapidos', items: RAPIDOS_INICIALES }));
+  S.turnosCal = (await db.leer('ajustes', 'turnos'))?.lista ?? null;
   recalcularRecetas();
   aplicarTema();
   await cargarDia();
@@ -1237,11 +1340,12 @@ async function iniciar() {
   S.alimentos = a.alimentos; S.indice = M.indiceAlimentos(S.alimentos); S.recetasBase = M.expandirVariantes(r.recetas);
   await db.abrir();
   await iniciarDatos();
-  document.addEventListener('click', (e) => onClick(e).catch((err) => { console.error(err); toast('Algo falló: ' + err.message); }));
+  document.addEventListener('click', (e) => onClick(e).then(() => programarSync()).catch((err) => { console.error(err); toast('Algo falló: ' + err.message); }));
   $('#velo').addEventListener('click', cerrarHoja);
   matchMedia('(prefers-color-scheme: light)').addEventListener?.('change', aplicarTema);
-  document.addEventListener('visibilitychange', async () => { if (!document.hidden) { await cargarDia(); render(); } });
+  document.addEventListener('visibilitychange', async () => { if (!document.hidden) { await cargarDia(); render(); conNube(); } });
   await render();
+  conNube();
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 

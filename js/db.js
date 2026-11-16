@@ -63,10 +63,24 @@ export async function guardar(tabla, valor) {
   return fila;
 }
 
-export async function borrar(tabla, llave) {
+// Lo borrado se anota para avisarle a la nube en la próxima sincronización.
+const CLAVE_BORRADOS = 'nutri-borrados';
+export function borradosPendientes() { try { return JSON.parse(localStorage.getItem(CLAVE_BORRADOS) ?? '[]'); } catch { return []; } }
+export function limpiarBorrados(hasta) { try { localStorage.setItem(CLAVE_BORRADOS, JSON.stringify(borradosPendientes().filter((b) => b.en > hasta))); } catch { /* sin almacenamiento */ } }
+
+export async function borrar(tabla, llave, { local = false } = {}) {
+  if (!local) { try { localStorage.setItem(CLAVE_BORRADOS, JSON.stringify([...borradosPendientes(), { tabla, llave: String(llave), en: new Date().toISOString() }])); } catch { /* sin almacenamiento */ } }
   if (!db) { memoria[tabla].delete(llave); return; }
   await tx(tabla, 'readwrite', (s) => s.delete(llave));
 }
+
+/** Escribe una fila tal cual llegó de la nube (sin cambiar su fecha). */
+export async function escribirCrudo(tabla, fila) {
+  if (!db) { memoria[tabla].set(fila[TABLAS[tabla]], structuredClone(fila)); return; }
+  await tx(tabla, 'readwrite', (s) => s.put(fila));
+}
+
+export const LLAVES = TABLAS;
 
 /** Todo el contenido, para respaldo. */
 export async function exportar() {
