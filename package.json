@@ -1,0 +1,11 @@
+{
+  "name": "nutri",
+  "version": "0.1.0",
+  "private": true,
+  "description": "App de calorías y recetas de Michael: motor de cálculo y esquema de datos",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" }
+}
