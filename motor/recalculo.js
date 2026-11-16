@@ -88,3 +88,20 @@ export function elegirOpciones({ objetivo, recetas, n = 3 }) {
 export function ajustarPorcion(f, min = 0.5, max = 1.5) {
   return Math.min(Math.max(Math.round(f * 4) / 4, min), max);
 }
+
+/**
+ * Alerta de comer muy poco. Importa tanto como pasarse: con el apetito bajo (por ejemplo con un
+ * medicamento que lo reduce) es fácil quedarse corto varios días y perder músculo.
+ * Mira los últimos días completos: avisa si el promedio de calorías queda bajo el 80 % de la meta
+ * o el de proteína bajo el 75 %.
+ */
+export function alertaIngestaBaja({ dias, metaKcal, metaProteina, ultimos = 3 }) {
+  const completos = dias.filter((d) => d.completo !== false).slice(-ultimos);
+  if (completos.length < ultimos) return null;
+  const kcal = completos.reduce((s, d) => s + d.kcal, 0) / completos.length;
+  const proteina = completos.reduce((s, d) => s + (d.proteina ?? 0), 0) / completos.length;
+  const avisos = [];
+  if (kcal < metaKcal * 0.8) avisos.push('calorias_bajas');
+  if (proteina < metaProteina * 0.75) avisos.push('proteina_baja');
+  return avisos.length ? { avisos, kcalMedia: Math.round(kcal), proteinaMedia: Math.round(proteina) } : null;
+}

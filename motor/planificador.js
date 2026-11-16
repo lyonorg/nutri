@@ -106,6 +106,8 @@ export function planificarSemana({ dias, meta, recetas, alimentos = {}, historia
         p -= usos.filter((u) => u.recetaId === r.id).reduce((s, u) => s + Math.exp(-Math.max(hoy - numDia(u.fecha), 0) / 3), 0);
         if (esPrincipal(r) && r.proteinaPrincipal && r.proteinaPrincipal === proteinaPrincipalAnterior) p -= 0.4;
         if (r.legumbre) p += legumbres < legumbresMin ? 0.6 : legumbres >= legumbresMax ? -0.6 : 0;
+        // no dos platos de legumbre el mismo día
+        if (r.legumbre && comidas.some((c) => banco.find((x) => x.id === c.recetaId)?.legumbre)) p -= 1.5;
         if (r.frutas && frutasHoy < 2) p += 0.3 * Math.min(r.frutas, 2 - frutasHoy);
         if (r.integral || r.altaProteina) p += 0.15;
         if (slot.enClinica) p += r.portatil ? 0.3 : -0.5;
@@ -166,21 +168,31 @@ function cuadrarDia(comidas, presupuesto, banco) {
   }
 }
 
-/** Lista de compras: gramos por alimento que pide el plan, menos lo que ya hay. */
-export function listaCompras(plan, recetas, despensa = {}) {
+/**
+ * Lista de compras: gramos por alimento que pide el plan, menos lo que ya hay.
+ * Las recetas van en gramos limpios; aquí se suma lo que se bota (cáscara, hueso) para comprar lo justo.
+ * @param indice  Map id -> alimento (opcional). Si viene, usa parte_comestible y agrupa por tienda.
+ */
+export function listaCompras(plan, recetas, despensa = {}, indice = null) {
   const porId = new Map(recetas.map((r) => [r.id, r]));
   const total = {};
   for (const d of plan.dias) {
     for (const c of d.comidas) {
       for (const ing of porId.get(c.recetaId).ingredientes) {
-        total[ing.alimentoId] = (total[ing.alimentoId] ?? 0) + ing.gramos * c.factor;
+        const comestible = indice?.get(ing.alimentoId)?.parte_comestible ?? 1;
+        total[ing.alimentoId] = (total[ing.alimentoId] ?? 0) + (ing.gramos * c.factor) / comestible;
       }
     }
   }
   return Object.entries(total)
-    .map(([alimentoId, gramos]) => ({ alimentoId, gramos: Math.max(Math.round(gramos - (despensa[alimentoId] ?? 0)), 0) }))
+    .map(([alimentoId, gramos]) => ({
+      alimentoId,
+      nombre: indice?.get(alimentoId)?.nombre ?? alimentoId,
+      tienda: indice?.get(alimentoId)?.tienda ?? null,
+      gramos: Math.max(Math.round(gramos - (despensa[alimentoId] ?? 0)), 0),
+    }))
     .filter((x) => x.gramos > 0)
-    .sort((a, b) => a.alimentoId.localeCompare(b.alimentoId));
+    .sort((a, b) => (a.tienda ?? '').localeCompare(b.tienda ?? '') || a.alimentoId.localeCompare(b.alimentoId));
 }
 
 /** Gramos a la unidad en que se compra. En Colombia la libra de plaza y carnicería es de 500 g. */
