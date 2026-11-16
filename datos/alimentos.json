@@ -1,0 +1,3389 @@
+{
+ "_fuente": "USDA National Nutrient Database for Standard Reference, Release 28 (2015). Dominio público. Valores por 100 g de parte comestible.",
+ "_generado_por": "herramientas/sembrar-alimentos.mjs — no editar a mano",
+ "alimentos": [
+  {
+   "id": "pechuga-pollo",
+   "nombre": "Pechuga de pollo",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 120,
+   "proteina_g": 22.5,
+   "carbohidratos_g": 0,
+   "grasa_g": 2.62,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 5,
+    "hierro_mg": 0.37,
+    "magnesio_mg": 28,
+    "potasio_mg": 334,
+    "sodio_mg": 45,
+    "zinc_mg": 0.68,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 9,
+    "vitamina_a_mcg": 9,
+    "vitamina_b12_mcg": 0.21,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 0.76,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    },
+    {
+     "medida": "1 piece",
+     "gramos": 272
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Carnicería / Cadena",
+   "fuente": "usda",
+   "fuente_id": "05062",
+   "fuente_nombre": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw"
+  },
+  {
+   "id": "muslo-pollo",
+   "nombre": "Muslo de pollo sin piel",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 121,
+   "proteina_g": 19.66,
+   "carbohidratos_g": 0,
+   "grasa_g": 4.12,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 0.81,
+    "magnesio_mg": 23,
+    "potasio_mg": 242,
+    "sodio_mg": 95,
+    "zinc_mg": 1.58,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 7,
+    "vitamina_b12_mcg": 0.61,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.75,
+   "medidas_usda": [
+    {
+     "medida": "1 thigh, without skin",
+     "gramos": 149
+    },
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Carnicería",
+   "fuente": "usda",
+   "fuente_id": "05096",
+   "fuente_nombre": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw"
+  },
+  {
+   "id": "res-magra",
+   "nombre": "Carne de res magra (posta, bola)",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 121,
+   "proteina_g": 23.59,
+   "carbohidratos_g": 0,
+   "grasa_g": 2.94,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 13,
+    "hierro_mg": 2.34,
+    "magnesio_mg": 12,
+    "potasio_mg": 313,
+    "sodio_mg": 54,
+    "zinc_mg": 3.7,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 2,
+    "vitamina_b12_mcg": 1.64,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.99,
+   "medidas_usda": [
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    },
+    {
+     "medida": "1 steak",
+     "gramos": 344
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Carnicería",
+   "fuente": "usda",
+   "fuente_id": "23354",
+   "fuente_nombre": "Beef, round, top round steak, boneless, separable lean only, trimmed to 0\" fat, all grades, raw"
+  },
+  {
+   "id": "res-molida",
+   "nombre": "Carne molida de res magra (90 %)",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 176,
+   "proteina_g": 20,
+   "carbohidratos_g": 0,
+   "grasa_g": 10,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 12,
+    "hierro_mg": 2.24,
+    "magnesio_mg": 20,
+    "potasio_mg": 321,
+    "sodio_mg": 66,
+    "zinc_mg": 4.79,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 6,
+    "vitamina_a_mcg": 4,
+    "vitamina_b12_mcg": 2.21,
+    "vitamina_d_mcg": 0.1
+   },
+   "factor_coccion": 0.77,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "4 oz",
+     "gramos": 113
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Carnicería",
+   "fuente": "usda",
+   "fuente_id": "23562",
+   "fuente_nombre": "Beef, ground, 90% lean meat / 10% fat, raw"
+  },
+  {
+   "id": "lomo-cerdo",
+   "nombre": "Lomo de cerdo",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 109,
+   "proteina_g": 20.95,
+   "carbohidratos_g": 0,
+   "grasa_g": 2.17,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 5,
+    "hierro_mg": 0.98,
+    "magnesio_mg": 27,
+    "potasio_mg": 399,
+    "sodio_mg": 53,
+    "zinc_mg": 1.89,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 0,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0.51,
+    "vitamina_d_mcg": 0.2
+   },
+   "factor_coccion": 0.76,
+   "parte_comestible": 0.95,
+   "medidas_usda": [
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    },
+    {
+     "medida": "1 lb",
+     "gramos": 453.6
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Carnicería",
+   "fuente": "usda",
+   "fuente_id": "10060",
+   "fuente_nombre": "Pork, fresh, loin, tenderloin, separable lean only, raw"
+  },
+  {
+   "id": "trucha",
+   "nombre": "Trucha",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 141,
+   "proteina_g": 19.94,
+   "carbohidratos_g": 0,
+   "grasa_g": 6.18,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 25,
+    "hierro_mg": 0.31,
+    "magnesio_mg": 25,
+    "potasio_mg": 377,
+    "sodio_mg": 51,
+    "zinc_mg": 0.45,
+    "vitamina_c_mg": 2.9,
+    "folato_mcg": 11,
+    "vitamina_a_mcg": 84,
+    "vitamina_b12_mcg": 4.3,
+    "vitamina_d_mcg": 15.9
+   },
+   "factor_coccion": 0.84,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 fillet",
+     "gramos": 79
+    },
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza / Cadena",
+   "fuente": "usda",
+   "fuente_id": "15240",
+   "fuente_nombre": "Fish, trout, rainbow, farmed, raw"
+  },
+  {
+   "id": "tilapia",
+   "nombre": "Tilapia / mojarra",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 96,
+   "proteina_g": 20.08,
+   "carbohidratos_g": 0,
+   "grasa_g": 1.7,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 10,
+    "hierro_mg": 0.56,
+    "magnesio_mg": 27,
+    "potasio_mg": 302,
+    "sodio_mg": 52,
+    "zinc_mg": 0.33,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 24,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 1.58,
+    "vitamina_d_mcg": 3.1
+   },
+   "factor_coccion": 0.75,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 fillet",
+     "gramos": 116
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza / Cadena",
+   "fuente": "usda",
+   "fuente_id": "15261",
+   "fuente_nombre": "Fish, tilapia, raw"
+  },
+  {
+   "id": "salmon",
+   "nombre": "Salmón",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 208,
+   "proteina_g": 20.42,
+   "carbohidratos_g": 0,
+   "grasa_g": 13.42,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 9,
+    "hierro_mg": 0.34,
+    "magnesio_mg": 27,
+    "potasio_mg": 363,
+    "sodio_mg": 59,
+    "zinc_mg": 0.36,
+    "vitamina_c_mg": 3.9,
+    "folato_mcg": 26,
+    "vitamina_a_mcg": 58,
+    "vitamina_b12_mcg": 3.23,
+    "vitamina_d_mcg": 11
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    },
+    {
+     "medida": ".5 fillet",
+     "gramos": 198
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Cadena",
+   "fuente": "usda",
+   "fuente_id": "15236",
+   "fuente_nombre": "Fish, salmon, Atlantic, farmed, raw"
+  },
+  {
+   "id": "atun-agua",
+   "nombre": "Atún en agua, escurrido",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 86,
+   "proteina_g": 19.44,
+   "carbohidratos_g": 0,
+   "grasa_g": 0.96,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 17,
+    "hierro_mg": 1.63,
+    "magnesio_mg": 23,
+    "potasio_mg": 179,
+    "sodio_mg": 247,
+    "zinc_mg": 0.69,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 17,
+    "vitamina_b12_mcg": 2.55,
+    "vitamina_d_mcg": 1.2
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    },
+    {
+     "medida": "3 oz",
+     "gramos": 85
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "15121",
+   "fuente_nombre": "Fish, tuna, light, canned in water, drained solids"
+  },
+  {
+   "id": "sardina-lata",
+   "nombre": "Sardinas en lata, escurridas",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 208,
+   "proteina_g": 24.62,
+   "carbohidratos_g": 0,
+   "grasa_g": 11.45,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 382,
+    "hierro_mg": 2.92,
+    "magnesio_mg": 39,
+    "potasio_mg": 397,
+    "sodio_mg": 307,
+    "zinc_mg": 1.31,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 10,
+    "vitamina_a_mcg": 32,
+    "vitamina_b12_mcg": 8.94,
+    "vitamina_d_mcg": 4.8
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup,  drained",
+     "gramos": 149
+    },
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "15088",
+   "fuente_nombre": "Fish, sardine, Atlantic, canned in oil, drained solids with bone"
+  },
+  {
+   "id": "huevo",
+   "nombre": "Huevo entero",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 143,
+   "proteina_g": 12.56,
+   "carbohidratos_g": 0.72,
+   "grasa_g": 9.51,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 56,
+    "hierro_mg": 1.75,
+    "magnesio_mg": 12,
+    "potasio_mg": 138,
+    "sodio_mg": 142,
+    "zinc_mg": 1.29,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 47,
+    "vitamina_a_mcg": 160,
+    "vitamina_b12_mcg": 0.89,
+    "vitamina_d_mcg": 2
+   },
+   "factor_coccion": 0.92,
+   "parte_comestible": 0.88,
+   "medidas_usda": [
+    {
+     "medida": "1 large",
+     "gramos": 50
+    },
+    {
+     "medida": "1 extra large",
+     "gramos": 56
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "01123",
+   "fuente_nombre": "Egg, whole, raw, fresh"
+  },
+  {
+   "id": "clara-huevo",
+   "nombre": "Clara de huevo",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 52,
+   "proteina_g": 10.9,
+   "carbohidratos_g": 0.73,
+   "grasa_g": 0.17,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 0.08,
+    "magnesio_mg": 11,
+    "potasio_mg": 163,
+    "sodio_mg": 166,
+    "zinc_mg": 0.03,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0.09,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 large",
+     "gramos": 33
+    },
+    {
+     "medida": "1 cup",
+     "gramos": 243
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "01124",
+   "fuente_nombre": "Egg, white, raw, fresh"
+  },
+  {
+   "id": "pechuga-pavo-tajada",
+   "nombre": "Pechuga de pavo en tajadas",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 100,
+   "proteina_g": 16.33,
+   "carbohidratos_g": 2.34,
+   "grasa_g": 2.37,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 0.34,
+    "magnesio_mg": 20,
+    "potasio_mg": 401,
+    "sodio_mg": 922,
+    "zinc_mg": 0.8,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0.37,
+    "vitamina_d_mcg": 0.1
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 slice",
+     "gramos": 15
+    }
+   ],
+   "nova": 4,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Cadena",
+   "fuente": "usda",
+   "fuente_id": "07081",
+   "fuente_nombre": "Turkey breast, sliced, prepackaged"
+  },
+  {
+   "id": "pavo-molido",
+   "nombre": "Pavo molido (93 % magro)",
+   "grupo": "Proteína animal",
+   "estado": "crudo",
+   "kcal": 150,
+   "proteina_g": 18.73,
+   "carbohidratos_g": 0,
+   "grasa_g": 8.34,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 21,
+    "hierro_mg": 1.17,
+    "magnesio_mg": 21,
+    "potasio_mg": 213,
+    "sodio_mg": 69,
+    "zinc_mg": 2.53,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 7,
+    "vitamina_a_mcg": 22,
+    "vitamina_b12_mcg": 1.2,
+    "vitamina_d_mcg": 0.4
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    },
+    {
+     "medida": "1 lb",
+     "gramos": 453
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Cadena",
+   "fuente": "usda",
+   "fuente_id": "05665",
+   "fuente_nombre": "Ground turkey, 93% lean, 7% fat, raw"
+  },
+  {
+   "id": "leche-descremada",
+   "nombre": "Leche baja en grasa (1 %)",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 42,
+   "proteina_g": 3.37,
+   "carbohidratos_g": 4.99,
+   "grasa_g": 0.97,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 125,
+    "hierro_mg": 0.03,
+    "magnesio_mg": 11,
+    "potasio_mg": 150,
+    "sodio_mg": 44,
+    "zinc_mg": 0.42,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 5,
+    "vitamina_a_mcg": 58,
+    "vitamina_b12_mcg": 0.47,
+    "vitamina_d_mcg": 1.2
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 244
+    },
+    {
+     "medida": "1 fl oz",
+     "gramos": 30.5
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "01082",
+   "fuente_nombre": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D"
+  },
+  {
+   "id": "yogur-griego",
+   "nombre": "Yogur griego natural sin grasa",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 59,
+   "proteina_g": 10.19,
+   "carbohidratos_g": 3.6,
+   "grasa_g": 0.39,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 110,
+    "hierro_mg": 0.07,
+    "magnesio_mg": 11,
+    "potasio_mg": 141,
+    "sodio_mg": 36,
+    "zinc_mg": 0.52,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 7,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0.75,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 container",
+     "gramos": 170
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": true,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "01256",
+   "fuente_nombre": "Yogurt, Greek, plain, nonfat"
+  },
+  {
+   "id": "queso-campesino",
+   "nombre": "Queso campesino (queso fresco)",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 299,
+   "proteina_g": 18.09,
+   "carbohidratos_g": 2.98,
+   "grasa_g": 23.82,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 566,
+    "hierro_mg": 0.2,
+    "magnesio_mg": 24,
+    "potasio_mg": 129,
+    "sodio_mg": 751,
+    "zinc_mg": 2.58,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 7,
+    "vitamina_a_mcg": 224,
+    "vitamina_b12_mcg": 1.68,
+    "vitamina_d_mcg": 2.7
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, crumbled",
+     "gramos": 122
+    }
+   ],
+   "nova": 3,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza / Barrio",
+   "fuente": "usda",
+   "fuente_id": "01228",
+   "fuente_nombre": "Cheese, fresh, queso fresco"
+  },
+  {
+   "id": "queso-mozzarella",
+   "nombre": "Queso mozzarella semidescremado",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 254,
+   "proteina_g": 24.26,
+   "carbohidratos_g": 2.77,
+   "grasa_g": 15.92,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 782,
+    "hierro_mg": 0.22,
+    "magnesio_mg": 23,
+    "potasio_mg": 84,
+    "sodio_mg": 619,
+    "zinc_mg": 2.76,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 9,
+    "vitamina_a_mcg": 127,
+    "vitamina_b12_mcg": 0.82,
+    "vitamina_d_mcg": 0.3
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 3,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "01028",
+   "fuente_nombre": "Cheese, mozzarella, part skim milk"
+  },
+  {
+   "id": "queso-cottage",
+   "nombre": "Queso cottage bajo en grasa",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 81,
+   "proteina_g": 10.45,
+   "carbohidratos_g": 4.76,
+   "grasa_g": 2.27,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 111,
+    "hierro_mg": 0.13,
+    "magnesio_mg": 9,
+    "potasio_mg": 125,
+    "sodio_mg": 308,
+    "zinc_mg": 0.51,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 8,
+    "vitamina_a_mcg": 68,
+    "vitamina_b12_mcg": 0.47,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "4 oz",
+     "gramos": 113
+    },
+    {
+     "medida": "1 cup,  (not packed)",
+     "gramos": 226
+    }
+   ],
+   "nova": 3,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": true,
+   "tienda": "Cadena",
+   "fuente": "usda",
+   "fuente_id": "01015",
+   "fuente_nombre": "Cheese, cottage, lowfat, 2% milkfat"
+  },
+  {
+   "id": "queso-parmesano",
+   "nombre": "Queso parmesano rallado",
+   "grupo": "Lácteo",
+   "estado": "crudo",
+   "kcal": 420,
+   "proteina_g": 28.42,
+   "carbohidratos_g": 13.91,
+   "grasa_g": 27.84,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 853,
+    "hierro_mg": 0.49,
+    "magnesio_mg": 34,
+    "potasio_mg": 180,
+    "sodio_mg": 1804,
+    "zinc_mg": 4.2,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 6,
+    "vitamina_a_mcg": 262,
+    "vitamina_b12_mcg": 1.4,
+    "vitamina_d_mcg": 0.5
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 100
+    },
+    {
+     "medida": "1 tbsp",
+     "gramos": 5
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "01032",
+   "fuente_nombre": "Cheese, parmesan, grated"
+  },
+  {
+   "id": "frijol-rojo",
+   "nombre": "Fríjol rojo seco",
+   "grupo": "Proteína vegetal",
+   "estado": "crudo",
+   "kcal": 337,
+   "proteina_g": 22.53,
+   "carbohidratos_g": 61.29,
+   "grasa_g": 1.06,
+   "fibra_g": 15.2,
+   "micros": {
+    "calcio_mg": 83,
+    "hierro_mg": 6.69,
+    "magnesio_mg": 138,
+    "potasio_mg": 1359,
+    "sodio_mg": 12,
+    "zinc_mg": 2.79,
+    "vitamina_c_mg": 4.5,
+    "folato_mcg": 394,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 2.65,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 184
+    },
+    {
+     "medida": "1 tbsp",
+     "gramos": 12.2
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": true,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Plaza",
+   "fuente": "usda",
+   "fuente_id": "16032",
+   "fuente_nombre": "Beans, kidney, red, mature seeds, raw"
+  },
+  {
+   "id": "frijol-negro",
+   "nombre": "Fríjol negro seco",
+   "grupo": "Proteína vegetal",
+   "estado": "crudo",
+   "kcal": 341,
+   "proteina_g": 21.6,
+   "carbohidratos_g": 62.36,
+   "grasa_g": 1.42,
+   "fibra_g": 15.5,
+   "micros": {
+    "calcio_mg": 123,
+    "hierro_mg": 5.02,
+    "magnesio_mg": 171,
+    "potasio_mg": 1483,
+    "sodio_mg": 5,
+    "zinc_mg": 3.65,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 444,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 2.58,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 194
+    },
+    {
+     "medida": "1 tbsp",
+     "gramos": 12.1
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": true,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "16014",
+   "fuente_nombre": "Beans, black, mature seeds, raw"
+  },
+  {
+   "id": "lenteja",
+   "nombre": "Lenteja seca",
+   "grupo": "Proteína vegetal",
+   "estado": "crudo",
+   "kcal": 352,
+   "proteina_g": 24.63,
+   "carbohidratos_g": 63.35,
+   "grasa_g": 1.06,
+   "fibra_g": 10.7,
+   "micros": {
+    "calcio_mg": 35,
+    "hierro_mg": 6.51,
+    "magnesio_mg": 47,
+    "potasio_mg": 677,
+    "sodio_mg": 6,
+    "zinc_mg": 3.27,
+    "vitamina_c_mg": 4.5,
+    "folato_mcg": 479,
+    "vitamina_a_mcg": 2,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 3.03,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 192
+    },
+    {
+     "medida": "1 tablespoon",
+     "gramos": 12
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": true,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Barrio",
+   "fuente": "usda",
+   "fuente_id": "16069",
+   "fuente_nombre": "Lentils, raw"
+  },
+  {
+   "id": "arroz-blanco",
+   "nombre": "Arroz blanco",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 365,
+   "proteina_g": 7.13,
+   "carbohidratos_g": 79.95,
+   "grasa_g": 0.66,
+   "fibra_g": 1.3,
+   "micros": {
+    "calcio_mg": 28,
+    "hierro_mg": 0.8,
+    "magnesio_mg": 25,
+    "potasio_mg": 115,
+    "sodio_mg": 5,
+    "zinc_mg": 1.09,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 8,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 2.81,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 185
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "20444",
+   "fuente_nombre": "Rice, white, long-grain, regular, raw, unenriched"
+  },
+  {
+   "id": "arroz-integral",
+   "nombre": "Arroz integral",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 367,
+   "proteina_g": 7.54,
+   "carbohidratos_g": 76.25,
+   "grasa_g": 3.2,
+   "fibra_g": 3.6,
+   "micros": {
+    "calcio_mg": 9,
+    "hierro_mg": 1.29,
+    "magnesio_mg": 116,
+    "potasio_mg": 250,
+    "sodio_mg": 5,
+    "zinc_mg": 2.13,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 23,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 2.98,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 185
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "20036",
+   "fuente_nombre": "Rice, brown, long-grain, raw"
+  },
+  {
+   "id": "papa",
+   "nombre": "Papa con cáscara",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 77,
+   "proteina_g": 2.05,
+   "carbohidratos_g": 17.49,
+   "grasa_g": 0.09,
+   "fibra_g": 2.1,
+   "micros": {
+    "calcio_mg": 12,
+    "hierro_mg": 0.81,
+    "magnesio_mg": 23,
+    "potasio_mg": 425,
+    "sodio_mg": 6,
+    "zinc_mg": 0.3,
+    "vitamina_c_mg": 19.7,
+    "folato_mcg": 15,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 0.89,
+   "parte_comestible": 0.75,
+   "medidas_usda": [
+    {
+     "medida": ".5 cup, diced",
+     "gramos": 75
+    },
+    {
+     "medida": "1 Potato, large (3\" to 4-1/4\" dia)",
+     "gramos": 369
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11352",
+   "fuente_nombre": "Potatoes, flesh and skin, raw"
+  },
+  {
+   "id": "yuca",
+   "nombre": "Yuca",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 160,
+   "proteina_g": 1.36,
+   "carbohidratos_g": 38.06,
+   "grasa_g": 0.28,
+   "fibra_g": 1.8,
+   "micros": {
+    "calcio_mg": 16,
+    "hierro_mg": 0.27,
+    "magnesio_mg": 21,
+    "potasio_mg": 271,
+    "sodio_mg": 14,
+    "zinc_mg": 0.34,
+    "vitamina_c_mg": 20.6,
+    "folato_mcg": 27,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.84,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 206
+    },
+    {
+     "medida": "1 root",
+     "gramos": 408
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11134",
+   "fuente_nombre": "Cassava, raw"
+  },
+  {
+   "id": "platano",
+   "nombre": "Plátano",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 122,
+   "proteina_g": 1.3,
+   "carbohidratos_g": 31.89,
+   "grasa_g": 0.37,
+   "fibra_g": 2.3,
+   "micros": {
+    "calcio_mg": 3,
+    "hierro_mg": 0.6,
+    "magnesio_mg": 37,
+    "potasio_mg": 499,
+    "sodio_mg": 4,
+    "zinc_mg": 0.14,
+    "vitamina_c_mg": 18.4,
+    "folato_mcg": 22,
+    "vitamina_a_mcg": 56,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 1.05,
+   "parte_comestible": 0.65,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, sliced",
+     "gramos": 148
+    },
+    {
+     "medida": "1 medium",
+     "gramos": 179
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09277",
+   "fuente_nombre": "Plantains, raw"
+  },
+  {
+   "id": "mazorca",
+   "nombre": "Maíz tierno / mazorca desgranada",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 86,
+   "proteina_g": 3.22,
+   "carbohidratos_g": 19.02,
+   "grasa_g": 1.18,
+   "fibra_g": 2.7,
+   "micros": {
+    "calcio_mg": 2,
+    "hierro_mg": 0.52,
+    "magnesio_mg": 37,
+    "potasio_mg": 270,
+    "sodio_mg": 15,
+    "zinc_mg": 0.45,
+    "vitamina_c_mg": 6.8,
+    "folato_mcg": 46,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.36,
+   "medidas_usda": [
+    {
+     "medida": "1 ear,  small (5-1/2\" to 6-1/2\" long)",
+     "gramos": 73
+    },
+    {
+     "medida": "1 ear,  medium (6-3/4\" to 7-1/2\" long)",
+     "gramos": 90
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11900",
+   "fuente_nombre": "Corn, sweet, white, raw"
+  },
+  {
+   "id": "arepa",
+   "nombre": "Arepa de maíz",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 219,
+   "proteina_g": 5.48,
+   "carbohidratos_g": 37.14,
+   "grasa_g": 5.38,
+   "fibra_g": 2.6,
+   "micros": {
+    "calcio_mg": 89,
+    "hierro_mg": 1.04,
+    "magnesio_mg": 27,
+    "potasio_mg": 88,
+    "sodio_mg": 270,
+    "zinc_mg": 0.8,
+    "vitamina_c_mg": null,
+    "folato_mcg": null,
+    "vitamina_a_mcg": 61,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": null
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 piece",
+     "gramos": 98
+    }
+   ],
+   "nova": 3,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "36415",
+   "fuente_nombre": "Restaurant, Latino, arepa (unleavened cornmeal bread)"
+  },
+  {
+   "id": "pan-integral",
+   "nombre": "Pan integral tajado",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 252,
+   "proteina_g": 12.45,
+   "carbohidratos_g": 42.71,
+   "grasa_g": 3.5,
+   "fibra_g": 6,
+   "micros": {
+    "calcio_mg": 161,
+    "hierro_mg": 2.47,
+    "magnesio_mg": 75,
+    "potasio_mg": 254,
+    "sodio_mg": 455,
+    "zinc_mg": 1.77,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 42,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 slice",
+     "gramos": 32
+    },
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 4,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Barrio",
+   "fuente": "usda",
+   "fuente_id": "18075",
+   "fuente_nombre": "Bread, whole-wheat, commercially prepared"
+  },
+  {
+   "id": "pan-arabe-integral",
+   "nombre": "Pan árabe integral",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 262,
+   "proteina_g": 9.8,
+   "carbohidratos_g": 55.89,
+   "grasa_g": 1.71,
+   "fibra_g": 6.1,
+   "micros": {
+    "calcio_mg": 15,
+    "hierro_mg": 3.06,
+    "magnesio_mg": 69,
+    "potasio_mg": 170,
+    "sodio_mg": 527,
+    "zinc_mg": 1.52,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 35,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 pita,  large (6-1/2\" dia)",
+     "gramos": 64
+    },
+    {
+     "medida": "1 pita,  small  (4\" dia)",
+     "gramos": 28
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "18042",
+   "fuente_nombre": "Bread, pita, whole-wheat"
+  },
+  {
+   "id": "tortilla-integral",
+   "nombre": "Tortilla integral",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 310,
+   "proteina_g": 9.76,
+   "carbohidratos_g": 45.89,
+   "grasa_g": 9.76,
+   "fibra_g": 9.8,
+   "micros": {
+    "calcio_mg": 244,
+    "hierro_mg": 2.63,
+    "magnesio_mg": 85,
+    "potasio_mg": 262,
+    "sodio_mg": 512,
+    "zinc_mg": 1.92,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 138,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 tortilla,  1 serving",
+     "gramos": 41
+    }
+   ],
+   "nova": 4,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "28295",
+   "fuente_nombre": "Tortillas, ready-to-bake or -fry, whole wheat"
+  },
+  {
+   "id": "tortilla-maiz",
+   "nombre": "Tortilla de maíz",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 218,
+   "proteina_g": 5.7,
+   "carbohidratos_g": 44.64,
+   "grasa_g": 2.85,
+   "fibra_g": 6.3,
+   "micros": {
+    "calcio_mg": 81,
+    "hierro_mg": 1.23,
+    "magnesio_mg": 72,
+    "potasio_mg": 186,
+    "sodio_mg": 45,
+    "zinc_mg": 1.31,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 5,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    },
+    {
+     "medida": "1 enchilada",
+     "gramos": 19
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Cadena",
+   "fuente": "usda",
+   "fuente_id": "18363",
+   "fuente_nombre": "Tortillas, ready-to-bake or -fry, corn"
+  },
+  {
+   "id": "avena",
+   "nombre": "Avena en hojuelas",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 379,
+   "proteina_g": 13.15,
+   "carbohidratos_g": 67.7,
+   "grasa_g": 6.52,
+   "fibra_g": 10.1,
+   "micros": {
+    "calcio_mg": 52,
+    "hierro_mg": 4.25,
+    "magnesio_mg": 138,
+    "potasio_mg": 362,
+    "sodio_mg": 6,
+    "zinc_mg": 3.64,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 32,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 5.34,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 81
+    },
+    {
+     "medida": ".333 cup",
+     "gramos": 27
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Barrio",
+   "fuente": "usda",
+   "fuente_id": "08120",
+   "fuente_nombre": "Cereals, oats, regular and quick, not fortified, dry"
+  },
+  {
+   "id": "pasta-integral",
+   "nombre": "Pasta integral",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 352,
+   "proteina_g": 13.87,
+   "carbohidratos_g": 73.37,
+   "grasa_g": 2.93,
+   "fibra_g": 9.2,
+   "micros": {
+    "calcio_mg": 29,
+    "hierro_mg": 3.62,
+    "magnesio_mg": 128,
+    "potasio_mg": 434,
+    "sodio_mg": 6,
+    "zinc_mg": 2.97,
+    "vitamina_c_mg": null,
+    "folato_mcg": 69,
+    "vitamina_a_mcg": null,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 2.36,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, spaghetti",
+     "gramos": 91
+    },
+    {
+     "medida": "1 cup, elbows",
+     "gramos": 122
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "20124",
+   "fuente_nombre": "Pasta, whole-wheat, dry"
+  },
+  {
+   "id": "quinua",
+   "nombre": "Quinua",
+   "grupo": "Carbohidrato",
+   "estado": "crudo",
+   "kcal": 368,
+   "proteina_g": 14.12,
+   "carbohidratos_g": 64.16,
+   "grasa_g": 6.07,
+   "fibra_g": 7,
+   "micros": {
+    "calcio_mg": 47,
+    "hierro_mg": 4.57,
+    "magnesio_mg": 197,
+    "potasio_mg": 563,
+    "sodio_mg": 5,
+    "zinc_mg": 3.1,
+    "vitamina_c_mg": null,
+    "folato_mcg": 184,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": 3.07,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 170
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza / Cadena",
+   "fuente": "usda",
+   "fuente_id": "20035",
+   "fuente_nombre": "Quinoa, uncooked"
+  },
+  {
+   "id": "galleta-integral",
+   "nombre": "Galletas integrales",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 427,
+   "proteina_g": 10.58,
+   "carbohidratos_g": 69.55,
+   "grasa_g": 14.13,
+   "fibra_g": 10.3,
+   "micros": {
+    "calcio_mg": 36,
+    "hierro_mg": 3.34,
+    "magnesio_mg": 110,
+    "potasio_mg": 345,
+    "sodio_mg": 704,
+    "zinc_mg": 2.63,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 28,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 serving",
+     "gramos": 28
+    },
+    {
+     "medida": "6 crackers, Triscuits, regular size",
+     "gramos": 28
+    }
+   ],
+   "nova": 4,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "18235",
+   "fuente_nombre": "Crackers, whole-wheat"
+  },
+  {
+   "id": "crispetas",
+   "nombre": "Crispetas sin grasa",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 387,
+   "proteina_g": 12.94,
+   "carbohidratos_g": 77.78,
+   "grasa_g": 4.54,
+   "fibra_g": 14.5,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 3.19,
+    "magnesio_mg": 144,
+    "potasio_mg": 329,
+    "sodio_mg": 8,
+    "zinc_mg": 3.08,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 31,
+    "vitamina_a_mcg": 10,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 8
+    },
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": true,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Barrio",
+   "fuente": "usda",
+   "fuente_id": "19034",
+   "fuente_nombre": "Snacks, popcorn, air-popped"
+  },
+  {
+   "id": "granola",
+   "nombre": "Granola",
+   "grupo": "Carbohidrato",
+   "estado": "listo",
+   "kcal": 489,
+   "proteina_g": 13.67,
+   "carbohidratos_g": 53.88,
+   "grasa_g": 24.31,
+   "fibra_g": 8.9,
+   "micros": {
+    "calcio_mg": 76,
+    "hierro_mg": 3.95,
+    "magnesio_mg": 168,
+    "potasio_mg": 539,
+    "sodio_mg": 26,
+    "zinc_mg": 4.17,
+    "vitamina_c_mg": 1.2,
+    "folato_mcg": 84,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 122
+    },
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "08037",
+   "fuente_nombre": "Cereals ready-to-eat, granola, homemade"
+  },
+  {
+   "id": "tomate",
+   "nombre": "Tomate",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 18,
+   "proteina_g": 0.88,
+   "carbohidratos_g": 3.89,
+   "grasa_g": 0.2,
+   "fibra_g": 1.2,
+   "micros": {
+    "calcio_mg": 10,
+    "hierro_mg": 0.27,
+    "magnesio_mg": 11,
+    "potasio_mg": 237,
+    "sodio_mg": 5,
+    "zinc_mg": 0.17,
+    "vitamina_c_mg": 13.7,
+    "folato_mcg": 15,
+    "vitamina_a_mcg": 42,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.91,
+   "medidas_usda": [
+    {
+     "medida": "1 cup,  cherry tomatoes",
+     "gramos": 149
+    },
+    {
+     "medida": "1 cup, chopped or sliced",
+     "gramos": 180
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11529",
+   "fuente_nombre": "Tomatoes, red, ripe, raw, year round average"
+  },
+  {
+   "id": "cebolla",
+   "nombre": "Cebolla cabezona",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 40,
+   "proteina_g": 1.1,
+   "carbohidratos_g": 9.34,
+   "grasa_g": 0.1,
+   "fibra_g": 1.7,
+   "micros": {
+    "calcio_mg": 23,
+    "hierro_mg": 0.21,
+    "magnesio_mg": 10,
+    "potasio_mg": 146,
+    "sodio_mg": 4,
+    "zinc_mg": 0.17,
+    "vitamina_c_mg": 7.4,
+    "folato_mcg": 19,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.9,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, chopped",
+     "gramos": 160
+    },
+    {
+     "medida": "1 cup, sliced",
+     "gramos": 115
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11282",
+   "fuente_nombre": "Onions, raw"
+  },
+  {
+   "id": "cebolla-larga",
+   "nombre": "Cebolla larga",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 32,
+   "proteina_g": 1.83,
+   "carbohidratos_g": 7.34,
+   "grasa_g": 0.19,
+   "fibra_g": 2.6,
+   "micros": {
+    "calcio_mg": 72,
+    "hierro_mg": 1.48,
+    "magnesio_mg": 20,
+    "potasio_mg": 276,
+    "sodio_mg": 16,
+    "zinc_mg": 0.39,
+    "vitamina_c_mg": 18.8,
+    "folato_mcg": 64,
+    "vitamina_a_mcg": 50,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.96,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, chopped",
+     "gramos": 100
+    },
+    {
+     "medida": "1 tbsp, chopped",
+     "gramos": 6
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11291",
+   "fuente_nombre": "Onions, spring or scallions (includes tops and bulb), raw"
+  },
+  {
+   "id": "ajo",
+   "nombre": "Ajo",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 149,
+   "proteina_g": 6.36,
+   "carbohidratos_g": 33.06,
+   "grasa_g": 0.5,
+   "fibra_g": 2.1,
+   "micros": {
+    "calcio_mg": 181,
+    "hierro_mg": 1.7,
+    "magnesio_mg": 25,
+    "potasio_mg": 401,
+    "sodio_mg": 17,
+    "zinc_mg": 1.16,
+    "vitamina_c_mg": 31.2,
+    "folato_mcg": 3,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.87,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 136
+    },
+    {
+     "medida": "1 tsp",
+     "gramos": 2.8
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11215",
+   "fuente_nombre": "Garlic, raw"
+  },
+  {
+   "id": "lechuga",
+   "nombre": "Lechuga",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 17,
+   "proteina_g": 1.23,
+   "carbohidratos_g": 3.29,
+   "grasa_g": 0.3,
+   "fibra_g": 2.1,
+   "micros": {
+    "calcio_mg": 33,
+    "hierro_mg": 0.97,
+    "magnesio_mg": 14,
+    "potasio_mg": 247,
+    "sodio_mg": 8,
+    "zinc_mg": 0.23,
+    "vitamina_c_mg": 4,
+    "folato_mcg": 136,
+    "vitamina_a_mcg": 436,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.94,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, shredded",
+     "gramos": 47
+    },
+    {
+     "medida": "1 leaf, inner",
+     "gramos": 6
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11251",
+   "fuente_nombre": "Lettuce, cos or romaine, raw"
+  },
+  {
+   "id": "repollo",
+   "nombre": "Repollo",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 25,
+   "proteina_g": 1.28,
+   "carbohidratos_g": 5.8,
+   "grasa_g": 0.1,
+   "fibra_g": 2.5,
+   "micros": {
+    "calcio_mg": 40,
+    "hierro_mg": 0.47,
+    "magnesio_mg": 12,
+    "potasio_mg": 170,
+    "sodio_mg": 18,
+    "zinc_mg": 0.18,
+    "vitamina_c_mg": 36.6,
+    "folato_mcg": 43,
+    "vitamina_a_mcg": 5,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.8,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, chopped",
+     "gramos": 89
+    },
+    {
+     "medida": "1 cup, shredded",
+     "gramos": 70
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11109",
+   "fuente_nombre": "Cabbage, raw"
+  },
+  {
+   "id": "pepino",
+   "nombre": "Pepino",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 15,
+   "proteina_g": 0.65,
+   "carbohidratos_g": 3.63,
+   "grasa_g": 0.11,
+   "fibra_g": 0.5,
+   "micros": {
+    "calcio_mg": 16,
+    "hierro_mg": 0.28,
+    "magnesio_mg": 13,
+    "potasio_mg": 147,
+    "sodio_mg": 2,
+    "zinc_mg": 0.2,
+    "vitamina_c_mg": 2.8,
+    "folato_mcg": 7,
+    "vitamina_a_mcg": 5,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.97,
+   "medidas_usda": [
+    {
+     "medida": ".5 cup, slices",
+     "gramos": 52
+    },
+    {
+     "medida": "1 cucumber,  (8-1/4\")",
+     "gramos": 301
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11205",
+   "fuente_nombre": "Cucumber, with peel, raw"
+  },
+  {
+   "id": "pimenton",
+   "nombre": "Pimentón",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 31,
+   "proteina_g": 0.99,
+   "carbohidratos_g": 6.03,
+   "grasa_g": 0.3,
+   "fibra_g": 2.1,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 0.43,
+    "magnesio_mg": 12,
+    "potasio_mg": 211,
+    "sodio_mg": 4,
+    "zinc_mg": 0.25,
+    "vitamina_c_mg": 127.7,
+    "folato_mcg": 46,
+    "vitamina_a_mcg": 157,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.82,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, chopped",
+     "gramos": 149
+    },
+    {
+     "medida": "1 cup, sliced",
+     "gramos": 92
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11821",
+   "fuente_nombre": "Peppers, sweet, red, raw"
+  },
+  {
+   "id": "champinon",
+   "nombre": "Champiñones",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 22,
+   "proteina_g": 3.09,
+   "carbohidratos_g": 3.26,
+   "grasa_g": 0.34,
+   "fibra_g": 1,
+   "micros": {
+    "calcio_mg": 3,
+    "hierro_mg": 0.5,
+    "magnesio_mg": 9,
+    "potasio_mg": 318,
+    "sodio_mg": 5,
+    "zinc_mg": 0.52,
+    "vitamina_c_mg": 2.1,
+    "folato_mcg": 17,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0.04,
+    "vitamina_d_mcg": 0.2
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.97,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, pieces or slices",
+     "gramos": 70
+    },
+    {
+     "medida": "1 cup, whole",
+     "gramos": 96
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza / Cadena",
+   "fuente": "usda",
+   "fuente_id": "11260",
+   "fuente_nombre": "Mushrooms, white, raw"
+  },
+  {
+   "id": "rabano",
+   "nombre": "Rábano",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 16,
+   "proteina_g": 0.68,
+   "carbohidratos_g": 3.4,
+   "grasa_g": 0.1,
+   "fibra_g": 1.6,
+   "micros": {
+    "calcio_mg": 25,
+    "hierro_mg": 0.34,
+    "magnesio_mg": 10,
+    "potasio_mg": 233,
+    "sodio_mg": 39,
+    "zinc_mg": 0.28,
+    "vitamina_c_mg": 14.8,
+    "folato_mcg": 25,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.9,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, slices",
+     "gramos": 116
+    },
+    {
+     "medida": "1 large,  (1\" to 1-1/4\" dia)",
+     "gramos": 9
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11429",
+   "fuente_nombre": "Radishes, raw"
+  },
+  {
+   "id": "cilantro",
+   "nombre": "Cilantro",
+   "grupo": "Verdura",
+   "estado": "crudo",
+   "kcal": 23,
+   "proteina_g": 2.13,
+   "carbohidratos_g": 3.67,
+   "grasa_g": 0.52,
+   "fibra_g": 2.8,
+   "micros": {
+    "calcio_mg": 67,
+    "hierro_mg": 1.77,
+    "magnesio_mg": 26,
+    "potasio_mg": 521,
+    "sodio_mg": 46,
+    "zinc_mg": 0.5,
+    "vitamina_c_mg": 27,
+    "folato_mcg": 62,
+    "vitamina_a_mcg": 337,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.85,
+   "medidas_usda": [
+    {
+     "medida": ".25 cup",
+     "gramos": 4
+    },
+    {
+     "medida": "9 sprigs",
+     "gramos": 20
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "11165",
+   "fuente_nombre": "Coriander (cilantro) leaves, raw"
+  },
+  {
+   "id": "aguacate",
+   "nombre": "Aguacate",
+   "grupo": "Grasa",
+   "estado": "crudo",
+   "kcal": 160,
+   "proteina_g": 2,
+   "carbohidratos_g": 8.53,
+   "grasa_g": 14.66,
+   "fibra_g": 6.7,
+   "micros": {
+    "calcio_mg": 12,
+    "hierro_mg": 0.55,
+    "magnesio_mg": 29,
+    "potasio_mg": 485,
+    "sodio_mg": 7,
+    "zinc_mg": 0.64,
+    "vitamina_c_mg": 10,
+    "folato_mcg": 81,
+    "vitamina_a_mcg": 7,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.74,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, cubes",
+     "gramos": 150
+    },
+    {
+     "medida": "1 cup, pureed",
+     "gramos": 230
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09037",
+   "fuente_nombre": "Avocados, raw, all commercial varieties"
+  },
+  {
+   "id": "banano",
+   "nombre": "Banano",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 89,
+   "proteina_g": 1.09,
+   "carbohidratos_g": 22.84,
+   "grasa_g": 0.33,
+   "fibra_g": 2.6,
+   "micros": {
+    "calcio_mg": 5,
+    "hierro_mg": 0.26,
+    "magnesio_mg": 27,
+    "potasio_mg": 358,
+    "sodio_mg": 1,
+    "zinc_mg": 0.15,
+    "vitamina_c_mg": 8.7,
+    "folato_mcg": 20,
+    "vitamina_a_mcg": 3,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.64,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, mashed",
+     "gramos": 225
+    },
+    {
+     "medida": "1 cup, sliced",
+     "gramos": 150
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09040",
+   "fuente_nombre": "Bananas, raw"
+  },
+  {
+   "id": "manzana",
+   "nombre": "Manzana",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 52,
+   "proteina_g": 0.26,
+   "carbohidratos_g": 13.81,
+   "grasa_g": 0.17,
+   "fibra_g": 2.4,
+   "micros": {
+    "calcio_mg": 6,
+    "hierro_mg": 0.12,
+    "magnesio_mg": 5,
+    "potasio_mg": 107,
+    "sodio_mg": 1,
+    "zinc_mg": 0.04,
+    "vitamina_c_mg": 4.6,
+    "folato_mcg": 3,
+    "vitamina_a_mcg": 3,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.9,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, quartered or chopped",
+     "gramos": 125
+    },
+    {
+     "medida": "1 cup, slices",
+     "gramos": 109
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza / D1",
+   "fuente": "usda",
+   "fuente_id": "09003",
+   "fuente_nombre": "Apples, raw, with skin"
+  },
+  {
+   "id": "fresa",
+   "nombre": "Fresa",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 32,
+   "proteina_g": 0.67,
+   "carbohidratos_g": 7.68,
+   "grasa_g": 0.3,
+   "fibra_g": 2,
+   "micros": {
+    "calcio_mg": 16,
+    "hierro_mg": 0.41,
+    "magnesio_mg": 13,
+    "potasio_mg": 153,
+    "sodio_mg": 1,
+    "zinc_mg": 0.14,
+    "vitamina_c_mg": 58.8,
+    "folato_mcg": 24,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.94,
+   "medidas_usda": [
+    {
+     "medida": "1 cup,  halves",
+     "gramos": 152
+    },
+    {
+     "medida": "1 cup, pureed",
+     "gramos": 232
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09316",
+   "fuente_nombre": "Strawberries, raw"
+  },
+  {
+   "id": "mora",
+   "nombre": "Mora",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 43,
+   "proteina_g": 1.39,
+   "carbohidratos_g": 9.61,
+   "grasa_g": 0.49,
+   "fibra_g": 5.3,
+   "micros": {
+    "calcio_mg": 29,
+    "hierro_mg": 0.62,
+    "magnesio_mg": 20,
+    "potasio_mg": 162,
+    "sodio_mg": 1,
+    "zinc_mg": 0.53,
+    "vitamina_c_mg": 21,
+    "folato_mcg": 25,
+    "vitamina_a_mcg": 11,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.96,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 144
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09042",
+   "fuente_nombre": "Blackberries, raw"
+  },
+  {
+   "id": "papaya",
+   "nombre": "Papaya",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 43,
+   "proteina_g": 0.47,
+   "carbohidratos_g": 10.82,
+   "grasa_g": 0.26,
+   "fibra_g": 1.7,
+   "micros": {
+    "calcio_mg": 20,
+    "hierro_mg": 0.25,
+    "magnesio_mg": 21,
+    "potasio_mg": 182,
+    "sodio_mg": 8,
+    "zinc_mg": 0.08,
+    "vitamina_c_mg": 60.9,
+    "folato_mcg": 37,
+    "vitamina_a_mcg": 47,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.62,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, 1\" pieces",
+     "gramos": 145
+    },
+    {
+     "medida": "1 cup, mashed",
+     "gramos": 230
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09226",
+   "fuente_nombre": "Papayas, raw"
+  },
+  {
+   "id": "pina",
+   "nombre": "Piña",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 50,
+   "proteina_g": 0.54,
+   "carbohidratos_g": 13.12,
+   "grasa_g": 0.12,
+   "fibra_g": 1.4,
+   "micros": {
+    "calcio_mg": 13,
+    "hierro_mg": 0.29,
+    "magnesio_mg": 12,
+    "potasio_mg": 109,
+    "sodio_mg": 1,
+    "zinc_mg": 0.12,
+    "vitamina_c_mg": 47.8,
+    "folato_mcg": 18,
+    "vitamina_a_mcg": 3,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.51,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, chunks",
+     "gramos": 165
+    },
+    {
+     "medida": "1 fruit",
+     "gramos": 905
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09266",
+   "fuente_nombre": "Pineapple, raw, all varieties"
+  },
+  {
+   "id": "mango",
+   "nombre": "Mango",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 60,
+   "proteina_g": 0.82,
+   "carbohidratos_g": 14.98,
+   "grasa_g": 0.38,
+   "fibra_g": 1.6,
+   "micros": {
+    "calcio_mg": 11,
+    "hierro_mg": 0.16,
+    "magnesio_mg": 10,
+    "potasio_mg": 168,
+    "sodio_mg": 1,
+    "zinc_mg": 0.09,
+    "vitamina_c_mg": 36.4,
+    "folato_mcg": 43,
+    "vitamina_a_mcg": 54,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.71,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, pieces",
+     "gramos": 165
+    },
+    {
+     "medida": "1 fruit, without refuse",
+     "gramos": 336
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09176",
+   "fuente_nombre": "Mangos, raw"
+  },
+  {
+   "id": "naranja",
+   "nombre": "Naranja",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 47,
+   "proteina_g": 0.94,
+   "carbohidratos_g": 11.75,
+   "grasa_g": 0.12,
+   "fibra_g": 2.4,
+   "micros": {
+    "calcio_mg": 40,
+    "hierro_mg": 0.1,
+    "magnesio_mg": 10,
+    "potasio_mg": 181,
+    "sodio_mg": 0,
+    "zinc_mg": 0.07,
+    "vitamina_c_mg": 53.2,
+    "folato_mcg": 30,
+    "vitamina_a_mcg": 11,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.73,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, sections",
+     "gramos": 180
+    },
+    {
+     "medida": "1 large,  (3-1/16\" dia)",
+     "gramos": 184
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09200",
+   "fuente_nombre": "Oranges, raw, all commercial varieties"
+  },
+  {
+   "id": "sandia",
+   "nombre": "Sandía",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 30,
+   "proteina_g": 0.61,
+   "carbohidratos_g": 7.55,
+   "grasa_g": 0.15,
+   "fibra_g": 0.4,
+   "micros": {
+    "calcio_mg": 7,
+    "hierro_mg": 0.24,
+    "magnesio_mg": 10,
+    "potasio_mg": 112,
+    "sodio_mg": 1,
+    "zinc_mg": 0.1,
+    "vitamina_c_mg": 8.1,
+    "folato_mcg": 3,
+    "vitamina_a_mcg": 28,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.52,
+   "medidas_usda": [
+    {
+     "medida": "1 cup, balls",
+     "gramos": 154
+    },
+    {
+     "medida": "1 cup, diced",
+     "gramos": 152
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09326",
+   "fuente_nombre": "Watermelon, raw"
+  },
+  {
+   "id": "guayaba",
+   "nombre": "Guayaba",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 68,
+   "proteina_g": 2.55,
+   "carbohidratos_g": 14.32,
+   "grasa_g": 0.95,
+   "fibra_g": 5.4,
+   "micros": {
+    "calcio_mg": 18,
+    "hierro_mg": 0.26,
+    "magnesio_mg": 22,
+    "potasio_mg": 417,
+    "sodio_mg": 2,
+    "zinc_mg": 0.23,
+    "vitamina_c_mg": 228.3,
+    "folato_mcg": 49,
+    "vitamina_a_mcg": 31,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.78,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 165
+    },
+    {
+     "medida": "1 fruit, without refuse",
+     "gramos": 55
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09139",
+   "fuente_nombre": "Guavas, common, raw"
+  },
+  {
+   "id": "uva",
+   "nombre": "Uva",
+   "grupo": "Fruta",
+   "estado": "crudo",
+   "kcal": 69,
+   "proteina_g": 0.72,
+   "carbohidratos_g": 18.1,
+   "grasa_g": 0.16,
+   "fibra_g": 0.9,
+   "micros": {
+    "calcio_mg": 10,
+    "hierro_mg": 0.36,
+    "magnesio_mg": 7,
+    "potasio_mg": 191,
+    "sodio_mg": 2,
+    "zinc_mg": 0.07,
+    "vitamina_c_mg": 3.2,
+    "folato_mcg": 2,
+    "vitamina_a_mcg": 3,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 0.96,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 151
+    },
+    {
+     "medida": "10 grapes",
+     "gramos": 49
+    }
+   ],
+   "nova": 1,
+   "perecedero": true,
+   "integral": false,
+   "legumbre": false,
+   "fruta": true,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09132",
+   "fuente_nombre": "Grapes, red or green (European type, such as Thompson seedless), raw"
+  },
+  {
+   "id": "limon",
+   "nombre": "Jugo de limón",
+   "grupo": "Salsa / condimento",
+   "estado": "crudo",
+   "kcal": 25,
+   "proteina_g": 0.42,
+   "carbohidratos_g": 8.42,
+   "grasa_g": 0.07,
+   "fibra_g": 0.4,
+   "micros": {
+    "calcio_mg": 14,
+    "hierro_mg": 0.09,
+    "magnesio_mg": 8,
+    "potasio_mg": 117,
+    "sodio_mg": 2,
+    "zinc_mg": 0.08,
+    "vitamina_c_mg": 30,
+    "folato_mcg": 10,
+    "vitamina_a_mcg": 2,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 242
+    },
+    {
+     "medida": "1 fl oz",
+     "gramos": 30.8
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Plaza",
+   "fuente": "usda",
+   "fuente_id": "09160",
+   "fuente_nombre": "Lime juice, raw"
+  },
+  {
+   "id": "aceite-oliva",
+   "nombre": "Aceite de oliva",
+   "grupo": "Grasa",
+   "estado": "crudo",
+   "kcal": 884,
+   "proteina_g": 0,
+   "carbohidratos_g": 0,
+   "grasa_g": 100,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 1,
+    "hierro_mg": 0.56,
+    "magnesio_mg": 0,
+    "potasio_mg": 1,
+    "sodio_mg": 2,
+    "zinc_mg": 0,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 0,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 tablespoon",
+     "gramos": 13.5
+    },
+    {
+     "medida": "1 cup",
+     "gramos": 216
+    }
+   ],
+   "nova": 2,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "04053",
+   "fuente_nombre": "Oil, olive, salad or cooking"
+  },
+  {
+   "id": "mani",
+   "nombre": "Maní tostado sin sal",
+   "grupo": "Grasa",
+   "estado": "crudo",
+   "kcal": 587,
+   "proteina_g": 24.35,
+   "carbohidratos_g": 21.26,
+   "grasa_g": 49.66,
+   "fibra_g": 8.4,
+   "micros": {
+    "calcio_mg": 58,
+    "hierro_mg": 1.58,
+    "magnesio_mg": 178,
+    "potasio_mg": 634,
+    "sodio_mg": 6,
+    "zinc_mg": 2.77,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 97,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 146
+    },
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "16390",
+   "fuente_nombre": "Peanuts, all types, dry-roasted, without salt"
+  },
+  {
+   "id": "mantequilla-mani",
+   "nombre": "Mantequilla de maní",
+   "grupo": "Grasa",
+   "estado": "crudo",
+   "kcal": 598,
+   "proteina_g": 22.21,
+   "carbohidratos_g": 22.31,
+   "grasa_g": 51.36,
+   "fibra_g": 5,
+   "micros": {
+    "calcio_mg": 49,
+    "hierro_mg": 1.74,
+    "magnesio_mg": 168,
+    "potasio_mg": 558,
+    "sodio_mg": 17,
+    "zinc_mg": 2.51,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 87,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "2 tbsp",
+     "gramos": 32
+    },
+    {
+     "medida": "1 cup",
+     "gramos": 258
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "16398",
+   "fuente_nombre": "Peanut butter, smooth style, without salt"
+  },
+  {
+   "id": "chia",
+   "nombre": "Chía",
+   "grupo": "Grasa",
+   "estado": "crudo",
+   "kcal": 486,
+   "proteina_g": 16.54,
+   "carbohidratos_g": 42.12,
+   "grasa_g": 30.74,
+   "fibra_g": 34.4,
+   "micros": {
+    "calcio_mg": 631,
+    "hierro_mg": 7.72,
+    "magnesio_mg": 335,
+    "potasio_mg": 407,
+    "sodio_mg": 16,
+    "zinc_mg": 4.58,
+    "vitamina_c_mg": 1.6,
+    "folato_mcg": null,
+    "vitamina_a_mcg": null,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": null
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 oz",
+     "gramos": 28.35
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "12006",
+   "fuente_nombre": "Seeds, chia seeds, dried"
+  },
+  {
+   "id": "proteina-polvo",
+   "nombre": "Proteína en polvo (suero aislado)",
+   "grupo": "Suplemento",
+   "estado": "listo",
+   "kcal": 359,
+   "proteina_g": 58.14,
+   "carbohidratos_g": 29.07,
+   "grasa_g": 1.16,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 698,
+    "hierro_mg": 1.26,
+    "magnesio_mg": 233,
+    "potasio_mg": 872,
+    "sodio_mg": 372,
+    "zinc_mg": 8.72,
+    "vitamina_c_mg": 34.9,
+    "folato_mcg": 395,
+    "vitamina_a_mcg": 872,
+    "vitamina_b12_mcg": 3.49,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "3 scoop",
+     "gramos": 86
+    }
+   ],
+   "nova": 4,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": true,
+   "tienda": "Tienda de suplementos",
+   "fuente": "usda",
+   "fuente_id": "14058",
+   "fuente_nombre": "Beverages, Whey protein powder isolate",
+   "provisional": "Valor genérico de USDA. Reemplazar con la etiqueta de la proteína de Michael (foto de la tabla nutricional)."
+  },
+  {
+   "id": "caldo-pollo",
+   "nombre": "Caldo de pollo casero",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 36,
+   "proteina_g": 2.52,
+   "carbohidratos_g": 3.53,
+   "grasa_g": 1.2,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 3,
+    "hierro_mg": 0.21,
+    "magnesio_mg": 4,
+    "potasio_mg": 105,
+    "sodio_mg": 143,
+    "zinc_mg": 0.14,
+    "vitamina_c_mg": 0.2,
+    "folato_mcg": 5,
+    "vitamina_a_mcg": 1,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 240
+    }
+   ],
+   "nova": 1,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Casa",
+   "fuente": "usda",
+   "fuente_id": "06172",
+   "fuente_nombre": "Soup, stock, chicken, home-prepared"
+  },
+  {
+   "id": "salsa-napolitana",
+   "nombre": "Salsa de tomate para pasta",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 50,
+   "proteina_g": 1.39,
+   "carbohidratos_g": 7.43,
+   "grasa_g": 1.61,
+   "fibra_g": 1.8,
+   "micros": {
+    "calcio_mg": 26,
+    "hierro_mg": 0.73,
+    "magnesio_mg": 18,
+    "potasio_mg": 320,
+    "sodio_mg": 437,
+    "zinc_mg": 0.2,
+    "vitamina_c_mg": 2,
+    "folato_mcg": 13,
+    "vitamina_a_mcg": 31,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 serving, 1/2 cup",
+     "gramos": 132
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "06931",
+   "fuente_nombre": "Sauce, pasta, spaghetti/marinara, ready-to-serve"
+  },
+  {
+   "id": "salsa-soya",
+   "nombre": "Salsa soya",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 53,
+   "proteina_g": 8.14,
+   "carbohidratos_g": 4.93,
+   "grasa_g": 0.57,
+   "fibra_g": 0.8,
+   "micros": {
+    "calcio_mg": 33,
+    "hierro_mg": 1.45,
+    "magnesio_mg": 74,
+    "potasio_mg": 435,
+    "sodio_mg": 5493,
+    "zinc_mg": 0.87,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 14,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 tbsp",
+     "gramos": 16
+    },
+    {
+     "medida": "1 tsp",
+     "gramos": 5.3
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "16123",
+   "fuente_nombre": "Soy sauce made from soy and wheat (shoyu)"
+  },
+  {
+   "id": "mostaza",
+   "nombre": "Mostaza",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 60,
+   "proteina_g": 3.74,
+   "carbohidratos_g": 5.83,
+   "grasa_g": 3.34,
+   "fibra_g": 4,
+   "micros": {
+    "calcio_mg": 63,
+    "hierro_mg": 1.61,
+    "magnesio_mg": 48,
+    "potasio_mg": 152,
+    "sodio_mg": 1104,
+    "zinc_mg": 0.64,
+    "vitamina_c_mg": 0.3,
+    "folato_mcg": 7,
+    "vitamina_a_mcg": 5,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 tsp,  or 1 packet",
+     "gramos": 5
+    },
+    {
+     "medida": "1 cup",
+     "gramos": 249
+    }
+   ],
+   "nova": 3,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "02046",
+   "fuente_nombre": "Mustard, prepared, yellow"
+  },
+  {
+   "id": "mayonesa-light",
+   "nombre": "Mayonesa light",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 238,
+   "proteina_g": 0.37,
+   "carbohidratos_g": 9.23,
+   "grasa_g": 22.22,
+   "fibra_g": 0,
+   "micros": {
+    "calcio_mg": 6,
+    "hierro_mg": 0.14,
+    "magnesio_mg": 2,
+    "potasio_mg": 31,
+    "sodio_mg": 827,
+    "zinc_mg": 0.07,
+    "vitamina_c_mg": 0,
+    "folato_mcg": 4,
+    "vitamina_a_mcg": 8,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 tablespoon",
+     "gramos": 15
+    }
+   ],
+   "nova": 4,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "Barrio / D1",
+   "fuente": "usda",
+   "fuente_id": "04641",
+   "fuente_nombre": "Salad dressing, mayonnaise, light"
+  },
+  {
+   "id": "miel",
+   "nombre": "Miel",
+   "grupo": "Salsa / condimento",
+   "estado": "listo",
+   "kcal": 304,
+   "proteina_g": 0.3,
+   "carbohidratos_g": 82.4,
+   "grasa_g": 0,
+   "fibra_g": 0.2,
+   "micros": {
+    "calcio_mg": 6,
+    "hierro_mg": 0.42,
+    "magnesio_mg": 2,
+    "potasio_mg": 52,
+    "sodio_mg": 4,
+    "zinc_mg": 0.22,
+    "vitamina_c_mg": 0.5,
+    "folato_mcg": 2,
+    "vitamina_a_mcg": 0,
+    "vitamina_b12_mcg": 0,
+    "vitamina_d_mcg": 0
+   },
+   "factor_coccion": null,
+   "parte_comestible": 1,
+   "medidas_usda": [
+    {
+     "medida": "1 cup",
+     "gramos": 339
+    },
+    {
+     "medida": "1 tbsp",
+     "gramos": 21
+    }
+   ],
+   "nova": 2,
+   "perecedero": false,
+   "integral": false,
+   "legumbre": false,
+   "fruta": false,
+   "alta_proteina": false,
+   "tienda": "D1 / Cadena",
+   "fuente": "usda",
+   "fuente_id": "19296",
+   "fuente_nombre": "Honey"
+  }
+ ]
+}
