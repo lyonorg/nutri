@@ -5,185 +5,235 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nutri — Hoy (prueba)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --fondo:#0d0c0b; --tarjeta:#171513; --tarjeta2:#1e1b18; --linea:#2b2723;
-  --texto:#f3eee6; --suave:#a59d92; --tenue:#6e675e;
-  --rojo:#e0322b; --verde:#1f9d55; --amarillo:#f4b41a; --azul:#2563c9; --rosa:#e85d8a;
-  --r:22px;
+/* Tres paletas para elegir. Todas oscuras; cambian el ambiente y el acento. */
+:root, [data-paleta=cacao]{
+  --fondo:#110d0b; --fondo2:#17120f; --tarjeta:#1d1714; --tarjeta2:#26201b; --linea:#332a24;
+  --texto:#f6efe7; --suave:#b5a597; --tenue:#7a6c60;
+  --acento:#e8794f; --acento2:#f2c48d; --prot:#8fb996; --fibra:#d9a441; --ok:#8fb996;
+  --brillo:rgba(232,121,79,.18);
+}
+[data-paleta=menta]{
+  --fondo:#0b0d0e; --fondo2:#101315; --tarjeta:#15191b; --tarjeta2:#1c2124; --linea:#262d31;
+  --texto:#eef3f1; --suave:#9aa7a3; --tenue:#62706c;
+  --acento:#3ddc97; --acento2:#b6f3d6; --prot:#8b7cf6; --fibra:#f5c451; --ok:#3ddc97;
+  --brillo:rgba(61,220,151,.16);
+}
+[data-paleta=andes]{
+  --fondo:#0a0d14; --fondo2:#0f131c; --tarjeta:#141a25; --tarjeta2:#1b2230; --linea:#252e3e;
+  --texto:#eef1f7; --suave:#9ba6bb; --tenue:#5f6a80;
+  --acento:#ff8a5c; --acento2:#ffd3b8; --prot:#6fa8ff; --fibra:#7ad3a8; --ok:#7ad3a8;
+  --brillo:rgba(111,168,255,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--fondo);color:var(--texto);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-body{padding:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 28px);max-width:440px;margin:0 auto}
-button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
-.display{font-family:'Bricolage Grotesque',Inter,sans-serif}
+html,body{background:var(--fondo);color:var(--texto);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s}
+body{padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 110px);max-width:440px;margin:0 auto;
+  background:radial-gradient(120% 50% at 50% -10%,var(--brillo),transparent 60%) no-repeat,var(--fondo)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.num{font-family:Outfit,Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.etq{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--suave);font-weight:600}
 
-/* franja mopa-mopa: rombos escalonados en los cuatro colores del barniz */
-.barniz{height:10px;border-radius:6px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 5 0 10 5 5 10Z' fill='%23e0322b'/%3E%3Cpath d='M10 5 15 0 20 5 15 10Z' fill='%23f4b41a'/%3E%3Cpath d='M20 5 25 0 30 5 25 10Z' fill='%231f9d55'/%3E%3Cpath d='M30 5 35 0 40 5 35 10Z' fill='%232563c9'/%3E%3Cpath d='M3 5 5 3 7 5 5 7Z' fill='%230d0c0b'/%3E%3Cpath d='M13 5 15 3 17 5 15 7Z' fill='%230d0c0b'/%3E%3Cpath d='M23 5 25 3 27 5 25 7Z' fill='%230d0c0b'/%3E%3Cpath d='M33 5 35 3 37 5 35 7Z' fill='%230d0c0b'/%3E%3C/svg%3E");background-size:40px 10px;opacity:.95}
-.zigzag{position:absolute;inset:auto 0 0 0;height:6px;background:
-  linear-gradient(135deg,var(--c) 25%,transparent 25%) -6px 0/12px 12px,
-  linear-gradient(225deg,var(--c) 25%,transparent 25%) -6px 0/12px 12px;opacity:.9}
+/* motivo andino sutil: rombos escalonados en el tono del acento */
+.motivo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M6 0 12 6 6 12 0 6Z M18 0 24 6 18 12 12 6Z' fill='none' stroke='white' stroke-width='1.2'/%3E%3Cpath d='M6 4 8 6 6 8 4 6Z M18 4 20 6 18 8 16 6Z' fill='white'/%3E%3C/svg%3E");background-size:24px 12px}
 
-header{display:flex;align-items:flex-end;justify-content:space-between;margin:4px 2px 12px}
-.fecha{color:var(--suave);font-size:13px;letter-spacing:.02em}
-h1{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1}
-.logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--tarjeta);border:1px solid var(--linea)}
+/* encabezado */
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.saludo{font-size:13px;color:var(--suave)}
+h1{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:700;font-size:28px;letter-spacing:-.02em;margin-top:2px}
+.avatar{width:40px;height:40px;border-radius:14px;background:var(--tarjeta2);border:1px solid var(--linea);display:grid;place-items:center;font-family:Outfit,Inter,system-ui,sans-serif;font-weight:700;color:var(--acento)}
 
-.turnos{display:flex;gap:6px;overflow-x:auto;margin:12px -14px 14px;padding:0 14px;scrollbar-width:none}
-.turnos::-webkit-scrollbar{display:none}
-.turno{flex:none;padding:9px 14px;border-radius:999px;background:var(--tarjeta);border:1px solid var(--linea);color:var(--suave);font-size:14px;font-weight:500}
-.turno[aria-pressed=true]{background:var(--texto);color:var(--fondo);border-color:var(--texto);font-weight:600}
+/* semana */
+.semana{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:14px}
+.dia{display:grid;justify-items:center;gap:6px;padding:8px 0 10px;border-radius:16px;color:var(--suave);font-size:12px}
+.dia .n{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:600;font-size:16px;color:var(--texto)}
+.dia .t{width:22px;height:4px;border-radius:2px;background:var(--linea)}
+.dia.hoy{background:var(--tarjeta);border:1px solid var(--linea)}
+.dia.hoy .t{background:var(--acento)}
+.dia.pasado .n{color:var(--tenue)}
 
-.bento{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{position:relative;background:var(--tarjeta);border:1px solid var(--linea);border-radius:var(--r);padding:16px;overflow:hidden}
-.span2{grid-column:span 2}
-.etq{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--suave);font-weight:600}
+/* turno: control segmentado */
+.turno{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:18px;background:var(--tarjeta);border:1px solid var(--linea);margin-bottom:12px;width:100%;text-align:left}
+.turno .izq{display:flex;align-items:center;gap:12px}
+.turno .ico{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--tarjeta2)}
+.turno b{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:600;font-size:16px;display:block}
+.turno small{color:var(--suave);font-size:12px}
+
+/* tarjetas */
+.card{position:relative;background:var(--tarjeta);border:1px solid var(--linea);border-radius:24px;padding:18px;overflow:hidden}
+.pila{display:grid;gap:12px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
 /* resumen */
-.resumen{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding-bottom:20px}
-.anillo{position:relative;width:132px;height:132px}
-.anillo svg{transform:rotate(-90deg)}
-.anillo .centro{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
-.anillo .num{font-size:34px;font-weight:800;line-height:1;letter-spacing:-.03em}
-.anillo .sub{font-size:11px;color:var(--suave);margin-top:4px}
-.barra{height:10px;border-radius:6px;background:var(--tarjeta2);overflow:hidden;margin:6px 0 4px}
-.barra i{display:block;height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
-.fila{display:flex;justify-content:space-between;align-items:baseline;font-size:13px}
-.fila b{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-size:18px}
-.macro+.macro{margin-top:12px}
+.resumen .arriba{display:flex;justify-content:space-between;align-items:flex-start}
+.restan{font-size:52px;font-weight:700;line-height:.95;margin-top:8px}
+.restan small{font-size:16px;color:var(--suave);font-weight:500;margin-left:4px;letter-spacing:0}
+.de{color:var(--tenue);font-size:13px;margin-top:6px}
+.pct{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:600;font-size:13px;padding:6px 10px;border-radius:999px;background:var(--tarjeta2);color:var(--acento2)}
+.segmentos{display:flex;gap:4px;margin:18px 0 16px;height:12px}
+.segmentos i{border-radius:4px;background:var(--tarjeta2);position:relative;overflow:hidden}
+.segmentos i::after{content:'';position:absolute;inset:0;background:var(--acento);transform:scaleX(var(--p,0));transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1);border-radius:4px}
+.macros{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.macro{background:var(--fondo2);border:1px solid var(--linea);border-radius:16px;padding:10px 12px}
+.macro .v{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:600;font-size:18px;margin-top:4px}
+.macro .v span{color:var(--tenue);font-size:12px;font-weight:500}
+.mbar{height:4px;border-radius:2px;background:var(--linea);margin-top:8px;overflow:hidden}
+.mbar i{display:block;height:100%;border-radius:2px;transition:width .5s}
 
 /* siguiente comida */
-.siguiente{background:linear-gradient(160deg,#241a14 0%,var(--tarjeta) 60%)}
-.siguiente h2{font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin:8px 0 6px}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
-.chip{font-size:12px;padding:5px 9px;border-radius:999px;background:var(--tarjeta2);color:var(--suave);border:1px solid var(--linea)}
-.chip.k{color:var(--amarillo)} .chip.p{color:#7fb3ff}
-.acciones{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
-.btn{padding:14px;border-radius:16px;font-weight:600;font-size:15px;text-align:center}
-.btn.primario{background:var(--rojo);color:#fff}
-.btn.sec{background:var(--tarjeta2);border:1px solid var(--linea)}
-.btn:active{transform:scale(.98)}
+.sig{padding:0}
+.sig .franja{height:46px;opacity:.10}
+.sig .cuerpo{padding:4px 18px 18px;margin-top:-28px;position:relative}
+.sig .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:6px 10px;border-radius:999px;background:var(--acento);color:var(--fondo)}
+.sig h2{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:700;font-size:25px;line-height:1.1;letter-spacing:-.015em;margin:12px 0 6px}
+.sig .ing{color:var(--suave);font-size:13px;line-height:1.45}
+.datos{display:flex;gap:18px;margin:14px 0 16px}
+.datos div{font-size:12px;color:var(--suave)}
+.datos b{display:block;font-family:Outfit,Inter,system-ui,sans-serif;font-weight:600;font-size:18px;color:var(--texto)}
+.acc{display:grid;grid-template-columns:1fr auto;gap:8px}
+.btn{height:52px;border-radius:16px;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .1s}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--texto);color:var(--fondo)}
+.btn.sec{width:52px;background:var(--tarjeta2);border:1px solid var(--linea)}
 
-/* lista de comidas */
-.comida{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--linea)}
-.comida:first-of-type{border-top:0}
-.hora{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-weight:700;font-size:15px;color:var(--suave)}
-.comida .n{font-size:15px;font-weight:500;line-height:1.25}
-.comida .m{font-size:12px;color:var(--tenue);margin-top:2px}
-.check{width:30px;height:30px;border-radius:50%;border:2px solid var(--linea);display:grid;place-items:center}
-.comida.hecha .check{background:var(--verde);border-color:var(--verde)}
-.comida.hecha .n{color:var(--suave);text-decoration:line-through;text-decoration-color:var(--tenue)}
-.comida.actual .hora{color:var(--amarillo)}
+/* línea de tiempo */
+.tl{position:relative;margin-top:6px}
+.paso{display:grid;grid-template-columns:48px 22px 1fr auto;align-items:center;gap:10px;padding:11px 0}
+.paso .h{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:500;font-size:14px;color:var(--suave)}
+.paso .p{width:14px;height:14px;border-radius:50%;border:2px solid var(--linea);background:var(--tarjeta);justify-self:center;position:relative;z-index:1}
+.paso.hecha .p{background:var(--ok);border-color:var(--ok)}
+.paso.actual .p{border-color:var(--acento);box-shadow:0 0 0 4px var(--brillo)}
+.paso.actual .h{color:var(--acento)}
+.paso .nm{font-size:15px;font-weight:500;line-height:1.25}
+.paso .mt{font-size:12px;color:var(--tenue);margin-top:2px}
+.paso.hecha .nm{color:var(--tenue)}
+.paso .kc{font-family:Outfit,Inter,system-ui,sans-serif;font-size:14px;color:var(--suave)}
+.tl::before{content:'';position:absolute;left:68px;top:20px;bottom:20px;width:2px;background:var(--linea)}
 
-/* mosaicos pequeños */
-.mini .grande{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;margin-top:6px}
-.mini .pie{font-size:12px;color:var(--suave);margin-top:2px}
-.peso svg{display:block;margin-top:8px}
-.hambre{background:var(--azul);border-color:var(--azul);text-align:left}
-.hambre .etq,.hambre .pie{color:#dbe6ff}
-.dormir{background:var(--tarjeta2)}
+/* mosaicos */
+.mini{padding:16px}
+.mini .g{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em;margin-top:8px;line-height:1}
+.mini .g span{font-size:14px;color:var(--suave);font-weight:500;letter-spacing:0}
+.mini .pie{font-size:12px;color:var(--suave);margin-top:6px}
+.hambre{background:var(--acento);border-color:transparent;color:var(--fondo);text-align:left}
+.hambre .etq,.hambre .pie{color:var(--fondo);opacity:.75}
+.hambre .g{font-size:21px;line-height:1.1}
 
-/* hoja inferior */
-.velo{position:fixed;inset:0;background:#0009;opacity:0;pointer-events:none;transition:opacity .25s}
+/* barra inferior */
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 12px);width:calc(100% - 24px);max-width:416px;
+  display:grid;grid-template-columns:repeat(5,1fr);align-items:center;padding:8px;border-radius:24px;background:color-mix(in srgb,var(--tarjeta) 85%,transparent);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--linea)}
+.tab{display:grid;justify-items:center;gap:3px;font-size:10px;color:var(--tenue);padding:6px 0}
+.tab.on{color:var(--texto)}
+.tab svg{width:22px;height:22px}
+.mas{width:52px;height:52px;border-radius:18px;background:var(--acento);color:var(--fondo);display:grid;place-items:center;justify-self:center;box-shadow:0 8px 24px var(--brillo)}
+
+/* hoja */
+.velo{position:fixed;inset:0;background:#000a;opacity:0;pointer-events:none;transition:opacity .25s;z-index:5}
 .velo.on{opacity:1;pointer-events:auto}
-.hoja{visibility:hidden;position:fixed;left:0;right:0;bottom:0;max-width:440px;margin:0 auto;background:var(--tarjeta);border-radius:26px 26px 0 0;border:1px solid var(--linea);padding:10px 16px calc(env(safe-area-inset-bottom) + 20px);transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.hoja{visibility:hidden;position:fixed;z-index:6;left:0;right:0;bottom:0;max-width:440px;margin:0 auto;background:var(--tarjeta);border-radius:28px 28px 0 0;border:1px solid var(--linea);padding:10px 16px calc(env(safe-area-inset-bottom) + 22px);transform:translateY(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
 .hoja.on{transform:none;visibility:visible}
-.asa{width:40px;height:5px;border-radius:3px;background:var(--linea);margin:0 auto 14px}
-.hoja h3{font-size:20px;font-weight:700;margin:12px 0 4px}
-.hoja p.t{color:var(--suave);font-size:13px;margin-bottom:12px}
-.opcion{display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px;border-radius:16px;background:var(--tarjeta2);border:1px solid var(--linea);margin-top:8px;text-align:left}
-.opcion small{display:block;color:var(--suave);font-size:12px;margin-top:2px}
-.aviso{margin-top:14px;font-size:12px;color:var(--tenue);text-align:center}
-.nota{margin:18px 4px 0;font-size:12px;color:var(--tenue);line-height:1.5}
+.asa{width:40px;height:5px;border-radius:3px;background:var(--linea);margin:0 auto 12px}
+.hoja h3{font-family:Outfit,Inter,system-ui,sans-serif;font-weight:700;font-size:21px;margin:8px 0 4px}
+.hoja .t{color:var(--suave);font-size:13px;margin-bottom:10px}
+.op{display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px;border-radius:18px;background:var(--fondo2);border:1px solid var(--linea);margin-top:8px;text-align:left}
+.op small{display:block;color:var(--suave);font-size:12px;margin-top:3px}
+.turnos{display:grid;gap:8px}
+.op.sel{border-color:var(--acento)}
+
+/* selector de paleta (solo para la prueba) */
+.paletas{display:flex;gap:8px;justify-content:center;margin:20px 0 4px}
+.paletas button{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--suave);padding:8px 12px;border-radius:999px;border:1px solid var(--linea);background:var(--tarjeta)}
+.paletas button[aria-pressed=true]{color:var(--texto);border-color:var(--suave)}
+.paletas i{width:12px;height:12px;border-radius:50%}
+.nota{text-align:center;font-size:12px;color:var(--tenue);margin-top:8px;line-height:1.5}
 </style>
 </head>
-<body>
+<body data-paleta="cacao">
+
 <header>
-  <div>
-    <div class="fecha">Martes 17 de noviembre</div>
-    <h1 class="display">Hoy</h1>
-  </div>
-  <div class="logo" aria-hidden="true">
-    <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 21 11 11 21 1 11Z" fill="#e0322b"/><path d="M11 5 17 11 11 17 5 11Z" fill="#f4b41a"/><path d="M11 8 14 11 11 14 8 11Z" fill="#1f9d55"/></svg>
-  </div>
+  <div><div class="saludo">Hola, Michael</div><h1>Martes 17</h1></div>
+  <div class="avatar">M</div>
 </header>
 
-<div class="barniz" aria-hidden="true"></div>
+<div class="semana" id="semana"></div>
 
-<nav class="turnos" aria-label="Hoy estoy en">
-  <button class="turno" data-t="manana">Mañana</button>
-  <button class="turno" data-t="tarde" aria-pressed="true">Tarde</button>
-  <button class="turno" data-t="noche">Noche</button>
-  <button class="turno" data-t="post-noche">Post-noche</button>
-  <button class="turno" data-t="libre">Libre</button>
-</nav>
+<button class="turno" id="btnTurno">
+  <span class="izq"><span class="ico" id="icoTurno"></span><span><b id="turnoNombre">Turno de tarde</b><small id="turnoHoras">13:00–19:00 · sales ~19:40</small></span></span>
+  <svg width="18" height="18" viewBox="0 0 18 18"><path d="M5 7l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--suave)"/></svg>
+</button>
 
-<main class="bento">
-  <section class="card span2 resumen" style="--c:var(--amarillo)">
-    <div class="anillo">
-      <svg width="132" height="132" viewBox="0 0 132 132">
-        <circle cx="66" cy="66" r="56" fill="none" stroke="#2b2723" stroke-width="14"/>
-        <circle id="arco" cx="66" cy="66" r="56" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="352" style="transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)"/>
-        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#f4b41a"/><stop offset="1" stop-color="#e0322b"/></linearGradient></defs>
+<main class="pila">
+  <section class="card resumen">
+    <div class="arriba">
+      <div>
+        <div class="etq">Te quedan</div>
+        <div class="restan num" id="restan">1.500<small>kcal</small></div>
+        <div class="de" id="de">de 1.500 kcal del día</div>
+      </div>
+      <span class="pct" id="pct">0 %</span>
+    </div>
+    <div class="segmentos" id="seg"></div>
+    <div class="macros">
+      <div class="macro"><div class="etq">Proteína</div><div class="v" id="vP">0<span> / 140 g</span></div><div class="mbar"><i id="bP" style="width:0;background:var(--prot)"></i></div></div>
+      <div class="macro"><div class="etq">Fibra</div><div class="v" id="vF">0<span> / 21 g</span></div><div class="mbar"><i id="bF" style="width:0;background:var(--fibra)"></i></div></div>
+      <div class="macro"><div class="etq">Comidas</div><div class="v" id="vC">0<span> / 4</span></div><div class="mbar"><i id="bC" style="width:0;background:var(--ok)"></i></div></div>
+    </div>
+  </section>
+
+  <section class="card sig" id="sig"></section>
+
+  <section class="card">
+    <div class="etq">Tu día</div>
+    <div class="tl" id="tl"></div>
+  </section>
+
+  <div class="duo">
+    <section class="card mini">
+      <div class="etq">Peso</div>
+      <div class="g num">85,6<span> kg</span></div>
+      <div class="pie">−0,6 kg esta semana</div>
+      <svg width="100%" height="36" viewBox="0 0 120 36" preserveAspectRatio="none" style="margin-top:10px;display:block">
+        <defs><linearGradient id="gp" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--ok)" stop-opacity=".35"/><stop offset="1" stop-color="var(--ok)" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0,8 20,10 40,9 60,15 80,18 100,23 120,26 120,36 0,36Z" fill="url(#gp)"/>
+        <polyline points="0,8 20,10 40,9 60,15 80,18 100,23 120,26" fill="none" stroke="var(--ok)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <div class="centro"><div class="num display" id="restan">1500</div><div class="sub">kcal te quedan</div></div>
-    </div>
-    <div>
-      <div class="macro">
-        <div class="fila"><span class="etq">Calorías</span><span><b id="kcal">0</b> <span style="color:var(--tenue)">/ <span id="kcalMeta"></span></span></span></div>
-        <div class="barra"><i id="bK" style="width:0;background:var(--amarillo)"></i></div>
-      </div>
-      <div class="macro">
-        <div class="fila"><span class="etq">Proteína</span><span><b id="prot">0</b> <span style="color:var(--tenue)">/ <span id="protMeta"></span> g</span></span></div>
-        <div class="barra"><i id="bP" style="width:0;background:#4b8ef0"></i></div>
-      </div>
-      <div class="macro">
-        <div class="fila"><span class="etq">Fibra</span><span><b id="fib">0</b> <span style="color:var(--tenue)">/ 21 g</span></span></div>
-        <div class="barra"><i id="bF" style="width:0;background:var(--verde)"></i></div>
-      </div>
-    </div>
-    <div class="zigzag"></div>
-  </section>
+    </section>
+    <section class="card mini">
+      <div class="etq">Comida libre</div>
+      <div class="g num">225<span> / 450</span></div>
+      <div class="pie">kcal guardadas para el sábado</div>
+      <div class="mbar" style="height:6px;margin-top:16px"><i style="width:50%;background:var(--acento2)"></i></div>
+    </section>
+  </div>
 
-  <section class="card span2 siguiente" id="sig"></section>
-
-  <section class="card span2" aria-label="Comidas del día">
-    <div class="etq" style="margin-bottom:6px">Comidas de hoy · turno <span id="turnoTxt">tarde</span></div>
-    <div id="lista"></div>
-  </section>
-
-  <section class="card mini peso">
-    <div class="etq">Peso</div>
-    <div class="grande">85,6<span style="font-size:15px;color:var(--suave)"> kg</span></div>
-    <div class="pie">−0,6 kg esta semana</div>
-    <svg width="100%" height="34" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true">
-      <polyline points="0,6 20,9 40,8 60,14 80,17 100,22 120,25" fill="none" stroke="#1f9d55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <g fill="#6e675e"><circle cx="0" cy="4" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="40" cy="6" r="2"/><circle cx="60" cy="16" r="2"/><circle cx="80" cy="15" r="2"/><circle cx="100" cy="24" r="2"/><circle cx="120" cy="24" r="2"/></g>
-    </svg>
-  </section>
-
-  <section class="card mini" style="--c:var(--rosa)">
-    <div class="etq">Comida libre</div>
-    <div class="grande">225<span style="font-size:15px;color:var(--suave)"> / 450</span></div>
-    <div class="pie">kcal ahorradas para el sábado</div>
-    <div class="barra" style="margin-top:10px"><i style="width:50%;background:var(--rosa)"></i></div>
-  </section>
-
-  <button class="card mini hambre" id="btnHambre">
-    <div class="etq">Tengo hambre</div>
-    <div class="grande" style="font-size:22px">Algo que llene</div>
-    <div class="pie">con pocas calorías</div>
-  </button>
-
-  <button class="card mini dormir" id="btnDormir" style="text-align:left">
-    <div class="etq">Cerrar el día</div>
-    <div class="grande" style="font-size:22px">Me voy a dormir</div>
-    <div class="pie" id="dormirPie">el día se guarda completo</div>
-  </button>
+  <div class="duo">
+    <button class="card mini hambre" id="btnHambre">
+      <div class="etq">¿Hambre?</div>
+      <div class="g">Algo que llene sin sumar</div>
+    </button>
+    <button class="card mini" id="btnDormir" style="text-align:left">
+      <div class="etq">Cerrar el día</div>
+      <div class="g" style="font-size:21px;line-height:1.1">Me voy a dormir</div>
+      <div class="pie" id="dormirPie">guarda el día completo</div>
+    </button>
+  </div>
 </main>
 
-<p class="nota">Pantalla de prueba con datos reales del motor: el plan de un día de turno de tarde a 1.500 kcal y 140 g de proteína. Los botones funcionan, pero no se guarda nada todavía.</p>
+<div class="paletas" id="paletas">
+  <button data-p="cacao" aria-pressed="true"><i style="background:#e8794f"></i>Cacao</button>
+  <button data-p="menta"><i style="background:#3ddc97"></i>Menta</button>
+  <button data-p="andes"><i style="background:#6fa8ff"></i>Andes</button>
+</div>
+<p class="nota">Prueba con el plan real de un turno de tarde. Elige la paleta que más te guste.</p>
+
+<nav class="tabs">
+  <button class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Hoy</button>
+  <button class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Plan</button>
+  <button class="mas" aria-label="Registrar comida"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+  <button class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>Compras</button>
+  <button class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Progreso</button>
+</nav>
 
 <div class="velo" id="velo"></div>
 <div class="hoja" id="hoja" role="dialog" aria-modal="true"></div>
@@ -193,95 +243,111 @@ const DATOS = {"turno":"tarde","presupuesto":{"kcal":1500,"proteina":140,"descon
 const meta = DATOS.presupuesto;
 const comidas = DATOS.comidas.map(c => ({ ...c, hecha: false }));
 const $ = (id) => document.getElementById(id);
-const fmt = (n) => n.toLocaleString('es-CO');
-const nombresTipo = { desayuno: 'Desayuno', almuerzo: 'Almuerzo', snack: 'Snack', cena: 'Cena' };
+const fmt = (n) => Math.round(n).toLocaleString('es-CO');
+const tipos = { desayuno: 'Desayuno', almuerzo: 'Almuerzo', snack: 'Snack', cena: 'Cena' };
+const TURNOS = {
+  manana: ['Turno de mañana', '07:00–13:00 · sales ~13:40', 'sol'],
+  tarde: ['Turno de tarde', '13:00–19:00 · sales ~19:40', 'tarde'],
+  noche: ['Turno de noche', '19:00–07:00 · nada de 01 a 06 h', 'luna'],
+  'post-noche': ['Post-noche', 'Duermes en la mañana', 'cama'],
+  libre: ['Día libre', 'Buen día para cocinar en lote', 'libre'],
+};
+const ICON = {
+  sol: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>',
+  tarde: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2" stroke-linecap="round"><path d="M17 18a5 5 0 0 0-10 0M12 9V3M4.2 10.2l1.4 1.4M18.4 11.6l1.4-1.4M2 18h20"/></svg>',
+  luna: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  cama: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2" stroke-linecap="round"><path d="M3 7v12M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></svg>',
+  libre: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>',
+};
+let turno = 'tarde';
 
-$('kcalMeta').textContent = fmt(meta.kcal);
-$('protMeta').textContent = meta.proteina;
+// semana: L M M J V S D con el turno de cada día marcado
+const sem = [['L', 16, 'pasado'], ['M', 17, 'hoy'], ['M', 18, ''], ['J', 19, ''], ['V', 20, ''], ['S', 21, ''], ['D', 22, '']];
+$('semana').innerHTML = sem.map(([l, n, c]) => `<div class="dia ${c}">${l}<span class="n">${n}</span><span class="t"></span></div>`).join('');
 
-function totales() {
-  return comidas.filter(c => c.hecha).reduce((t, c) => ({ k: t.k + c.kcal, p: t.p + c.proteina, f: t.f + c.fibra }), { k: 0, p: 0, f: 0 });
+function pintarTurno() {
+  const [n, h, ico] = TURNOS[turno];
+  $('turnoNombre').textContent = n; $('turnoHoras').textContent = h; $('icoTurno').innerHTML = ICON[ico];
 }
+
+function tot() { return comidas.filter(c => c.hecha).reduce((t, c) => ({ k: t.k + c.kcal, p: t.p + c.proteina, f: t.f + c.fibra, n: t.n + 1 }), { k: 0, p: 0, f: 0, n: 0 }); }
 
 function pintar() {
-  const t = totales();
-  $('kcal').textContent = fmt(t.k);
-  $('prot').textContent = t.p;
-  $('fib').textContent = t.f;
-  $('restan').textContent = fmt(Math.max(meta.kcal - t.k, 0));
-  $('bK').style.width = Math.min(100, t.k / meta.kcal * 100) + '%';
-  $('bP').style.width = Math.min(100, t.p / meta.proteina * 100) + '%';
-  $('bF').style.width = Math.min(100, t.f / 21 * 100) + '%';
-  $('arco').style.strokeDashoffset = 352 * (1 - Math.min(1, t.k / meta.kcal));
+  const t = tot();
+  $('restan').innerHTML = `${fmt(Math.max(meta.kcal - t.k, 0))}<small>kcal</small>`;
+  $('de').textContent = `llevas ${fmt(t.k)} de ${fmt(meta.kcal)} kcal`;
+  $('pct').textContent = Math.round(t.k / meta.kcal * 100) + ' %';
+  $('seg').innerHTML = comidas.map(c => `<i style="flex:${c.kcal};--p:${c.hecha ? 1 : 0}"></i>`).join('');
+  $('vP').innerHTML = `${t.p}<span> / ${meta.proteina} g</span>`; $('bP').style.width = Math.min(100, t.p / meta.proteina * 100) + '%';
+  $('vF').innerHTML = `${t.f}<span> / 21 g</span>`; $('bF').style.width = Math.min(100, t.f / 21 * 100) + '%';
+  $('vC').innerHTML = `${t.n}<span> / ${comidas.length}</span>`; $('bC').style.width = (t.n / comidas.length * 100) + '%';
 
-  const sig = comidas.find(c => !c.hecha);
-  const s = $('sig');
-  if (sig) {
-    s.innerHTML = `
-      <div class="etq">Siguiente · ${sig.hora} · ${nombresTipo[sig.tipo]}</div>
-      <h2 class="display">${sig.nombre}</h2>
-      <div style="color:var(--suave);font-size:13px">${sig.ingredientes.slice(0, 4).join(' · ')}</div>
-      <div class="chips">
-        <span class="chip k">${sig.kcal} kcal</span><span class="chip p">${sig.proteina} g proteína</span>
-        ${sig.factor !== 1 ? `<span class="chip">porción ×${String(sig.factor).replace('.', ',')}</span>` : ''}
-        ${sig.portatil ? '<span class="chip">para llevar</span>' : ''}
+  const s = comidas.find(c => !c.hecha);
+  $('sig').innerHTML = s ? `
+    <div class="franja motivo"></div>
+    <div class="cuerpo">
+      <span class="badge">${s.hora} · ${tipos[s.tipo]}</span>
+      <h2>${s.nombre}</h2>
+      <div class="ing">${s.ingredientes.slice(0, 4).join(' · ')}</div>
+      <div class="datos">
+        <div><b class="num">${s.kcal}</b>kcal</div>
+        <div><b class="num">${s.proteina} g</b>proteína</div>
+        <div><b class="num">${s.fibra} g</b>fibra</div>
+        ${s.portatil ? '<div><b>✓</b>para llevar</div>' : ''}
       </div>
-      <div class="acciones">
-        <button class="btn primario" data-comi="${sig.slot}">Comí lo planeado</button>
-        <button class="btn sec" data-cambiar="${sig.slot}">Cambiar</button>
-      </div>`;
-  } else {
-    s.innerHTML = `<div class="etq">Listo</div><h2 class="display">Cumpliste el plan de hoy</h2>
-      <div style="color:var(--suave);font-size:14px">${fmt(totales().k)} kcal y ${totales().p} g de proteína.</div>`;
-  }
+      <div class="acc">
+        <button class="btn pri" data-comi="${s.slot}"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 9.5 7 13.5 15 4.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Comí lo planeado</button>
+        <button class="btn sec" data-cambiar="${s.slot}" aria-label="Cambiar plato"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg></button>
+      </div>
+    </div>` : `
+    <div class="franja motivo"></div>
+    <div class="cuerpo"><span class="badge">Listo</span><h2>Cumpliste el plan de hoy</h2>
+    <div class="ing">${fmt(t.k)} kcal · ${t.p} g de proteína · ${t.f} g de fibra</div></div>`;
 
-  $('lista').innerHTML = comidas.map(c => `
-    <div class="comida ${c.hecha ? 'hecha' : ''} ${sig && c.slot === sig.slot ? 'actual' : ''}">
-      <div class="hora">${c.hora}</div>
-      <div><div class="n">${c.nombre}</div><div class="m">${nombresTipo[c.tipo]} · ${c.kcal} kcal · ${c.proteina} g</div></div>
-      <button class="check" data-toggle="${c.slot}" aria-label="Marcar ${c.nombre}">${c.hecha ? '<svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}</button>
-    </div>`).join('');
+  $('tl').innerHTML = comidas.map(c => `
+    <button class="paso ${c.hecha ? 'hecha' : ''} ${s && c.slot === s.slot ? 'actual' : ''}" data-toggle="${c.slot}" style="width:100%;text-align:left">
+      <span class="h num">${c.hora}</span><span class="p"></span>
+      <span><span class="nm" style="display:block">${c.nombre}</span><span class="mt">${tipos[c.tipo]} · ${c.proteina} g proteína</span></span>
+      <span class="kc num">${c.kcal}</span>
+    </button>`).join('');
 }
 
-function abrirHoja(html) { $('hoja').innerHTML = '<div class="asa"></div>' + html; $('hoja').classList.add('on'); $('velo').classList.add('on'); }
-function cerrarHoja() { $('hoja').classList.remove('on'); $('velo').classList.remove('on'); }
-$('velo').onclick = cerrarHoja;
+function hoja(html) { $('hoja').innerHTML = '<div class="asa"></div>' + html; $('hoja').classList.add('on'); $('velo').classList.add('on'); }
+function cerrar() { $('hoja').classList.remove('on'); $('velo').classList.remove('on'); }
+$('velo').onclick = cerrar;
 
 document.addEventListener('click', (e) => {
-  const b = e.target.closest('button');
-  if (!b) return;
+  const b = e.target.closest('button'); if (!b) return;
   if (b.dataset.comi) { comidas.find(c => c.slot === b.dataset.comi).hecha = true; pintar(); }
-  if (b.dataset.toggle) { const c = comidas.find(x => x.slot === b.dataset.toggle); c.hecha = !c.hecha; pintar(); }
-  if (b.dataset.cambiar) {
+  else if (b.dataset.toggle) { const c = comidas.find(x => x.slot === b.dataset.toggle); c.hecha = !c.hecha; pintar(); }
+  else if (b.dataset.cambiar) {
     const c = comidas.find(x => x.slot === b.dataset.cambiar);
-    abrirHoja(`<h3 class="display">Cambiar ${nombresTipo[c.tipo].toLowerCase()}</h3>
-      <p class="t">Opciones con calorías y proteína parecidas a ${c.kcal} kcal y ${c.proteina} g.</p>
-      ${c.opciones.map((o, i) => `<button class="opcion" data-elegir="${c.slot}" data-i="${i}">
-        <span><b>${o.nombre}</b><small>${o.factor !== 1 ? 'porción ×' + String(o.factor).replace('.', ',') + ' · ' : ''}${o.kcal} kcal · ${o.proteina} g proteína</small></span>
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M7 4l5 5-5 5" fill="none" stroke="#a59d92" stroke-width="2" stroke-linecap="round"/></svg></button>`).join('')}`);
+    hoja(`<h3>Cambiar ${tipos[c.tipo].toLowerCase()}</h3><p class="t">Mismas calorías y proteína, otro plato.</p>
+      ${c.opciones.map((o, i) => `<button class="op" data-elegir="${c.slot}" data-i="${i}"><span><b>${o.nombre}</b><small>${o.factor !== 1 ? 'porción ×' + String(o.factor).replace('.', ',') + ' · ' : ''}${o.kcal} kcal · ${o.proteina} g proteína</small></span><svg width="18" height="18" viewBox="0 0 18 18"><path d="M7 4l5 5-5 5" fill="none" stroke="var(--suave)" stroke-width="2" stroke-linecap="round"/></svg></button>`).join('')}`);
   }
-  if (b.dataset.elegir) {
-    const c = comidas.find(x => x.slot === b.dataset.elegir);
-    const o = c.opciones[+b.dataset.i];
-    const anterior = { nombre: c.nombre, kcal: c.kcal, proteina: c.proteina, factor: c.factor };
-    Object.assign(c, { nombre: o.nombre, kcal: o.kcal, proteina: o.proteina, factor: o.factor, ingredientes: [], portatil: false });
-    c.opciones[+b.dataset.i] = anterior;
-    cerrarHoja(); pintar();
+  else if (b.dataset.elegir) {
+    const c = comidas.find(x => x.slot === b.dataset.elegir); const i = +b.dataset.i; const o = c.opciones[i];
+    c.opciones[i] = { nombre: c.nombre, kcal: c.kcal, proteina: c.proteina, factor: c.factor };
+    Object.assign(c, { nombre: o.nombre, kcal: o.kcal, proteina: o.proteina, factor: o.factor, ingredientes: [] });
+    cerrar(); pintar();
   }
-  if (b.id === 'btnHambre') {
-    const ops = [['Caldo o consomé de pollo desgrasado', '1 taza', '15–40'], ['Pepino, rábano o tomate cherry con limón', '1 taza', '20–30'], ['Gelatina sin azúcar', '1 vaso', '10'], ['Yogur griego natural', '½ taza', '~70, con proteína'], ['Atún en agua', '1 lata pequeña', '~100, con proteína'], ['Café, té o aromática', '', '0–5']];
-    abrirHoja(`<h3 class="display">Tengo hambre</h3><p class="t">Mucho volumen, pocas calorías. Lo de menos de 30 kcal no mueve el plan.</p>
-      ${ops.map(o => `<button class="opcion"><span><b>${o[0]}</b><small>${o[1] ? o[1] + ' · ' : ''}${o[2]} kcal</small></span></button>`).join('')}
-      <p class="aviso">Si tienes hambre casi todos los días de una semana, la app propone subir 100–150 kcal.</p>`);
+  else if (b.id === 'btnTurno') {
+    hoja(`<h3>Hoy estoy en…</h3><p class="t">Define los horarios de comida y hasta cuándo cuenta el día.</p><div class="turnos">
+      ${Object.entries(TURNOS).map(([k, [n, h, ico]]) => `<button class="op ${k === turno ? 'sel' : ''}" data-turno="${k}"><span style="display:flex;gap:12px;align-items:center">${ICON[ico]}<span><b>${n}</b><small>${h}</small></span></span></button>`).join('')}</div>`);
   }
-  if (b.id === 'btnDormir') { $('dormirPie').textContent = 'día cerrado · buenas noches'; }
-  if (b.classList.contains('turno')) {
-    document.querySelectorAll('.turno').forEach(t => t.setAttribute('aria-pressed', t === b));
-    $('turnoTxt').textContent = b.textContent.toLowerCase();
+  else if (b.dataset.turno) { turno = b.dataset.turno; pintarTurno(); cerrar(); }
+  else if (b.id === 'btnHambre') {
+    const ops = [['Caldo o consomé de pollo desgrasado', '1 taza · 15–40 kcal'], ['Pepino, rábano o tomate cherry con limón', '1 taza · 20–30 kcal'], ['Gelatina sin azúcar', '1 vaso · 10 kcal'], ['Yogur griego natural', '½ taza · ~70 kcal, con proteína'], ['Atún en agua', '1 lata pequeña · ~100 kcal, con proteína'], ['Café, té o aromática', '0–5 kcal']];
+    hoja(`<h3>Algo que llene sin sumar</h3><p class="t">Lo de menos de 30 kcal no mueve tu plan.</p>${ops.map(o => `<button class="op"><span><b>${o[0]}</b><small>${o[1]}</small></span></button>`).join('')}`);
+  }
+  else if (b.id === 'btnDormir') { $('dormirPie').textContent = 'día cerrado · buenas noches'; }
+  else if (b.dataset.p) {
+    document.body.dataset.paleta = b.dataset.p;
+    document.querySelectorAll('#paletas button').forEach(x => x.setAttribute('aria-pressed', x === b));
   }
 });
 
-pintar();
+pintarTurno(); pintar();
 </script>
 </body>
 </html>
