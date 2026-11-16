@@ -1,0 +1,15 @@
+{
+  "_nota": "Lo que Michael marcó como NO en la lista de alimentos (16 nov 2026). El planificador nunca usa una receta con uno de estos ids. La lista completa con los 'Sí' y las tiendas está en la pestaña 'Lista de alimentos' del documento de diseño.",
+  "prohibidos_fijos": ["ahuyama", "calabacin", "zapallo", "calabaza"],
+  "no_como": [
+    "higado-res", "cuy", "bagre", "camaron", "lengua-res", "surimi", "calamar", "pulpo", "mejillon", "almeja", "langostino",
+    "bebida-almendras",
+    "garbanzo", "arveja-seca", "habas", "tofu", "soya-texturizada", "edamame", "hummus", "garbanzo-tostado",
+    "ulluco", "arracacha", "mote", "pasta-lenteja", "pasta-garbanzo", "wrap-espinaca", "wrap-tomate", "batata", "name",
+    "zanahoria", "brocoli", "coliflor", "espinaca", "espinaca-baby", "acelga", "calabacin", "ahuyama", "habichuela", "arveja-verde",
+    "remolacha", "berenjena", "apio", "esparrago", "kale", "puerro", "albahaca", "palmito", "alcachofa", "verduras-mixtas-congeladas",
+    "melon", "ciruela", "chontaduro", "mangostino", "zapote", "borojo", "higo",
+    "salsa-champinones", "kombucha",
+    "changua", "cuy-asado"
+  ]
+}

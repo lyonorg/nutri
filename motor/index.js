@@ -5,3 +5,4 @@ export * from './recalculo.js';
 export * from './saciedad.js';
 export * from './actividad.js';
 export * from './planificador.js';
+export * from './recetas.js';
