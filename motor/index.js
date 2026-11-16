@@ -6,3 +6,4 @@ export * from './saciedad.js';
 export * from './actividad.js';
 export * from './planificador.js';
 export * from './recetas.js';
+export * from './variantes.js';

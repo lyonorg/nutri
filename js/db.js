@@ -3,14 +3,15 @@
 // Si IndexedDB no está disponible (modo privado raro), funciona en memoria y avisa.
 
 const NOMBRE = 'nutri';
-const VERSION = 1;
+const VERSION = 2;
 const TABLAS = {
   ajustes: 'id',      // perfil, tema, meta, rápidos
   dias: 'fecha',      // día nutricional: turno, inicio, cierre, comidas planeadas con su estado
   registros: 'id',    // todo lo que se comió
   plan: 'fecha',      // plan de la semana
   peso: 'fecha',
-  compras: 'clave',   // ítems marcados como comprados
+  compras: 'clave',   // ítems marcados como comprados, "no había" y cosas agregadas a mano
+  despensa: 'alimentoId', // lo que hay en casa: gramos y fecha de compra
 };
 
 let db = null;

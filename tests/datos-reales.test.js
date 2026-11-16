@@ -104,3 +104,21 @@ test('alerta de comer muy poco: tres días bajos seguidos', () => {
   assert.equal(alertaIngestaBaja({ dias: bien, metaKcal: 1500, metaProteina: 140 }), null);
   assert.equal(alertaIngestaBaja({ dias: bajos.slice(0, 2), metaKcal: 1500, metaProteina: 140 }), null);
 });
+
+test('variantes: cada una es una receta propia, calculada desde USDA y sin alimentos vetados', async () => {
+  const { expandirVariantes } = await import('../motor/variantes.js');
+  const todas = calcularRecetas(expandirVariantes(crudas), indice);
+  assert.ok(todas.length >= 150, `solo ${todas.length} recetas`);
+  assert.equal(new Set(todas.map((r) => r.id)).size, todas.length, 'ids repetidos');
+  const vetados = new Set([...noComo.no_como, ...noComo.prohibidos_fijos]);
+  for (const r of todas) {
+    assert.ok(r.kcal > 100 && r.kcal < 800, `${r.id}: ${r.kcal} kcal`);
+    for (const ing of r.ingredientes) assert.ok(!vetados.has(ing.alimentoId), `${r.id} lleva ${ing.alimentoId}`);
+  }
+  // con todo el banco, dos semanas siguen cuadrando
+  const dias = Array.from({ length: 14 }, (_, i) => ({ fecha: fechaMas('2026-11-16', i), turno: ['manana', 'tarde', 'noche', 'post-noche', 'libre'][i % 5] }));
+  const plan = planificarSemana({ dias, meta: { kcal: 1500, proteina: 140 }, recetas: todas });
+  const usadas = new Set(plan.dias.flatMap((d) => d.comidas.map((c) => c.recetaId)));
+  assert.ok(usadas.size >= 25, `solo ${usadas.size} recetas distintas en 2 semanas`);
+  for (const d of plan.dias) assert.ok(Math.abs(d.totales.kcal - d.presupuesto.kcal) <= d.presupuesto.kcal * 0.08, `${d.fecha}: ${d.totales.kcal}`);
+});

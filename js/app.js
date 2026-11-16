@@ -109,7 +109,9 @@ const datosBatido = () => { const r = receta('batido-proteina'); return { kcal: 
 /** Recetas que el planificador puede usar. Con el batido fijo, el snack es siempre el batido. */
 function recetasPlan() {
   if (!S.perfil.batidoFijo) return S.recetas;
-  return S.recetas.filter((r) => !(r.tipos.includes('snack') && r.id !== 'batido-proteina' && r.tipos.length === 1));
+  return S.recetas
+    .map((r) => (r.id === 'batido-proteina' || !r.tipos.includes('snack') ? r : { ...r, tipos: r.tipos.filter((t) => t !== 'snack') }))
+    .filter((r) => r.tipos.length);
 }
 
 /* ------------------------------------------------------------------ registros del día */
@@ -196,8 +198,10 @@ async function marcarComida(slot, comer = true) {
   if (comer && c.estado !== 'comida') {
     const fila = await registrar({ nombre: c.nombre, kcal: c.kcal, proteina: c.proteina, fibra: c.fibra, origen: 'plan', comida: c.slot, recetaId: c.recetaId, factor: c.factor });
     Object.assign(c, { estado: 'comida', registroId: fila.id });
+    await usarDespensa(c.recetaId, c.factor, 1);
   } else if (!comer) {
     if (c.registroId) { await db.borrar('registros', c.registroId); S.registros = S.registros.filter((r) => r.id !== c.registroId); }
+    if (c.estado === 'comida') await usarDespensa(c.recetaId, c.factor, -1);
     Object.assign(c, { estado: 'planeada', registroId: null });
   }
   await guardarDia();
@@ -398,6 +402,8 @@ async function alertaPocaComida() {
 /* ------------------------------------------------------------------ vista: PLAN */
 async function vistaPlan() {
   const hoy = hoyFecha();
+  S.hayCasa = (await db.todos('despensa')).length > 0;
+  if (S.planConCasa === undefined) S.planConCasa = S.hayCasa;
   const fechas = Array.from({ length: 7 }, (_, i) => sumarDias(hoy, i));
   const planes = Object.fromEntries((await db.todos('plan')).map((p) => [p.fecha, p]));
   const turnos = fechas.map((f) => planes[f]?.turno ?? (S.dia?.fecha === f ? S.dia.turno : 'libre'));
@@ -405,6 +411,7 @@ async function vistaPlan() {
   $('#vista').innerHTML = `
     <div style="margin-bottom:14px"><div class="etq">Próximos 7 días</div><h2 class="titulo-vista" style="margin-top:6px">Plan de comidas</h2>
     <p class="sub">Elige el turno de cada día y genera el plan. Respeta tu lista de alimentos, no repite un plato principal más de 2 veces y el batido va fijo.</p></div>
+    ${S.hayCasa ? `<button class="interruptor" data-accion="con-casa" aria-pressed="${!!S.planConCasa}" style="margin-bottom:10px"><span><b style="font-weight:500;font-size:14px">Con lo que hay en casa</b><br><small style="color:var(--suave);font-size:12px">Saca las recetas de tu despensa y usa primero lo que se daña</small></span><span class="sw"></span></button>` : ''}
     <button class="btn pri ancho" data-accion="generar-plan" style="margin-bottom:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6M20 20v-6h-6M20 9A8 8 0 0 0 6 5L4 10M4 15a8 8 0 0 0 14 4l2-5"/></svg>Generar plan de la semana</button>
     <div class="pila">
       ${fechas.map((f, i) => {
@@ -430,63 +437,289 @@ async function generarPlan() {
   const dias = fechas.map((f) => ({ fecha: f, turno: S.turnosPlan[Math.round((Date.parse(f) - Date.parse(hoy)) / 86_400_000)] }));
   const historial = await historialReciente(fechas[0]);
   if (S.dia) historial.push(...S.dia.comidas.map((c) => ({ fecha: S.dia.fecha, recetaId: c.recetaId })));
-  const plan = M.planificarSemana({ dias, meta: S.perfil.meta, recetas: recetasPlan(), historial });
+  const desp = await despensaMapa();
+  const noHay = await noHayIds();
+  const conCasa = S.planConCasa && Object.keys(desp).length > 0;
+  const banco = conCasa ? recetasConDespensa(recetasPlan(), desp, noHay) : recetasPlan();
+  const plan = M.planificarSemana({ dias, meta: S.perfil.meta, recetas: banco, historial, alimentos: alimentosParaPlan(desp, noHay) });
   for (const d of plan.dias) {
     await db.guardar('plan', { fecha: d.fecha, turno: d.turno, comidas: d.comidas.map((c) => ({ slot: c.slot, recetaId: c.recetaId, factor: c.factor })) });
   }
-  toast(plan.avisos.length ? 'Plan listo, con algunos avisos' : 'Plan de la semana listo');
+  toast(conCasa ? 'Plan armado con lo que hay en casa' : plan.avisos.length ? 'Plan listo, con algunos avisos' : 'Plan de la semana listo');
   await vistaPlan();
+}
+
+/* ------------------------------------------------------------------ despensa (lo que hay en casa) */
+// Días que dura algo perecedero en la nevera desde que se compra. Lo seco dura meses.
+const VIDA = { 'Proteína animal': 3, 'Lácteo': 7, Fruta: 5, Verdura: 6, Carbohidrato: 5 };
+const VIGENCIA_COMPRA = 7; // una marca de "comprado" o "no había" vale una semana
+const BASICOS = new Set(['cebolla', 'cebolla-larga', 'ajo', 'tomate', 'cilantro', 'perejil', 'limon']);
+
+const diasEntre = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86_400_000);
+function vidaUtil(a) { return a?.perecedero ? VIDA[a.grupo] ?? 7 : 90; }
+function venceEn(item) { return vidaUtil(S.indice.get(item.alimentoId)) - diasEntre(item.desde, hoyFecha()); }
+
+async function despensaMapa() {
+  return Object.fromEntries((await db.todos('despensa')).filter((x) => x.gramos > 0).map((x) => [x.alimentoId, x]));
+}
+async function marcasCompra() {
+  const hoy = hoyFecha();
+  const todas = await db.todos('compras');
+  for (const m of todas) if (m.fecha && diasEntre(m.fecha, hoy) > VIGENCIA_COMPRA) await db.borrar('compras', m.clave);
+  return todas.filter((m) => !m.fecha || diasEntre(m.fecha, hoy) <= VIGENCIA_COMPRA);
+}
+async function noHayIds() { return new Set((await marcasCompra()).filter((m) => m.clave.startsWith('n:')).map((m) => m.alimentoId)); }
+
+/** Para el planificador: lo que no había queda fuera esta semana; lo perecedero que hay en casa se usa primero. */
+function alimentosParaPlan(desp, noHay) {
+  const mapa = {};
+  for (const id of noHay) mapa[id] = { loComo: false };
+  for (const [id, item] of Object.entries(desp)) mapa[id] = { ...mapa[id], venceEnDias: venceEn(item) };
+  return mapa;
+}
+
+/** Ingredientes que importan para saber si una receta "sale" de la despensa (no el aceite, la sal ni el tomate del hogao). */
+function claves(r) {
+  return r.ingredientes.filter((i) => {
+    const a = S.indice.get(i.alimentoId);
+    return i.gramos >= 25 && !BASICOS.has(i.alimentoId) && !['Grasa', 'Salsa / condimento'].includes(a?.grupo);
+  });
+}
+const faltan = (r, desp) => claves(r).filter((i) => !desp[i.alimentoId]);
+
+/**
+ * Banco de recetas para planear con lo que hay: primero las que salen completas de la despensa,
+ * luego las que necesitan comprar una sola cosa, y si aun así no alcanza para la semana, todas.
+ */
+function recetasConDespensa(banco, desp, noHay) {
+  const minimo = { desayuno: 4, almuerzo: 7, cena: 7, snack: 3 };
+  const usable = banco.filter((r) => !r.ingredientes.some((i) => noHay.has(i.alimentoId)));
+  const elegidas = new Set(usable.filter((r) => r.id === 'batido-proteina' || faltan(r, desp).length === 0).map((r) => r.id));
+  for (const [tipo, n] of Object.entries(minimo)) {
+    const delTipo = () => usable.filter((r) => r.tipos.includes(tipo) && elegidas.has(r.id)).length;
+    if (delTipo() < n) usable.filter((r) => r.tipos.includes(tipo) && faltan(r, desp).length === 1).forEach((r) => elegidas.add(r.id));
+    if (delTipo() < n) usable.filter((r) => r.tipos.includes(tipo)).forEach((r) => elegidas.add(r.id));
+  }
+  return usable.filter((r) => elegidas.has(r.id));
+}
+
+/** Al comer una comida planeada se descuenta de la despensa lo que se usó (signo -1 lo devuelve). */
+async function usarDespensa(recetaId, factor, signo) {
+  const r = receta(recetaId);
+  if (!r) return;
+  for (const ing of r.ingredientes) {
+    const it = await db.leer('despensa', ing.alimentoId);
+    if (!it) continue;
+    const comestible = S.indice.get(ing.alimentoId)?.parte_comestible ?? 1;
+    it.gramos = Math.max(0, Math.round(it.gramos - (signo * ing.gramos * factor) / comestible));
+    if (it.gramos <= 0) await db.borrar('despensa', it.alimentoId);
+    else await db.guardar('despensa', it);
+  }
 }
 
 /* ------------------------------------------------------------------ vista: COMPRAS */
 async function planesDesdeHoy() {
   const hoy = hoyFecha();
   const planes = (await db.todos('plan')).filter((p) => p.fecha >= hoy && p.fecha <= sumarDias(hoy, 6)).sort((a, b) => a.fecha.localeCompare(b.fecha));
-  return planes;
+  // del día abierto solo cuenta lo que falta por comer
+  return planes.map((p) => (S.dia?.fecha === p.fecha
+    ? { ...p, comidas: S.dia.comidas.filter((c) => c.estado === 'planeada').map((c) => ({ slot: c.slot, recetaId: c.recetaId, factor: c.factor })) }
+    : p));
+}
+
+/** Lista con su estado: cuánto pide el plan, cuánto hay en casa, si se compró o no había. */
+async function armarLista() {
+  const planes = await planesDesdeHoy();
+  const desp = await despensaMapa();
+  const marcas = await marcasCompra();
+  const comprados = new Map(marcas.filter((m) => m.clave.startsWith('c:')).map((m) => [m.alimentoId, m]));
+  const noHay = new Set(marcas.filter((m) => m.clave.startsWith('n:')).map((m) => m.alimentoId));
+  const bruta = planes.length ? M.listaCompras({ dias: planes }, S.recetas, {}, S.indice) : [];
+  const items = bruta.map((it) => {
+    const compra = comprados.get(it.alimentoId);
+    // lo que se compró desde esta lista ya está sumado en la despensa: no se descuenta dos veces
+    const enCasa = Math.max((desp[it.alimentoId]?.gramos ?? 0) - (compra?.gramos ?? 0), 0);
+    const falta = Math.max(it.gramos - enCasa, 0);
+    return { ...it, enCasa, falta, comprado: !!compra, noHay: noHay.has(it.alimentoId) };
+  });
+  const manuales = marcas.filter((m) => m.clave.startsWith('m:'));
+  return { planes, items, manuales, desp };
+}
+
+// Lo que se compra por unidad: gramos por unidad y cómo se llama.
+const UNIDADES = {
+  huevo: [50, 'huevo', 'huevos'], 'huevo-codorniz': [10, 'huevito', 'huevitos'], arepa: [60, 'arepa', 'arepas'],
+  'tortilla-integral': [40, 'tortilla', 'tortillas'], 'tortilla-maiz': [25, 'tortilla', 'tortillas'], 'tortilla-trigo': [40, 'tortilla', 'tortillas'],
+  'pan-integral': [30, 'tajada', 'tajadas'], 'pan-pita': [60, 'pan', 'panes'], 'pan-arabe-integral': [60, 'pan', 'panes'], bagel: [100, 'bagel', 'bagels'],
+  'pan-blanco': [70, 'pan', 'panes'], manzana: [180, 'manzana', 'manzanas'], pera: [170, 'pera', 'peras'], naranja: [180, 'naranja', 'naranjas'],
+  mandarina: [90, 'mandarina', 'mandarinas'], banano: [120, 'banano', 'bananos'], aguacate: [200, 'aguacate', 'aguacates'], limon: [60, 'limón', 'limones'],
+  kiwi: [75, 'kiwi', 'kiwis'], feijoa: [50, 'feijoa', 'feijoas'], maracuya: [30, 'maracuyá', 'maracuyás'], mango: [250, 'mango', 'mangos'],
+  'platano-maduro': [250, 'maduro', 'maduros'], platano: [250, 'plátano', 'plátanos'], 'salchicha-pavo': [40, 'salchicha', 'salchichas'], chorizo: [80, 'chorizo', 'chorizos'],
+  'atun-agua': [120, 'lata', 'latas'], 'sardina-lata': [90, 'lata', 'latas'], 'frijol-lata': [250, 'lata', 'latas'], 'maiz-tierno': [200, 'lata', 'latas'],
+};
+const LIQUIDOS = new Set(['leche-descremada', 'leche-entera', 'kumis', 'crema-leche']);
+
+function cantidad(alimentoId, g) {
+  const a = S.indice.get(alimentoId);
+  const u = UNIDADES[alimentoId];
+  if (u) { const n = Math.max(1, Math.ceil(g / u[0] - 0.15)); return `${n} ${n === 1 ? u[1] : u[2]}`; }
+  if (LIQUIDOS.has(alimentoId)) return g >= 1000 ? `${dec(Math.ceil(g / 100) / 10)} L` : `${fmt(Math.ceil(g / 50) * 50)} ml`;
+  if (g >= 250 && /Carnicer|Plaza/.test(a?.tienda ?? '')) return `${dec(M.aLibras(g))} lb`;
+  return g >= 1000 ? `${dec(g / 1000)} kg` : `${fmt(g)} g`;
 }
 
 async function vistaCompras() {
-  const planes = await planesDesdeHoy();
+  const tab = S.compTab ?? 'lista';
   const v = $('#vista');
-  if (!planes.length) {
-    v.innerHTML = `<div class="etq">Lista de compras</div><h2 class="titulo-vista" style="margin-top:6px">Compras</h2>
-      <section class="card" style="margin-top:14px"><div class="vacio">Primero genera el plan de la semana. La lista sale de ahí.</div>
-      <button class="btn pri ancho" data-ir="plan">Ir al plan</button></section>`;
-    return;
-  }
-  const lista = M.listaCompras({ dias: planes }, S.recetas, {}, S.indice);
-  const marcados = new Set((await db.todos('compras')).filter((c) => c.semana === planes[0].fecha && c.comprado).map((c) => c.alimentoId));
+  const seg = `<div class="segmentado" style="margin-bottom:14px">${[['lista', 'Por comprar'], ['casa', 'En casa']].map(([k, n]) => `<button aria-pressed="${k === tab}" data-comp-tab="${k}">${n}</button>`).join('')}</div>`;
+  if (tab === 'casa') return vistaCasa(v, seg);
+
+  const { planes, items, manuales } = await armarLista();
+  S.compras = { dias: planes.length };
+  const porComprar = items.filter((x) => !x.noHay && x.falta > 0);
+  const listos = items.filter((x) => !x.noHay && x.falta === 0);
+  const sinHay = items.filter((x) => x.noHay);
   const grupos = {};
-  for (const it of lista) (grupos[it.tienda ?? 'Otros'] ??= []).push(it);
-  const pendientes = lista.filter((x) => !marcados.has(x.alimentoId)).length;
-  S.compras = { lista, semana: planes[0].fecha, dias: planes.length };
+  for (const it of porComprar) (grupos[it.tienda ?? 'Otros'] ??= []).push(it);
+  const pendientes = porComprar.filter((x) => !x.comprado).length + manuales.filter((m) => !m.comprado).length;
+  const fila = (it) => `<div class="item ${it.comprado ? 'ok' : ''}">
+      <button class="marca" data-compra="${it.alimentoId}"><span class="caja"></span><span class="nm">${esc(it.nombre)}${it.enCasa ? `<small>hay ${cantidad(it.alimentoId, it.enCasa)} en casa</small>` : ''}</span><span class="cant">${cantidad(it.alimentoId, it.comprado ? it.falta || it.gramos : it.falta)}</span></button>
+      ${it.comprado ? '' : `<button class="nohay" data-nohay="${it.alimentoId}">No había</button>`}</div>`;
+
   v.innerHTML = `
-    <div style="margin-bottom:14px"><div class="etq">${planes.length} días de plan</div><h2 class="titulo-vista" style="margin-top:6px">Compras</h2>
-    <p class="sub">${pendientes} de ${lista.length} por comprar. Las cantidades ya incluyen cáscara y hueso. La libra es de 500 g.</p></div>
+    <div style="margin-bottom:14px"><div class="etq">${planes.length ? `${planes.length} días de plan` : 'Sin plan'}</div><h2 class="titulo-vista" style="margin-top:6px">Compras</h2>
+    <p class="sub">${planes.length ? `${pendientes} por comprar. Lo que marques queda en <b>En casa</b> y el plan lo usa primero. La libra es de 500 g.` : 'Genera el plan para que salga la lista. Igual puedes anotar cosas sueltas.'}</p></div>
+    ${seg}
     <div class="duo" style="margin-bottom:12px">
       <a class="btn pri" id="wa-compras" href="#" target="_blank" rel="noopener">WhatsApp</a>
       <button class="btn sec" data-accion="copiar-compras">Copiar lista</button>
     </div>
     <div class="pila">
-      ${Object.entries(grupos).map(([tienda, items]) => `
-        <section class="card tienda"><div class="etq">${esc(tienda)}</div>
-          ${items.map((it) => `<button class="item ${marcados.has(it.alimentoId) ? 'ok' : ''}" data-compra="${it.alimentoId}"><span class="caja"></span><span class="nm">${esc(it.nombre)}</span><span class="cant">${cantidad(it)}</span></button>`).join('')}
-        </section>`).join('')}
+      ${Object.entries(grupos).map(([tienda, its]) => `<section class="card tienda"><div class="etq">${esc(tienda)}</div>${its.map(fila).join('')}</section>`).join('')}
+      <section class="card tienda"><div class="etq">Otras cosas</div>
+        ${manuales.map((m) => `<div class="item ${m.comprado ? 'ok' : ''}"><button class="marca" data-manual="${m.clave}"><span class="caja"></span><span class="nm">${esc(m.nombre)}</span><span class="cant"></span></button><button class="nohay" data-manual-quitar="${m.clave}">Quitar</button></div>`).join('')}
+        <div class="par" style="margin-top:10px"><input class="entrada" id="manual" placeholder="Café, Coca-Cola Zero, papel…" autocomplete="off"><button class="btn sec" data-accion="agregar-manual">Agregar</button></div>
+      </section>
+      ${sinHay.length ? `<section class="card tienda"><div class="etq">No había</div>
+        ${sinHay.map((it) => `<div class="item"><button class="marca" data-nohay="${it.alimentoId}"><span class="caja"></span><span class="nm">${esc(it.nombre)}<small>toca para volver a la lista</small></span><span class="cant"></span></button></div>`).join('')}
+        <p class="sub" style="margin-top:10px">El plan todavía usa esto. Rehazlo y saldrán otras recetas sin estos productos.</p>
+        <button class="btn pri ancho" style="margin-top:10px" data-accion="rehacer-sin">Rehacer el plan sin esto</button></section>` : ''}
+      ${listos.length ? `<section class="card tienda"><div class="etq">Ya hay en casa</div>
+        ${listos.map((it) => `<div class="fila"><span class="nm">${esc(it.nombre)}</span><span class="der">${cantidad(it.alimentoId, it.gramos)}</span></div>`).join('')}</section>` : ''}
     </div>`;
-  $('#wa-compras').href = `https://wa.me/?text=${encodeURIComponent(textoCompras(lista, marcados))}`;
+  $('#wa-compras').href = `https://wa.me/?text=${encodeURIComponent(await textoCompras())}`;
+  $('#manual').addEventListener('keydown', (e) => { if (e.key === 'Enter') agregarManual(); });
 }
 
-function cantidad(it) {
-  const a = S.indice.get(it.alimentoId);
-  const g = it.gramos;
-  if (['Carnicería', 'Carnicería / Cadena', 'Plaza', 'Plaza / Cadena'].some((t) => a?.tienda?.startsWith(t.split(' ')[0])) && g >= 250) return `${dec(M.aLibras(g))} lb`;
-  return g >= 1000 ? `${dec(g / 1000)} kg` : `${fmt(g)} g`;
-}
-
-function textoCompras(lista, marcados = new Set()) {
+async function textoCompras() {
+  const { items, manuales } = await armarLista();
   const grupos = {};
-  for (const it of lista) if (!marcados.has(it.alimentoId)) (grupos[it.tienda ?? 'Otros'] ??= []).push(it);
-  return `🛒 Mercado (${S.compras?.dias ?? 7} días)\n` + Object.entries(grupos).map(([t, items]) => `\n*${t}*\n` + items.map((it) => `- ${it.nombre}: ${cantidad(it)}`).join('\n')).join('\n');
+  for (const it of items) if (!it.noHay && !it.comprado && it.falta > 0) (grupos[it.tienda ?? 'Otros'] ??= []).push(`- ${it.nombre}: ${cantidad(it.alimentoId, it.falta)}`);
+  const otros = manuales.filter((m) => !m.comprado).map((m) => `- ${m.nombre}`);
+  if (otros.length) grupos['Otras cosas'] = otros;
+  return `🛒 Mercado (${S.compras?.dias ?? 7} días)\n` + Object.entries(grupos).map(([t, l]) => `\n*${t}*\n${l.join('\n')}`).join('\n');
+}
+
+/** Marcar como comprado lo suma a la despensa; desmarcar lo quita. */
+async function marcarCompra(alimentoId) {
+  const { items } = await armarLista();
+  const it = items.find((x) => x.alimentoId === alimentoId);
+  const clave = `c:${alimentoId}`;
+  const previa = await db.leer('compras', clave);
+  const casa = (await db.leer('despensa', alimentoId)) ?? { alimentoId, gramos: 0, desde: hoyFecha() };
+  if (previa) {
+    casa.gramos = Math.max(0, casa.gramos - previa.gramos);
+    await db.borrar('compras', clave);
+  } else {
+    const g = Math.max(it?.falta ?? 0, 0);
+    casa.gramos += g; casa.desde = hoyFecha();
+    await db.guardar('compras', { clave, alimentoId, gramos: g, fecha: hoyFecha() });
+  }
+  if (casa.gramos > 0) await db.guardar('despensa', casa); else await db.borrar('despensa', alimentoId);
+  return vistaCompras();
+}
+
+async function marcarNoHay(alimentoId) {
+  const clave = `n:${alimentoId}`;
+  if (await db.leer('compras', clave)) await db.borrar('compras', clave);
+  else { await db.guardar('compras', { clave, alimentoId, fecha: hoyFecha() }); toast('Anotado. Puedes rehacer el plan sin eso'); }
+  return vistaCompras();
+}
+
+async function agregarManual() {
+  const nombre = $('#manual')?.value.trim();
+  if (!nombre) return;
+  await db.guardar('compras', { clave: `m:${db.uuid()}`, nombre, comprado: false, fecha: hoyFecha() });
+  return vistaCompras();
+}
+async function marcarManual(clave) {
+  const m = await db.leer('compras', clave);
+  m.comprado = !m.comprado; await db.guardar('compras', m);
+  return vistaCompras();
+}
+
+/* En casa */
+async function vistaCasa(v, seg) {
+  const desp = Object.values(await despensaMapa());
+  const grupos = {};
+  for (const it of desp) (grupos[S.indice.get(it.alimentoId)?.grupo ?? 'Otros'] ??= []).push(it);
+  const pronto = desp.filter((x) => S.indice.get(x.alimentoId)?.perecedero && venceEn(x) <= 2);
+  v.innerHTML = `
+    <div style="margin-bottom:14px"><div class="etq">Tu despensa</div><h2 class="titulo-vista" style="margin-top:6px">En casa</h2>
+    <p class="sub">Lo que compraste o ya tenías. El plan saca las recetas de aquí y usa primero lo que se daña. Al marcar una comida como comida, se descuenta solo.</p></div>
+    ${seg}
+    <div class="duo" style="margin-bottom:12px">
+      <button class="btn pri" data-accion="agregar-casa">Agregar lo que compré</button>
+      <button class="btn sec" data-accion="planear-casa" ${desp.length ? '' : 'disabled'}>Planear con esto</button>
+    </div>
+    ${pronto.length ? `<div class="aviso" style="margin-bottom:12px">Úsalo pronto: ${pronto.map((x) => esc(S.indice.get(x.alimentoId)?.nombre)).join(', ')}.</div>` : ''}
+    <div class="pila">
+      ${desp.length ? Object.entries(grupos).map(([g, its]) => `<section class="card tienda"><div class="etq">${esc(g)}</div>
+        ${its.map((it) => { const a = S.indice.get(it.alimentoId); const d = venceEn(it); return `<button class="fila" style="width:100%;text-align:left" data-casa="${it.alimentoId}"><span><span class="nm">${esc(a?.nombre ?? it.alimentoId)}</span><div class="mt">${a?.perecedero ? (d <= 0 ? 'revisa si sigue bueno' : `buena ~${d} día${d === 1 ? '' : 's'} más`) : 'no perecedero'}</div></span><span class="der">${cantidad(it.alimentoId, it.gramos)}</span></button>`; }).join('')}
+      </section>`).join('') : '<section class="card"><div class="vacio">Todavía no hay nada. Marca lo que compres en <b>Por comprar</b> o agrégalo aquí.</div></section>'}
+    </div>`;
+}
+
+function hojaAgregarCasa() {
+  hoja(`<h3>Agregar a la despensa</h3><p class="t">Busca lo que compraste o lo que ya hay en la casa.</p>
+    <input class="entrada" id="buscar-casa" placeholder="pollo, queso, banano…" autocomplete="off">
+    <div class="resultados" id="res-casa"></div><div id="det-casa"></div>`);
+  $('#buscar-casa').addEventListener('input', () => {
+    const q = sinTildes($('#buscar-casa').value.trim());
+    $('#res-casa').innerHTML = q.length < 2 ? '' : S.alimentos.filter((a) => sinTildes(a.nombre).includes(q)).slice(0, 8)
+      .map((a) => `<button class="op" data-casa-alimento="${a.id}"><span><b>${esc(a.nombre)}</b><small>${esc(a.grupo)} · ${esc(a.tienda ?? '')}</small></span></button>`).join('') || '<div class="vacio">No está en la lista de alimentos.</div>';
+  });
+  setTimeout(() => $('#buscar-casa')?.focus(), 350);
+}
+
+function detalleCasa(id, actual = null, devolver = false) {
+  const a = S.indice.get(id);
+  const libra = /Carnicer|Plaza/.test(a.tienda ?? '');
+  const html = `<div class="op sel" style="display:block"><b>${esc(a.nombre)}</b><small>${actual ? `Ahora: ${cantidad(id, actual.gramos)}` : 'Cuánto compraste'}</small>
+    <div class="par" style="margin-top:10px"><input class="entrada f" id="cant-casa" type="number" inputmode="decimal" value="${libra ? 1 : 500}" min="0" step="any">
+    <div class="segmentado">${[['lb', 'lb'], ['g', 'g'], ['kg', 'kg']].map(([k, n]) => `<button aria-pressed="${k === (libra ? 'lb' : 'g')}" data-unidad="${k}">${n}</button>`).join('')}</div></div>
+    <button class="btn pri ancho" style="margin-top:12px" data-guardar-casa="${id}">${actual ? 'Sumar' : 'Agregar'}</button></div>`;
+  if (devolver) return html;
+  $('#res-casa').innerHTML = ''; $('#det-casa').innerHTML = html;
+}
+
+async function guardarCasa(id) {
+  const n = parseFloat(String($('#cant-casa').value).replace(',', '.')) || 0;
+  const u = $('[data-unidad][aria-pressed=true]')?.dataset.unidad ?? 'g';
+  const g = Math.round(n * ({ lb: 500, kg: 1000, g: 1 }[u]));
+  if (!(g > 0)) return toast('Escribe la cantidad');
+  const it = (await db.leer('despensa', id)) ?? { alimentoId: id, gramos: 0 };
+  it.gramos += g; it.desde = hoyFecha();
+  await db.guardar('despensa', it);
+  cerrarHoja(); toast(`${S.indice.get(id).nombre} en casa`);
+  return vistaCompras();
+}
+
+async function hojaItemCasa(id) {
+  const it = await db.leer('despensa', id);
+  hoja(`<h3>${esc(S.indice.get(id)?.nombre)}</h3><p class="t">Hay ${cantidad(id, it.gramos)} desde el ${esc(nombreDia(it.desde))}.</p>
+    ${detalleCasa(id, it, true)}
+    <button class="op" data-quitar-casa="${id}"><span><b>Ya no hay</b><small>Quitar de la despensa</small></span></button>`);
 }
 
 /* ------------------------------------------------------------------ vista: PROGRESO */
@@ -906,12 +1139,22 @@ async function onClick(e) {
   }
   if (d.cocina) return hojaCocina(d.cocina);
 
-  if (d.compra) {
-    const clave = `${S.compras.semana}:${d.compra}`; const actual = await db.leer('compras', clave);
-    await db.guardar('compras', { clave, semana: S.compras.semana, alimentoId: d.compra, comprado: !actual?.comprado });
-    return vistaCompras();
-  }
-  if (d.accion === 'copiar-compras') return copiar(textoCompras(S.compras.lista, new Set((await db.todos('compras')).filter((c) => c.semana === S.compras.semana && c.comprado).map((c) => c.alimentoId))));
+  if (d.compra) return marcarCompra(d.compra);
+  if (d.nohay) return marcarNoHay(d.nohay);
+  if (d.manual) return marcarManual(d.manual);
+  if (d.manualQuitar) { await db.borrar('compras', d.manualQuitar); return vistaCompras(); }
+  if (d.compTab) { S.compTab = d.compTab; return vistaCompras(); }
+  if (d.accion === 'agregar-manual') return agregarManual();
+  if (d.accion === 'copiar-compras') return copiar(await textoCompras());
+  if (d.accion === 'rehacer-sin') { await ir('plan'); return generarPlan(); }
+  if (d.accion === 'agregar-casa') return hojaAgregarCasa();
+  if (d.casaAlimento) return detalleCasa(d.casaAlimento);
+  if (d.unidad) { b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b)); return; }
+  if (d.guardarCasa) return guardarCasa(d.guardarCasa);
+  if (d.casa) return hojaItemCasa(d.casa);
+  if (d.quitarCasa) { await db.borrar('despensa', d.quitarCasa); cerrarHoja(); toast('Quitado de la despensa'); return vistaCompras(); }
+  if (d.accion === 'planear-casa') { S.planConCasa = true; await ir('plan'); return generarPlan(); }
+  if (d.accion === 'con-casa') { S.planConCasa = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', S.planConCasa); return; }
 
   if (b.id === 'ruidoso' || b.id === 'batidoFijo') { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); return; }
   if (d.accion === 'guardar-peso') {
@@ -991,7 +1234,7 @@ async function iniciarDatos() {
 
 async function iniciar() {
   const [a, r] = await Promise.all([fetch('datos/alimentos.json').then((x) => x.json()), fetch('datos/recetas.json').then((x) => x.json())]);
-  S.alimentos = a.alimentos; S.indice = M.indiceAlimentos(S.alimentos); S.recetasBase = r.recetas;
+  S.alimentos = a.alimentos; S.indice = M.indiceAlimentos(S.alimentos); S.recetasBase = M.expandirVariantes(r.recetas);
   await db.abrir();
   await iniciarDatos();
   document.addEventListener('click', (e) => onClick(e).catch((err) => { console.error(err); toast('Algo falló: ' + err.message); }));

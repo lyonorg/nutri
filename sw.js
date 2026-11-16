@@ -1,10 +1,10 @@
 // Guarda la app para que funcione sin internet (en la clínica, por ejemplo).
 // Al publicar una versión nueva, sube VERSION para que el teléfono la descargue.
-const VERSION = 'nutri-v1';
+const VERSION = 'nutri-v2';
 const ARCHIVOS = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css', 'js/app.js', 'js/db.js',
   'motor/index.js', 'motor/constantes.js', 'motor/dia.js', 'motor/tdee.js', 'motor/recalculo.js',
-  'motor/saciedad.js', 'motor/actividad.js', 'motor/planificador.js', 'motor/recetas.js',
+  'motor/saciedad.js', 'motor/actividad.js', 'motor/planificador.js', 'motor/recetas.js', 'motor/variantes.js',
   'datos/alimentos.json', 'datos/recetas.json', 'iconos/icono-192.png', 'iconos/apple-touch-icon.png',
 ];
 

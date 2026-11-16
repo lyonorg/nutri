@@ -1,87 +1,1357 @@
 {
-  "_nota": "Qué registro de USDA SR28 representa a cada alimento de la lista blanca. Los valores NO se escriben a mano: los saca herramientas/sembrar-alimentos.mjs. ndbCocido sirve para calcular el factor de cocción (gramos cocidos por gramo crudo).",
-  "alimentos": [
-    {"id": "pechuga-pollo", "ndb": "05062", "ndbCocido": "05746", "nombre": "Pechuga de pollo", "grupo": "Proteína animal", "tienda": "Carnicería / Cadena", "perecedero": true, "nova": 1},
-    {"id": "muslo-pollo", "ndb": "05096", "nombre": "Muslo de pollo sin piel", "grupo": "Proteína animal", "tienda": "Carnicería", "perecedero": true, "nova": 1},
-    {"id": "res-magra", "ndb": "23354", "nombre": "Carne de res magra (posta, bola)", "grupo": "Proteína animal", "tienda": "Carnicería", "perecedero": true, "nova": 1},
-    {"id": "res-molida", "ndb": "23562", "ndbCocido": "23565", "nombre": "Carne molida de res magra (90 %)", "grupo": "Proteína animal", "tienda": "Carnicería", "perecedero": true, "nova": 1},
-    {"id": "lomo-cerdo", "ndb": "10060", "ndbCocido": "10061", "nombre": "Lomo de cerdo", "grupo": "Proteína animal", "tienda": "Carnicería", "perecedero": true, "nova": 1},
-    {"id": "trucha", "ndb": "15240", "ndbCocido": "15241", "nombre": "Trucha", "grupo": "Proteína animal", "tienda": "Plaza / Cadena", "perecedero": true, "nova": 1},
-    {"id": "tilapia", "ndb": "15261", "ndbCocido": "15262", "nombre": "Tilapia / mojarra", "grupo": "Proteína animal", "tienda": "Plaza / Cadena", "perecedero": true, "nova": 1},
-    {"id": "salmon", "ndb": "15236", "nombre": "Salmón", "grupo": "Proteína animal", "tienda": "Cadena", "perecedero": true, "nova": 1},
-    {"id": "atun-agua", "ndb": "15121", "nombre": "Atún en agua, escurrido", "grupo": "Proteína animal", "tienda": "D1 / Cadena", "nova": 3},
-    {"id": "sardina-lata", "ndb": "15088", "nombre": "Sardinas en lata, escurridas", "grupo": "Proteína animal", "tienda": "D1 / Cadena", "nova": 3},
-    {"id": "huevo", "ndb": "01123", "ndbCocido": "01129", "nombre": "Huevo entero", "grupo": "Proteína animal", "tienda": "Barrio / D1", "perecedero": true, "nova": 1},
-    {"id": "clara-huevo", "ndb": "01124", "nombre": "Clara de huevo", "grupo": "Proteína animal", "tienda": "Barrio / D1", "perecedero": true, "nova": 1},
-    {"id": "pechuga-pavo-tajada", "ndb": "07081", "nombre": "Pechuga de pavo en tajadas", "grupo": "Proteína animal", "tienda": "Cadena", "perecedero": true, "nova": 4},
-    {"id": "pavo-molido", "ndb": "05665", "nombre": "Pavo molido (93 % magro)", "grupo": "Proteína animal", "tienda": "Cadena", "perecedero": true, "nova": 1},
-
-    {"id": "leche-descremada", "ndb": "01082", "nombre": "Leche baja en grasa (1 %)", "grupo": "Lácteo", "tienda": "Barrio / D1", "perecedero": true, "nova": 1},
-    {"id": "yogur-griego", "ndb": "01256", "nombre": "Yogur griego natural sin grasa", "grupo": "Lácteo", "tienda": "D1 / Cadena", "perecedero": true, "nova": 1, "altaProteina": true},
-    {"id": "queso-campesino", "ndb": "01228", "nombre": "Queso campesino (queso fresco)", "grupo": "Lácteo", "tienda": "Plaza / Barrio", "perecedero": true, "nova": 3},
-    {"id": "queso-mozzarella", "ndb": "01028", "nombre": "Queso mozzarella semidescremado", "grupo": "Lácteo", "tienda": "D1 / Cadena", "perecedero": true, "nova": 3},
-    {"id": "queso-cottage", "ndb": "01015", "nombre": "Queso cottage bajo en grasa", "grupo": "Lácteo", "tienda": "Cadena", "perecedero": true, "nova": 3, "altaProteina": true},
-    {"id": "queso-parmesano", "ndb": "01032", "nombre": "Queso parmesano rallado", "grupo": "Lácteo", "tienda": "D1 / Cadena", "nova": 3},
-
-    {"id": "frijol-rojo", "ndb": "16032", "ndbCocido": "16033", "nombre": "Fríjol rojo seco", "grupo": "Proteína vegetal", "tienda": "D1 / Plaza", "nova": 1, "legumbre": true},
-    {"id": "frijol-negro", "ndb": "16014", "ndbCocido": "16015", "nombre": "Fríjol negro seco", "grupo": "Proteína vegetal", "tienda": "D1 / Cadena", "nova": 1, "legumbre": true},
-    {"id": "lenteja", "ndb": "16069", "ndbCocido": "16070", "nombre": "Lenteja seca", "grupo": "Proteína vegetal", "tienda": "D1 / Barrio", "nova": 1, "legumbre": true},
-
-    {"id": "arroz-blanco", "ndb": "20444", "ndbCocido": "20045", "nombre": "Arroz blanco", "grupo": "Carbohidrato", "tienda": "Barrio / D1", "nova": 1},
-    {"id": "arroz-integral", "ndb": "20036", "ndbCocido": "20037", "nombre": "Arroz integral", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 1, "integral": true},
-    {"id": "papa", "ndb": "11352", "ndbCocido": "11365", "nombre": "Papa con cáscara", "grupo": "Carbohidrato", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "yuca", "ndb": "11134", "nombre": "Yuca", "grupo": "Carbohidrato", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "platano", "ndb": "09277", "ndbCocido": "09278", "nombre": "Plátano", "grupo": "Carbohidrato", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "mazorca", "ndb": "11900", "nombre": "Maíz tierno / mazorca desgranada", "grupo": "Carbohidrato", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "arepa", "ndb": "36415", "nombre": "Arepa de maíz", "grupo": "Carbohidrato", "tienda": "Barrio / D1", "perecedero": true, "nova": 3, "estado": "listo"},
-    {"id": "pan-integral", "ndb": "18075", "nombre": "Pan integral tajado", "grupo": "Carbohidrato", "tienda": "D1 / Barrio", "nova": 4, "integral": true, "estado": "listo"},
-    {"id": "pan-arabe-integral", "ndb": "18042", "nombre": "Pan árabe integral", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 3, "integral": true, "estado": "listo"},
-    {"id": "tortilla-integral", "ndb": "28295", "nombre": "Tortilla integral", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 4, "integral": true, "estado": "listo"},
-    {"id": "tortilla-maiz", "ndb": "18363", "nombre": "Tortilla de maíz", "grupo": "Carbohidrato", "tienda": "Cadena", "nova": 3, "estado": "listo"},
-    {"id": "avena", "ndb": "08120", "ndbCocido": "08121", "nombre": "Avena en hojuelas", "grupo": "Carbohidrato", "tienda": "D1 / Barrio", "nova": 1, "integral": true},
-    {"id": "pasta-integral", "ndb": "20124", "ndbCocido": "20125", "nombre": "Pasta integral", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 1, "integral": true},
-    {"id": "quinua", "ndb": "20035", "ndbCocido": "20137", "nombre": "Quinua", "grupo": "Carbohidrato", "tienda": "Plaza / Cadena", "nova": 1, "integral": true},
-    {"id": "galleta-integral", "ndb": "18235", "nombre": "Galletas integrales", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 4, "integral": true, "estado": "listo"},
-    {"id": "crispetas", "ndb": "19034", "nombre": "Crispetas sin grasa", "grupo": "Carbohidrato", "tienda": "D1 / Barrio", "nova": 1, "integral": true, "estado": "listo"},
-    {"id": "granola", "ndb": "08037", "nombre": "Granola", "grupo": "Carbohidrato", "tienda": "D1 / Cadena", "nova": 3, "estado": "listo"},
-
-    {"id": "tomate", "ndb": "11529", "nombre": "Tomate", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "cebolla", "ndb": "11282", "nombre": "Cebolla cabezona", "grupo": "Verdura", "tienda": "Plaza", "nova": 1},
-    {"id": "cebolla-larga", "ndb": "11291", "nombre": "Cebolla larga", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "ajo", "ndb": "11215", "nombre": "Ajo", "grupo": "Verdura", "tienda": "Plaza", "nova": 1},
-    {"id": "lechuga", "ndb": "11251", "nombre": "Lechuga", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "repollo", "ndb": "11109", "nombre": "Repollo", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "pepino", "ndb": "11205", "nombre": "Pepino", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "pimenton", "ndb": "11821", "nombre": "Pimentón", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "champinon", "ndb": "11260", "nombre": "Champiñones", "grupo": "Verdura", "tienda": "Plaza / Cadena", "perecedero": true, "nova": 1},
-    {"id": "rabano", "ndb": "11429", "nombre": "Rábano", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "cilantro", "ndb": "11165", "nombre": "Cilantro", "grupo": "Verdura", "tienda": "Plaza", "perecedero": true, "nova": 1},
-    {"id": "aguacate", "ndb": "09037", "nombre": "Aguacate", "grupo": "Grasa", "tienda": "Plaza", "perecedero": true, "nova": 1},
-
-    {"id": "banano", "ndb": "09040", "nombre": "Banano", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "manzana", "ndb": "09003", "nombre": "Manzana", "grupo": "Fruta", "tienda": "Plaza / D1", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "fresa", "ndb": "09316", "nombre": "Fresa", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "mora", "ndb": "09042", "nombre": "Mora", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "papaya", "ndb": "09226", "nombre": "Papaya", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "pina", "ndb": "09266", "nombre": "Piña", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "mango", "ndb": "09176", "nombre": "Mango", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "naranja", "ndb": "09200", "nombre": "Naranja", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "sandia", "ndb": "09326", "nombre": "Sandía", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "guayaba", "ndb": "09139", "nombre": "Guayaba", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "uva", "ndb": "09132", "nombre": "Uva", "grupo": "Fruta", "tienda": "Plaza", "perecedero": true, "nova": 1, "fruta": true},
-    {"id": "limon", "ndb": "09160", "nombre": "Jugo de limón", "grupo": "Salsa / condimento", "tienda": "Plaza", "nova": 1},
-
-    {"id": "aceite-oliva", "ndb": "04053", "nombre": "Aceite de oliva", "grupo": "Grasa", "tienda": "D1 / Cadena", "nova": 2},
-    {"id": "mani", "ndb": "16390", "nombre": "Maní tostado sin sal", "grupo": "Grasa", "tienda": "Barrio / D1", "nova": 1},
-    {"id": "mantequilla-mani", "ndb": "16398", "nombre": "Mantequilla de maní", "grupo": "Grasa", "tienda": "D1 / Cadena", "nova": 3},
-    {"id": "chia", "ndb": "12006", "nombre": "Chía", "grupo": "Grasa", "tienda": "D1 / Cadena", "nova": 1},
-
-    {"id": "proteina-polvo", "ndb": "14058", "nombre": "Proteína en polvo (suero aislado)", "grupo": "Suplemento", "tienda": "Tienda de suplementos", "nova": 4, "altaProteina": true, "estado": "listo", "provisional": "Valor genérico de USDA. Reemplazar con la etiqueta de la proteína de Michael (foto de la tabla nutricional)."},
-    {"id": "caldo-pollo", "ndb": "06172", "nombre": "Caldo de pollo casero", "grupo": "Salsa / condimento", "tienda": "Casa", "nova": 1, "estado": "listo"},
-    {"id": "salsa-napolitana", "ndb": "06931", "nombre": "Salsa de tomate para pasta", "grupo": "Salsa / condimento", "tienda": "D1 / Cadena", "nova": 3, "estado": "listo"},
-    {"id": "salsa-soya", "ndb": "16123", "nombre": "Salsa soya", "grupo": "Salsa / condimento", "tienda": "D1 / Cadena", "nova": 3, "estado": "listo"},
-    {"id": "mostaza", "ndb": "02046", "nombre": "Mostaza", "grupo": "Salsa / condimento", "tienda": "Barrio / D1", "nova": 3, "estado": "listo"},
-    {"id": "mayonesa-light", "ndb": "04641", "nombre": "Mayonesa light", "grupo": "Salsa / condimento", "tienda": "Barrio / D1", "nova": 4, "estado": "listo"},
-    {"id": "miel", "ndb": "19296", "nombre": "Miel", "grupo": "Salsa / condimento", "tienda": "D1 / Cadena", "nova": 2, "estado": "listo"}
-  ]
+ "_nota": "Qué registro de USDA SR28 representa a cada alimento de la lista blanca. Los valores NO se escriben a mano: los saca herramientas/sembrar-alimentos.mjs. ndbCocido sirve para calcular el factor de cocción (gramos cocidos por gramo crudo).",
+ "alimentos": [
+  {
+   "id": "pechuga-pollo",
+   "ndb": "05062",
+   "ndbCocido": "05746",
+   "nombre": "Pechuga de pollo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería / Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "muslo-pollo",
+   "ndb": "05096",
+   "nombre": "Muslo de pollo sin piel",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "res-magra",
+   "ndb": "23354",
+   "nombre": "Carne de res magra (posta, bola)",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "res-molida",
+   "ndb": "23562",
+   "ndbCocido": "23565",
+   "nombre": "Carne molida de res magra (90 %)",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "lomo-cerdo",
+   "ndb": "10060",
+   "ndbCocido": "10061",
+   "nombre": "Lomo de cerdo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "trucha",
+   "ndb": "15240",
+   "ndbCocido": "15241",
+   "nombre": "Trucha",
+   "grupo": "Proteína animal",
+   "tienda": "Plaza / Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "tilapia",
+   "ndb": "15261",
+   "ndbCocido": "15262",
+   "nombre": "Tilapia / mojarra",
+   "grupo": "Proteína animal",
+   "tienda": "Plaza / Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "salmon",
+   "ndb": "15236",
+   "nombre": "Salmón",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "atun-agua",
+   "ndb": "15121",
+   "nombre": "Atún en agua, escurrido",
+   "grupo": "Proteína animal",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "sardina-lata",
+   "ndb": "15088",
+   "nombre": "Sardinas en lata, escurridas",
+   "grupo": "Proteína animal",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "huevo",
+   "ndb": "01123",
+   "ndbCocido": "01129",
+   "nombre": "Huevo entero",
+   "grupo": "Proteína animal",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "clara-huevo",
+   "ndb": "01124",
+   "nombre": "Clara de huevo",
+   "grupo": "Proteína animal",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pechuga-pavo-tajada",
+   "ndb": "07081",
+   "nombre": "Pechuga de pavo en tajadas",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 4
+  },
+  {
+   "id": "pavo-molido",
+   "ndb": "05665",
+   "nombre": "Pavo molido (93 % magro)",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "leche-descremada",
+   "ndb": "01082",
+   "nombre": "Leche baja en grasa (1 %)",
+   "grupo": "Lácteo",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "yogur-griego",
+   "ndb": "01256",
+   "nombre": "Yogur griego natural sin grasa",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 1,
+   "altaProteina": true
+  },
+  {
+   "id": "queso-campesino",
+   "ndb": "01228",
+   "nombre": "Queso campesino (queso fresco)",
+   "grupo": "Lácteo",
+   "tienda": "Plaza / Barrio",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-mozzarella",
+   "ndb": "01028",
+   "nombre": "Queso mozzarella semidescremado",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-cottage",
+   "ndb": "01015",
+   "nombre": "Queso cottage bajo en grasa",
+   "grupo": "Lácteo",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3,
+   "altaProteina": true
+  },
+  {
+   "id": "queso-parmesano",
+   "ndb": "01032",
+   "nombre": "Queso parmesano rallado",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "frijol-rojo",
+   "ndb": "16032",
+   "ndbCocido": "16033",
+   "nombre": "Fríjol rojo seco",
+   "grupo": "Proteína vegetal",
+   "tienda": "D1 / Plaza",
+   "nova": 1,
+   "legumbre": true
+  },
+  {
+   "id": "frijol-negro",
+   "ndb": "16014",
+   "ndbCocido": "16015",
+   "nombre": "Fríjol negro seco",
+   "grupo": "Proteína vegetal",
+   "tienda": "D1 / Cadena",
+   "nova": 1,
+   "legumbre": true
+  },
+  {
+   "id": "lenteja",
+   "ndb": "16069",
+   "ndbCocido": "16070",
+   "nombre": "Lenteja seca",
+   "grupo": "Proteína vegetal",
+   "tienda": "D1 / Barrio",
+   "nova": 1,
+   "legumbre": true
+  },
+  {
+   "id": "arroz-blanco",
+   "ndb": "20444",
+   "ndbCocido": "20045",
+   "nombre": "Arroz blanco",
+   "grupo": "Carbohidrato",
+   "tienda": "Barrio / D1",
+   "nova": 1
+  },
+  {
+   "id": "arroz-integral",
+   "ndb": "20036",
+   "ndbCocido": "20037",
+   "nombre": "Arroz integral",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 1,
+   "integral": true
+  },
+  {
+   "id": "papa",
+   "ndb": "11352",
+   "ndbCocido": "11365",
+   "nombre": "Papa con cáscara",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "yuca",
+   "ndb": "11134",
+   "nombre": "Yuca",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "platano",
+   "ndb": "09277",
+   "ndbCocido": "09278",
+   "nombre": "Plátano",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "mazorca",
+   "ndb": "11900",
+   "nombre": "Maíz tierno / mazorca desgranada",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "arepa",
+   "ndb": "36415",
+   "nombre": "Arepa de maíz",
+   "grupo": "Carbohidrato",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "pan-integral",
+   "ndb": "18075",
+   "nombre": "Pan integral tajado",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Barrio",
+   "nova": 4,
+   "integral": true,
+   "estado": "listo"
+  },
+  {
+   "id": "pan-arabe-integral",
+   "ndb": "18042",
+   "nombre": "Pan árabe integral",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "integral": true,
+   "estado": "listo"
+  },
+  {
+   "id": "tortilla-integral",
+   "ndb": "28295",
+   "nombre": "Tortilla integral",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 4,
+   "integral": true,
+   "estado": "listo"
+  },
+  {
+   "id": "tortilla-maiz",
+   "ndb": "18363",
+   "nombre": "Tortilla de maíz",
+   "grupo": "Carbohidrato",
+   "tienda": "Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "avena",
+   "ndb": "08120",
+   "ndbCocido": "08121",
+   "nombre": "Avena en hojuelas",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Barrio",
+   "nova": 1,
+   "integral": true
+  },
+  {
+   "id": "pasta-integral",
+   "ndb": "20124",
+   "ndbCocido": "20125",
+   "nombre": "Pasta integral",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 1,
+   "integral": true
+  },
+  {
+   "id": "quinua",
+   "ndb": "20035",
+   "ndbCocido": "20137",
+   "nombre": "Quinua",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza / Cadena",
+   "nova": 1,
+   "integral": true
+  },
+  {
+   "id": "galleta-integral",
+   "ndb": "18235",
+   "nombre": "Galletas integrales",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 4,
+   "integral": true,
+   "estado": "listo"
+  },
+  {
+   "id": "crispetas",
+   "ndb": "19034",
+   "nombre": "Crispetas sin grasa",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Barrio",
+   "nova": 1,
+   "integral": true,
+   "estado": "listo"
+  },
+  {
+   "id": "granola",
+   "ndb": "08037",
+   "nombre": "Granola",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "tomate",
+   "ndb": "11529",
+   "nombre": "Tomate",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "cebolla",
+   "ndb": "11282",
+   "nombre": "Cebolla cabezona",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "nova": 1
+  },
+  {
+   "id": "cebolla-larga",
+   "ndb": "11291",
+   "nombre": "Cebolla larga",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "ajo",
+   "ndb": "11215",
+   "nombre": "Ajo",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "nova": 1
+  },
+  {
+   "id": "lechuga",
+   "ndb": "11251",
+   "nombre": "Lechuga",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "repollo",
+   "ndb": "11109",
+   "nombre": "Repollo",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pepino",
+   "ndb": "11205",
+   "nombre": "Pepino",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pimenton",
+   "ndb": "11821",
+   "nombre": "Pimentón",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "champinon",
+   "ndb": "11260",
+   "nombre": "Champiñones",
+   "grupo": "Verdura",
+   "tienda": "Plaza / Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "rabano",
+   "ndb": "11429",
+   "nombre": "Rábano",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "cilantro",
+   "ndb": "11165",
+   "nombre": "Cilantro",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "aguacate",
+   "ndb": "09037",
+   "nombre": "Aguacate",
+   "grupo": "Grasa",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "banano",
+   "ndb": "09040",
+   "nombre": "Banano",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "manzana",
+   "ndb": "09003",
+   "nombre": "Manzana",
+   "grupo": "Fruta",
+   "tienda": "Plaza / D1",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "fresa",
+   "ndb": "09316",
+   "nombre": "Fresa",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "mora",
+   "ndb": "09042",
+   "nombre": "Mora",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "papaya",
+   "ndb": "09226",
+   "nombre": "Papaya",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "pina",
+   "ndb": "09266",
+   "nombre": "Piña",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "mango",
+   "ndb": "09176",
+   "nombre": "Mango",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "naranja",
+   "ndb": "09200",
+   "nombre": "Naranja",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "sandia",
+   "ndb": "09326",
+   "nombre": "Sandía",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "guayaba",
+   "ndb": "09139",
+   "nombre": "Guayaba",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "uva",
+   "ndb": "09132",
+   "nombre": "Uva",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "limon",
+   "ndb": "09160",
+   "nombre": "Jugo de limón",
+   "grupo": "Salsa / condimento",
+   "tienda": "Plaza",
+   "nova": 1
+  },
+  {
+   "id": "aceite-oliva",
+   "ndb": "04053",
+   "nombre": "Aceite de oliva",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 2
+  },
+  {
+   "id": "mani",
+   "ndb": "16390",
+   "nombre": "Maní tostado sin sal",
+   "grupo": "Grasa",
+   "tienda": "Barrio / D1",
+   "nova": 1
+  },
+  {
+   "id": "mantequilla-mani",
+   "ndb": "16398",
+   "nombre": "Mantequilla de maní",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "chia",
+   "ndb": "12006",
+   "nombre": "Chía",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 1
+  },
+  {
+   "id": "proteina-polvo",
+   "ndb": "14058",
+   "nombre": "Proteína en polvo (suero aislado)",
+   "grupo": "Suplemento",
+   "tienda": "Tienda de suplementos",
+   "nova": 4,
+   "altaProteina": true,
+   "estado": "listo",
+   "provisional": "Valor genérico de USDA. Reemplazar con la etiqueta de la proteína de Michael (foto de la tabla nutricional)."
+  },
+  {
+   "id": "caldo-pollo",
+   "ndb": "06172",
+   "nombre": "Caldo de pollo casero",
+   "grupo": "Salsa / condimento",
+   "tienda": "Casa",
+   "nova": 1,
+   "estado": "listo"
+  },
+  {
+   "id": "salsa-napolitana",
+   "ndb": "06931",
+   "nombre": "Salsa de tomate para pasta",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "salsa-soya",
+   "ndb": "16123",
+   "nombre": "Salsa soya",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "mostaza",
+   "ndb": "02046",
+   "nombre": "Mostaza",
+   "grupo": "Salsa / condimento",
+   "tienda": "Barrio / D1",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "mayonesa-light",
+   "ndb": "04641",
+   "nombre": "Mayonesa light",
+   "grupo": "Salsa / condimento",
+   "tienda": "Barrio / D1",
+   "nova": 4,
+   "estado": "listo"
+  },
+  {
+   "id": "miel",
+   "ndb": "19296",
+   "nombre": "Miel",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 2,
+   "estado": "listo"
+  },
+  {
+   "id": "alitas-pollo",
+   "ndb": "05100",
+   "nombre": "Alitas de pollo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "sobrebarriga",
+   "ndb": "13068",
+   "nombre": "Sobrebarriga (falda)",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "costilla-res",
+   "ndb": "23066",
+   "nombre": "Costilla de res",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "punta-anca",
+   "ndb": "23245",
+   "nombre": "Punta de anca / churrasco",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "chuleta-cerdo",
+   "ndb": "10040",
+   "nombre": "Chuleta de cerdo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "costilla-cerdo",
+   "ndb": "10088",
+   "nombre": "Costilla de cerdo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "cerdo-molido",
+   "ndb": "10219",
+   "nombre": "Carne de cerdo molida",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pernil-cerdo",
+   "ndb": "10010",
+   "nombre": "Pernil de cerdo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "tocineta",
+   "ndb": "10123",
+   "nombre": "Tocineta",
+   "grupo": "Proteína animal",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 4
+  },
+  {
+   "id": "chorizo",
+   "ndb": "07019",
+   "nombre": "Chorizo",
+   "grupo": "Proteína animal",
+   "tienda": "Carnicería / D1",
+   "perecedero": true,
+   "nova": 4
+  },
+  {
+   "id": "salchicha-pavo",
+   "ndb": "07025",
+   "nombre": "Salchicha de pavo",
+   "grupo": "Proteína animal",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 4,
+   "estado": "listo"
+  },
+  {
+   "id": "jamon-pavo",
+   "ndb": "42128",
+   "nombre": "Jamón de pavo o pollo",
+   "grupo": "Proteína animal",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 4,
+   "estado": "listo"
+  },
+  {
+   "id": "pechuga-pavo",
+   "ndb": "05219",
+   "nombre": "Pechuga de pavo entera",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pescado-blanco",
+   "ndb": "15015",
+   "nombre": "Merluza / filete de pescado blanco",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "sierra",
+   "ndb": "15049",
+   "nombre": "Sierra / pescado de mar",
+   "grupo": "Proteína animal",
+   "tienda": "Plaza / Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "huevo-codorniz",
+   "ndb": "01140",
+   "nombre": "Huevos de codorniz",
+   "grupo": "Proteína animal",
+   "tienda": "Plaza / Barrio",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "salmon-ahumado",
+   "ndb": "15077",
+   "nombre": "Salmón ahumado",
+   "grupo": "Proteína animal",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "leche-entera",
+   "ndb": "01077",
+   "nombre": "Leche entera",
+   "grupo": "Lácteo",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "kumis",
+   "ndb": "01116",
+   "nombre": "Kumis / yogur natural",
+   "grupo": "Lácteo",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "queso-doble-crema",
+   "ndb": "01026",
+   "nombre": "Queso doble crema / quesillo",
+   "grupo": "Lácteo",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-mozzarella-light",
+   "ndb": "01029",
+   "nombre": "Mozzarella light",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-crema",
+   "ndb": "01017",
+   "nombre": "Queso crema",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "ricotta",
+   "ndb": "01037",
+   "nombre": "Ricotta / requesón",
+   "grupo": "Lácteo",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3,
+   "altaProteina": true
+  },
+  {
+   "id": "queso-feta",
+   "ndb": "01019",
+   "nombre": "Queso feta",
+   "grupo": "Lácteo",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-cheddar",
+   "ndb": "01270",
+   "nombre": "Queso cheddar en tajadas",
+   "grupo": "Lácteo",
+   "tienda": "D1 / Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-holandes",
+   "ndb": "01022",
+   "nombre": "Queso holandés / gouda",
+   "grupo": "Lácteo",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "queso-cabra",
+   "ndb": "01159",
+   "nombre": "Queso de cabra",
+   "grupo": "Lácteo",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 3
+  },
+  {
+   "id": "crema-leche",
+   "ndb": "01050",
+   "nombre": "Crema de leche",
+   "grupo": "Grasa",
+   "tienda": "Barrio / D1",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "mantequilla",
+   "ndb": "01001",
+   "nombre": "Mantequilla",
+   "grupo": "Grasa",
+   "tienda": "Barrio / D1",
+   "nova": 2
+  },
+  {
+   "id": "frijol-blanco",
+   "ndb": "16024",
+   "nombre": "Fríjol blanco / bola roja",
+   "grupo": "Proteína vegetal",
+   "tienda": "Plaza / D1",
+   "nova": 1,
+   "legumbre": true
+  },
+  {
+   "id": "frijol-lata",
+   "ndb": "16145",
+   "nombre": "Fríjol enlatado listo",
+   "grupo": "Proteína vegetal",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "legumbre": true,
+   "estado": "listo"
+  },
+  {
+   "id": "platano-maduro",
+   "ndb": "09277",
+   "nombre": "Plátano maduro",
+   "grupo": "Carbohidrato",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "pan-blanco",
+   "ndb": "18069",
+   "nombre": "Pan blanco",
+   "grupo": "Carbohidrato",
+   "tienda": "Barrio",
+   "nova": 4
+  },
+  {
+   "id": "tortilla-trigo",
+   "ndb": "18364",
+   "nombre": "Tortilla de trigo",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 4
+  },
+  {
+   "id": "pan-pita",
+   "ndb": "18041",
+   "nombre": "Pan árabe / pita",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 4
+  },
+  {
+   "id": "bagel",
+   "ndb": "18001",
+   "nombre": "Bagel",
+   "grupo": "Carbohidrato",
+   "tienda": "Cadena",
+   "nova": 4
+  },
+  {
+   "id": "cuscus",
+   "ndb": "20028",
+   "nombre": "Cuscús",
+   "grupo": "Carbohidrato",
+   "tienda": "Cadena",
+   "nova": 1
+  },
+  {
+   "id": "fideos-arroz",
+   "ndb": "20133",
+   "nombre": "Fideos de arroz / noodles",
+   "grupo": "Carbohidrato",
+   "tienda": "Cadena",
+   "nova": 1
+  },
+  {
+   "id": "papas-airfryer",
+   "ndb": "11360",
+   "nombre": "Papas congeladas para airfryer",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "maiz-tierno",
+   "ndb": "11172",
+   "nombre": "Maíz tierno desgranado",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "estado": "listo"
+  },
+  {
+   "id": "galleta-arroz",
+   "ndb": "19816",
+   "nombre": "Galletas de arroz",
+   "grupo": "Carbohidrato",
+   "tienda": "D1 / Cadena",
+   "nova": 3,
+   "integral": true
+  },
+  {
+   "id": "rucula",
+   "ndb": "11959",
+   "nombre": "Rúcula",
+   "grupo": "Verdura",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "repollo-morado",
+   "ndb": "11112",
+   "nombre": "Repollo morado",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "jengibre",
+   "ndb": "11216",
+   "nombre": "Jengibre",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "nova": 1
+  },
+  {
+   "id": "hierbabuena",
+   "ndb": "02065",
+   "nombre": "Hierbabuena",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "perejil",
+   "ndb": "11297",
+   "nombre": "Perejil",
+   "grupo": "Verdura",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "jalapeno",
+   "ndb": "11979",
+   "nombre": "Jalapeños",
+   "grupo": "Verdura",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "pepinillos",
+   "ndb": "11937",
+   "nombre": "Pepinillos encurtidos",
+   "grupo": "Verdura",
+   "tienda": "D1 / Cadena",
+   "nova": 3
+  },
+  {
+   "id": "pera",
+   "ndb": "09252",
+   "nombre": "Pera",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "mandarina",
+   "ndb": "09218",
+   "nombre": "Mandarina",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "maracuya",
+   "ndb": "09231",
+   "nombre": "Maracuyá / granadilla",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "lulo",
+   "ndb": "09450",
+   "nombre": "Lulo (pulpa)",
+   "grupo": "Fruta",
+   "tienda": "Plaza / D1",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "uchuva",
+   "ndb": "09138",
+   "nombre": "Uchuva",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "guanabana",
+   "ndb": "09315",
+   "nombre": "Guanábana",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "feijoa",
+   "ndb": "09334",
+   "nombre": "Feijoa",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "kiwi",
+   "ndb": "09148",
+   "nombre": "Kiwi",
+   "grupo": "Fruta",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "arandanos",
+   "ndb": "09050",
+   "nombre": "Arándanos",
+   "grupo": "Fruta",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "frambuesa",
+   "ndb": "09302",
+   "nombre": "Frambuesa",
+   "grupo": "Fruta",
+   "tienda": "Cadena",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "durazno",
+   "ndb": "09236",
+   "nombre": "Durazno",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "frutos-rojos",
+   "ndb": "09318",
+   "nombre": "Frutos rojos congelados",
+   "grupo": "Fruta",
+   "tienda": "D1 / Cadena",
+   "nova": 1,
+   "fruta": true
+  },
+  {
+   "id": "coco",
+   "ndb": "12104",
+   "nombre": "Coco",
+   "grupo": "Fruta",
+   "tienda": "Plaza",
+   "perecedero": true,
+   "nova": 1
+  },
+  {
+   "id": "aceite-vegetal",
+   "ndb": "04582",
+   "nombre": "Aceite vegetal / canola",
+   "grupo": "Grasa",
+   "tienda": "Barrio / D1",
+   "nova": 2
+  },
+  {
+   "id": "almendras",
+   "ndb": "12061",
+   "nombre": "Almendras",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 1
+  },
+  {
+   "id": "nueces",
+   "ndb": "12155",
+   "nombre": "Nueces",
+   "grupo": "Grasa",
+   "tienda": "Cadena",
+   "nova": 1
+  },
+  {
+   "id": "linaza",
+   "ndb": "12220",
+   "nombre": "Linaza",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 1
+  },
+  {
+   "id": "maranon",
+   "ndb": "12087",
+   "nombre": "Marañón",
+   "grupo": "Grasa",
+   "tienda": "D1 / Cadena",
+   "nova": 1
+  },
+  {
+   "id": "salsa-bbq",
+   "ndb": "06150",
+   "nombre": "Salsa BBQ",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 4
+  },
+  {
+   "id": "salsa-tomate",
+   "ndb": "11935",
+   "nombre": "Salsa de tomate",
+   "grupo": "Salsa / condimento",
+   "tienda": "Barrio / D1",
+   "nova": 4
+  },
+  {
+   "id": "salsa-teriyaki",
+   "ndb": "06112",
+   "nombre": "Salsa teriyaki",
+   "grupo": "Salsa / condimento",
+   "tienda": "Cadena",
+   "nova": 4
+  },
+  {
+   "id": "sriracha",
+   "ndb": "06631",
+   "nombre": "Sriracha / salsa picante",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 4
+  },
+  {
+   "id": "pesto",
+   "ndb": "06626",
+   "nombre": "Pesto",
+   "grupo": "Salsa / condimento",
+   "tienda": "Cadena",
+   "nova": 3
+  },
+  {
+   "id": "chocolate-oscuro",
+   "ndb": "19904",
+   "nombre": "Chocolate oscuro 70 %",
+   "grupo": "Salsa / condimento",
+   "tienda": "D1 / Cadena",
+   "nova": 4
+  },
+  {
+   "id": "panela",
+   "ndb": "19334",
+   "nombre": "Panela",
+   "grupo": "Salsa / condimento",
+   "tienda": "Barrio / D1",
+   "nova": 1
+  }
+ ]
 }

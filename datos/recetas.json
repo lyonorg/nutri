@@ -1,307 +1,4620 @@
 {
-  "_nota": "Banco de recetas de la fase 1. Una porción = la de Michael. Los gramos son de alimento crudo y ya limpio (sin cáscara ni hueso). Aquí NO hay calorías: las calcula motor/recetas.js con datos/alimentos.json. 'casera' es la medida aproximada para quien cocina; lo que manda son los gramos.",
-  "recetas": [
+ "_nota": "Banco de recetas de la fase 1. Una porción = la de Michael. Los gramos son de alimento crudo y ya limpio (sin cáscara ni hueso). Aquí NO hay calorías: las calcula motor/recetas.js con datos/alimentos.json. 'casera' es la medida aproximada para quien cocina; lo que manda son los gramos.",
+ "recetas": [
+  {
+   "id": "huevos-pericos-arepa",
+   "nombre": "Huevos pericos con arepa",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
     {
-      "id": "huevos-pericos-arepa", "nombre": "Huevos pericos con arepa", "tipos": ["desayuno"], "proteinaPrincipal": "huevo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "huevo", "g": 100, "casera": "2 huevos"}, {"a": "clara-huevo", "g": 100, "casera": "3 claras"},
-        {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"}, {"a": "cebolla-larga", "g": 20, "casera": "1 tallo"},
-        {"a": "arepa", "g": 50, "casera": "1 arepa pequeña"}, {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Picar el tomate y la cebolla.", "Sofreírlos 2 minutos con el aceite.", "Agregar los huevos y las claras batidos y revolver hasta que cuajen.", "Calentar la arepa y servir."]
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
     },
     {
-      "id": "avena-proteica", "nombre": "Avena fría con proteína y banano", "tipos": ["desayuno"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "avena", "g": 35, "casera": "4 cucharadas"}, {"a": "leche-descremada", "g": 200, "casera": "1 vaso"},
-        {"a": "proteina-polvo", "g": 25, "casera": "1 scoop"}, {"a": "banano", "g": 60, "casera": "½ banano"}
-      ],
-      "pasos": ["Mezclar en un frasco la avena, la leche y la proteína.", "Agregar el banano en rodajas.", "Tapar y dejar en la nevera toda la noche.", "Se come fría; se puede llevar a la clínica."]
+     "a": "clara-huevo",
+     "g": 100,
+     "casera": "3 claras"
     },
     {
-      "id": "sandwich-pavo", "nombre": "Sándwich de pavo y queso", "tipos": ["desayuno", "snack"], "portatil": true, "proteinaPrincipal": "pavo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "pan-integral", "g": 60, "casera": "2 tajadas"}, {"a": "pechuga-pavo-tajada", "g": 100, "casera": "5 tajadas"},
-        {"a": "queso-mozzarella", "g": 25, "casera": "1 tajada"}, {"a": "tomate", "g": 40, "casera": "2 rodajas"},
-        {"a": "lechuga", "g": 20, "casera": "2 hojas"}, {"a": "mostaza", "g": 5, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Untar la mostaza en el pan.", "Armar con el pavo, el queso, el tomate y la lechuga.", "Si se quiere caliente, tostar 2 minutos en sartén."]
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
     },
     {
-      "id": "yogur-fresa-granola", "nombre": "Yogur griego con fresa y granola", "tipos": ["desayuno", "snack"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "yogur-griego", "g": 250, "casera": "1 taza"}, {"a": "fresa", "g": 120, "casera": "8 fresas"},
-        {"a": "granola", "g": 20, "casera": "2 cucharadas"}, {"a": "chia", "g": 5, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Servir el yogur en un frasco.", "Agregar las fresas picadas, la granola y la chía."]
+     "a": "cebolla-larga",
+     "g": 20,
+     "casera": "1 tallo"
     },
     {
-      "id": "wrap-huevo", "nombre": "Wrap de huevo y queso", "tipos": ["desayuno"], "portatil": true, "proteinaPrincipal": "huevo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "tortilla-integral", "g": 45, "casera": "1 tortilla"}, {"a": "huevo", "g": 50, "casera": "1 huevo"},
-        {"a": "clara-huevo", "g": 130, "casera": "4 claras"}, {"a": "queso-mozzarella", "g": 20, "casera": "1 tajada delgada"},
-        {"a": "tomate", "g": 40, "casera": "2 rodajas"}
-      ],
-      "pasos": ["Batir el huevo con las claras y cocinar como tortilla en sartén antiadherente.", "Poner sobre la tortilla con el queso y el tomate.", "Enrollar y envolver en papel para llevar."]
+     "a": "arepa",
+     "g": 50,
+     "casera": "1 arepa pequeña"
     },
     {
-      "id": "batido-banano-mani", "nombre": "Batido de proteína con banano", "tipos": ["desayuno"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "leche-descremada", "g": 250, "casera": "1 vaso grande"}, {"a": "proteina-polvo", "g": 35, "casera": "1½ scoops"},
-        {"a": "banano", "g": 100, "casera": "1 banano pequeño"}, {"a": "mantequilla-mani", "g": 8, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Licuar todo con hielo.", "Servir de inmediato o llevar en termo."]
-    },
-    {
-      "id": "cottage-papaya-tostada", "nombre": "Queso cottage con papaya y tostada", "tipos": ["desayuno"], "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "queso-cottage", "g": 200, "casera": "1 taza"}, {"a": "papaya", "g": 150, "casera": "1 taza en cubos"},
-        {"a": "pan-integral", "g": 30, "casera": "1 tajada"}
-      ],
-      "pasos": ["Servir el cottage con la papaya picada.", "Tostar el pan y acompañar."]
-    },
-    {
-      "id": "arepa-queso-huevo", "nombre": "Arepa con queso y huevo", "tipos": ["desayuno"], "proteinaPrincipal": "huevo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "arepa", "g": 60, "casera": "1 arepa mediana"}, {"a": "queso-campesino", "g": 30, "casera": "1 tajada"},
-        {"a": "huevo", "g": 50, "casera": "1 huevo"}, {"a": "clara-huevo", "g": 100, "casera": "3 claras"}
-      ],
-      "pasos": ["Asar la arepa.", "Revolver el huevo con las claras en sartén antiadherente, sin aceite.", "Servir la arepa con el queso encima y los huevos al lado."]
-    },
-
-    {
-      "id": "pollo-plancha-arroz", "nombre": "Pollo a la plancha con arroz y ensalada", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "pechuga-pollo", "g": 200, "casera": "1 pechuga grande"}, {"a": "arroz-blanco", "g": 50, "casera": "¼ taza crudo (¾ taza cocido)"},
-        {"a": "tomate", "g": 100, "casera": "1 tomate"}, {"a": "lechuga", "g": 50, "casera": "1 taza"},
-        {"a": "aceite-oliva", "g": 5, "casera": "1 cucharadita"}, {"a": "limon", "g": 10, "casera": "½ limón"}
-      ],
-      "pasos": ["Cocinar el arroz como siempre, sin aceite extra.", "Sazonar la pechuga con sal, ajo y limón.", "Asarla en sartén caliente con el aceite, 6 minutos por lado.", "Servir con el arroz y la ensalada de tomate y lechuga."],
-      "tip": "Dejar reposar la pechuga 3 minutos antes de cortarla: queda más jugosa."
-    },
-    {
-      "id": "sudado-pollo", "nombre": "Sudado de pollo con papa y yuca", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 2, "lote": true,
-      "ingredientes": [
-        {"a": "muslo-pollo", "g": 220, "casera": "2 muslos sin piel"}, {"a": "papa", "g": 150, "casera": "1 papa mediana"},
-        {"a": "yuca", "g": 60, "casera": "1 trozo pequeño"}, {"a": "tomate", "g": 100, "casera": "1 tomate"},
-        {"a": "cebolla", "g": 40, "casera": "¼ de cebolla"}, {"a": "cilantro", "g": 5, "casera": "1 ramita"},
-        {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Hacer un hogao con el tomate, la cebolla y el aceite.", "Agregar el pollo sin piel y sellarlo 3 minutos.", "Añadir la papa, la yuca y agua hasta la mitad.", "Tapar y cocinar 30 minutos a fuego bajo.", "Servir con cilantro picado."]
-    },
-    {
-      "id": "carne-asada-papa", "nombre": "Carne asada con papa y ensalada", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "res", "dificultad": 1,
-      "ingredientes": [
-        {"a": "res-magra", "g": 200, "casera": "1 bistec grande"}, {"a": "papa", "g": 200, "casera": "2 papas pequeñas"},
-        {"a": "lechuga", "g": 60, "casera": "1 taza"}, {"a": "tomate", "g": 80, "casera": "1 tomate pequeño"},
-        {"a": "aguacate", "g": 30, "casera": "2 tajadas"}, {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Cocinar las papas con cáscara en agua con sal, 20 minutos.", "Asar la carne en sartén muy caliente con el aceite, 3 minutos por lado.", "Servir con la ensalada y el aguacate."],
-      "tip": "La sartén debe estar bien caliente antes de poner la carne para que selle y no suelte agua."
-    },
-    {
-      "id": "frijolada", "nombre": "Fríjoles con carne y arroz", "tipos": ["almuerzo"], "proteinaPrincipal": "res", "dificultad": 2, "lote": true,
-      "ingredientes": [
-        {"a": "frijol-rojo", "g": 70, "casera": "⅓ taza seco"}, {"a": "res-magra", "g": 130, "casera": "1 bistec mediano en cubos"},
-        {"a": "arroz-blanco", "g": 25, "casera": "2 cucharadas crudo"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"},
-        {"a": "cebolla", "g": 30, "casera": "¼ de cebolla"}
-      ],
-      "pasos": ["Remojar los fríjoles desde la noche anterior.", "Cocinarlos en olla a presión 30 minutos.", "Agregar la carne en cubos, el tomate y la cebolla picados y cocinar 15 minutos más.", "Servir con el arroz."]
-    },
-    {
-      "id": "lentejas-pollo", "nombre": "Lentejas con pollo", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "lenteja", "g": 70, "casera": "⅓ taza seca"}, {"a": "pechuga-pollo", "g": 130, "casera": "½ pechuga en cubos"},
-        {"a": "papa", "g": 80, "casera": "1 papa pequeña"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"},
-        {"a": "cebolla", "g": 30, "casera": "¼ de cebolla"}, {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Sofreír el tomate y la cebolla con el aceite.", "Agregar las lentejas, la papa en cubos y 2 tazas de agua.", "Cocinar 20 minutos.", "Añadir el pollo en cubos y cocinar 10 minutos más."]
-    },
-    {
-      "id": "trucha-papa", "nombre": "Trucha a la plancha con papa", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pescado", "dificultad": 2,
-      "ingredientes": [
-        {"a": "trucha", "g": 220, "casera": "1 trucha mediana en filete"}, {"a": "papa", "g": 180, "casera": "2 papas pequeñas"},
-        {"a": "tomate", "g": 80, "casera": "1 tomate pequeño"}, {"a": "limon", "g": 10, "casera": "½ limón"},
-        {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Cocinar las papas con cáscara, 20 minutos.", "Secar la trucha y sazonar con sal, ajo y limón.", "Asarla con el aceite, primero por el lado de la piel, 4 minutos por lado.", "Servir con las papas y el tomate."],
-      "tip": "Secar bien el pescado con papel antes de asarlo evita que se pegue."
-    },
-    {
-      "id": "tilapia-arroz", "nombre": "Tilapia con arroz y ensalada de repollo", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pescado", "dificultad": 1,
-      "ingredientes": [
-        {"a": "tilapia", "g": 240, "casera": "2 filetes"}, {"a": "arroz-blanco", "g": 50, "casera": "¼ taza crudo"},
-        {"a": "repollo", "g": 80, "casera": "1 taza picado"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"},
-        {"a": "aguacate", "g": 30, "casera": "2 tajadas"}, {"a": "aceite-oliva", "g": 4, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Cocinar el arroz.", "Sazonar los filetes y asarlos con el aceite, 3 minutos por lado.", "Mezclar el repollo y el tomate con limón y sal.", "Servir con el aguacate."]
-    },
-    {
-      "id": "lomo-cerdo-yuca", "nombre": "Lomo de cerdo con yuca", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "cerdo", "dificultad": 2,
-      "ingredientes": [
-        {"a": "lomo-cerdo", "g": 220, "casera": "2 medallones gruesos"}, {"a": "yuca", "g": 120, "casera": "1 trozo mediano"},
-        {"a": "repollo", "g": 80, "casera": "1 taza picado"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"},
-        {"a": "aceite-oliva", "g": 4, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Cocinar la yuca en agua con sal hasta que ablande, 25 minutos.", "Sazonar el lomo con sal, ajo y comino.", "Asarlo con el aceite, 5 minutos por lado.", "Servir con la ensalada de repollo y tomate."]
-    },
-    {
-      "id": "pasta-bolonesa", "nombre": "Pasta integral a la boloñesa", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "res", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "pasta-integral", "g": 50, "casera": "1 puñado (1 taza cocida)"}, {"a": "res-molida", "g": 170, "casera": "¾ taza"},
-        {"a": "salsa-napolitana", "g": 120, "casera": "½ taza"}, {"a": "cebolla", "g": 30, "casera": "¼ de cebolla"},
-        {"a": "queso-parmesano", "g": 8, "casera": "1 cucharada"}
-      ],
-      "pasos": ["Cocinar la pasta en agua con sal.", "Dorar la carne molida con la cebolla, sin aceite.", "Agregar la salsa y cocinar 5 minutos.", "Mezclar con la pasta y poner el queso encima."]
-    },
-    {
-      "id": "wrap-pollo", "nombre": "Wrap de pollo", "tipos": ["almuerzo", "cena"], "portatil": true, "proteinaPrincipal": "pollo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "tortilla-integral", "g": 60, "casera": "1 tortilla grande"}, {"a": "pechuga-pollo", "g": 170, "casera": "1 pechuga mediana"},
-        {"a": "lechuga", "g": 40, "casera": "1 taza"}, {"a": "tomate", "g": 50, "casera": "3 rodajas"},
-        {"a": "yogur-griego", "g": 30, "casera": "2 cucharadas"}, {"a": "mostaza", "g": 5, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Asar la pechuga y cortarla en tiras.", "Mezclar el yogur con la mostaza: esa es la salsa.", "Armar la tortilla con todo y enrollar apretado.", "Envolver en papel si es para llevar."]
-    },
-    {
-      "id": "arroz-con-pollo", "nombre": "Arroz con pollo", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 2, "lote": true,
-      "ingredientes": [
-        {"a": "pechuga-pollo", "g": 180, "casera": "1 pechuga mediana"}, {"a": "arroz-blanco", "g": 60, "casera": "⅓ taza crudo"},
-        {"a": "pimenton", "g": 40, "casera": "¼ de pimentón"}, {"a": "cebolla", "g": 30, "casera": "¼ de cebolla"},
-        {"a": "mazorca", "g": 40, "casera": "3 cucharadas de maíz"}, {"a": "aceite-oliva", "g": 4, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Cocinar la pechuga en agua con sal y desmecharla. Guardar el caldo.", "Sofreír la cebolla y el pimentón con el aceite.", "Agregar el arroz, el maíz y el caldo (el doble que de arroz).", "Cuando seque, mezclar con el pollo y tapar 5 minutos."]
-    },
-    {
-      "id": "hamburguesa-casera", "nombre": "Hamburguesa casera", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "res", "dificultad": 1,
-      "ingredientes": [
-        {"a": "res-molida", "g": 170, "casera": "1 carne grande"}, {"a": "pan-integral", "g": 60, "casera": "2 tajadas o 1 pan"},
-        {"a": "queso-mozzarella", "g": 20, "casera": "1 tajada delgada"}, {"a": "tomate", "g": 50, "casera": "3 rodajas"},
-        {"a": "lechuga", "g": 30, "casera": "2 hojas"}, {"a": "mostaza", "g": 5, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Formar la carne con sal y pimienta, sin amasar mucho.", "Asarla en sartén caliente, 4 minutos por lado.", "Poner el queso encima el último minuto.", "Armar con el pan, el tomate, la lechuga y la mostaza."]
-    },
-    {
-      "id": "pasta-atun", "nombre": "Pasta integral con atún", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pescado", "dificultad": 1,
-      "ingredientes": [
-        {"a": "pasta-integral", "g": 60, "casera": "1 puñado grande"}, {"a": "atun-agua", "g": 160, "casera": "1 lata grande escurrida"},
-        {"a": "salsa-napolitana", "g": 120, "casera": "½ taza"}, {"a": "queso-parmesano", "g": 8, "casera": "1 cucharada"},
-        {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Cocinar la pasta.", "Calentar la salsa con el atún escurrido.", "Mezclar con la pasta, el aceite y el queso."]
-    },
-    {
-      "id": "bowl-res-quinua", "nombre": "Bowl de carne con quinua y aguacate", "tipos": ["almuerzo", "cena"], "portatil": true, "proteinaPrincipal": "res", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "res-magra", "g": 180, "casera": "1 bistec en tiras"}, {"a": "quinua", "g": 50, "casera": "¼ taza cruda"},
-        {"a": "aguacate", "g": 40, "casera": "¼ de aguacate"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"},
-        {"a": "pepino", "g": 60, "casera": "½ pepino"}, {"a": "limon", "g": 10, "casera": "½ limón"}
-      ],
-      "pasos": ["Lavar la quinua y cocinarla 15 minutos en el doble de agua.", "Asar la carne en tiras.", "Servir en un recipiente con el tomate, el pepino y el aguacate, y el limón encima."]
-    },
-    {
-      "id": "tacos-pollo", "nombre": "Tacos de pollo", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "tortilla-maiz", "g": 75, "casera": "3 tortillas"}, {"a": "pechuga-pollo", "g": 180, "casera": "1 pechuga mediana"},
-        {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"}, {"a": "cebolla", "g": 20, "casera": "2 cucharadas picada"},
-        {"a": "cilantro", "g": 5, "casera": "1 ramita"}, {"a": "aguacate", "g": 30, "casera": "2 tajadas"},
-        {"a": "limon", "g": 10, "casera": "½ limón"}
-      ],
-      "pasos": ["Asar la pechuga y picarla.", "Picar el tomate, la cebolla y el cilantro con limón y sal.", "Calentar las tortillas y armar los tacos con el aguacate."]
-    },
-    {
-      "id": "salmon-papa", "nombre": "Salmón con papa y lechuga", "tipos": ["cena"], "proteinaPrincipal": "pescado", "dificultad": 2,
-      "ingredientes": [
-        {"a": "salmon", "g": 150, "casera": "1 filete"}, {"a": "papa", "g": 150, "casera": "1 papa mediana"},
-        {"a": "lechuga", "g": 60, "casera": "1 taza"}, {"a": "limon", "g": 10, "casera": "½ limón"}
-      ],
-      "pasos": ["Cocinar la papa con cáscara, 20 minutos.", "Asar el salmón sin aceite, primero por la piel, 4 minutos por lado.", "Servir con la lechuga y el limón."]
-    },
-    {
-      "id": "omelette-champinon", "nombre": "Omelette con champiñones y queso", "tipos": ["cena"], "proteinaPrincipal": "huevo", "dificultad": 2,
-      "ingredientes": [
-        {"a": "huevo", "g": 100, "casera": "2 huevos"}, {"a": "clara-huevo", "g": 165, "casera": "5 claras"},
-        {"a": "champinon", "g": 100, "casera": "1 taza en láminas"}, {"a": "queso-mozzarella", "g": 30, "casera": "1 tajada"},
-        {"a": "pan-integral", "g": 30, "casera": "1 tajada"}, {"a": "aceite-oliva", "g": 3, "casera": "½ cucharadita"}
-      ],
-      "pasos": ["Saltear los champiñones con el aceite hasta que doren.", "Batir los huevos con las claras y verter en la sartén.", "Cuando cuaje por debajo, poner el queso y doblar.", "Servir con el pan tostado."],
-      "tip": "Fuego medio-bajo: el omelette se cocina despacio para que no quede seco."
-    },
-    {
-      "id": "ensalada-cesar-pollo", "nombre": "Ensalada César con pollo", "tipos": ["cena"], "portatil": true, "proteinaPrincipal": "pollo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "pechuga-pollo", "g": 180, "casera": "1 pechuga mediana"}, {"a": "lechuga", "g": 120, "casera": "2 tazas"},
-        {"a": "queso-parmesano", "g": 12, "casera": "1½ cucharadas"}, {"a": "pan-integral", "g": 30, "casera": "1 tajada en cubos"},
-        {"a": "yogur-griego", "g": 40, "casera": "2 cucharadas"}, {"a": "aceite-oliva", "g": 5, "casera": "1 cucharadita"},
-        {"a": "limon", "g": 10, "casera": "½ limón"}
-      ],
-      "pasos": ["Asar la pechuga y cortarla en tiras.", "Tostar el pan en cubos.", "Mezclar el yogur, el aceite, el limón y la mitad del queso: es el aderezo.", "Revolver todo con la lechuga."]
-    },
-    {
-      "id": "caldo-pollo-papa", "nombre": "Caldo de pollo con papa", "tipos": ["cena"], "proteinaPrincipal": "pollo", "dificultad": 1, "lote": true,
-      "ingredientes": [
-        {"a": "caldo-pollo", "g": 400, "casera": "2 tazas"}, {"a": "pechuga-pollo", "g": 150, "casera": "¾ de pechuga"},
-        {"a": "papa", "g": 120, "casera": "1 papa mediana"}, {"a": "cebolla-larga", "g": 20, "casera": "1 tallo"},
-        {"a": "cilantro", "g": 5, "casera": "1 ramita"}
-      ],
-      "pasos": ["Hervir el caldo con la papa en cubos y la cebolla.", "Agregar la pechuga y cocinar 15 minutos.", "Desmechar el pollo y devolverlo a la olla.", "Servir con cilantro."]
-    },
-    {
-      "id": "cerdo-frijol-negro", "nombre": "Cerdo con fríjol negro y arroz", "tipos": ["almuerzo"], "proteinaPrincipal": "cerdo", "dificultad": 2, "lote": true,
-      "ingredientes": [
-        {"a": "frijol-negro", "g": 50, "casera": "¼ taza seco"}, {"a": "lomo-cerdo", "g": 170, "casera": "2 medallones"},
-        {"a": "arroz-blanco", "g": 30, "casera": "2 cucharadas crudo"}, {"a": "tomate", "g": 60, "casera": "1 tomate pequeño"}
-      ],
-      "pasos": ["Remojar los fríjoles desde la noche anterior y cocinarlos en olla a presión 25 minutos.", "Cocinar el arroz.", "Asar el lomo sazonado, 5 minutos por lado.", "Servir con el tomate picado."]
-    },
-    {
-      "id": "wok-pollo", "nombre": "Wok de pollo con arroz", "tipos": ["almuerzo", "cena"], "proteinaPrincipal": "pollo", "dificultad": 2,
-      "ingredientes": [
-        {"a": "pechuga-pollo", "g": 190, "casera": "1 pechuga grande en tiras"}, {"a": "arroz-blanco", "g": 50, "casera": "¼ taza crudo"},
-        {"a": "pimenton", "g": 60, "casera": "½ pimentón"}, {"a": "cebolla", "g": 40, "casera": "¼ de cebolla"},
-        {"a": "champinon", "g": 60, "casera": "½ taza"}, {"a": "salsa-soya", "g": 15, "casera": "1 cucharada"},
-        {"a": "miel", "g": 5, "casera": "1 cucharadita"}, {"a": "aceite-oliva", "g": 4, "casera": "1 cucharadita"}
-      ],
-      "pasos": ["Cocinar el arroz.", "Saltear el pollo en tiras con el aceite a fuego alto hasta que dore.", "Agregar las verduras en tiras y saltear 3 minutos.", "Añadir la soya y la miel, revolver 1 minuto y servir sobre el arroz."],
-      "tip": "Fuego alto y poca cantidad a la vez: así se saltea en vez de hervirse."
-    },
-
-    {
-      "id": "batido-proteina", "nombre": "Batido de proteína", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "agua_g": 300,
-      "ingredientes": [{"a": "proteina-polvo", "g": 50, "casera": "2 scoops"}],
-      "pasos": ["Mezclar con agua fría en el termo y agitar."]
-    },
-    {
-      "id": "atun-galletas", "nombre": "Atún con galletas integrales", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "pescado", "dificultad": 1,
-      "ingredientes": [
-        {"a": "atun-agua", "g": 120, "casera": "1 lata escurrida"}, {"a": "galleta-integral", "g": 20, "casera": "4 galletas"},
-        {"a": "tomate", "g": 40, "casera": "½ tomate"}, {"a": "limon", "g": 5, "casera": "unas gotas"}
-      ],
-      "pasos": ["Mezclar el atún con el tomate picado y el limón.", "Comer sobre las galletas."]
-    },
-    {
-      "id": "yogur-mora", "nombre": "Yogur griego con mora", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "ingredientes": [{"a": "yogur-griego", "g": 250, "casera": "1 taza"}, {"a": "mora", "g": 100, "casera": "¾ taza"}],
-      "pasos": ["Servir el yogur con las moras encima."]
-    },
-    {
-      "id": "cottage-manzana", "nombre": "Queso cottage con manzana", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "lacteo", "dificultad": 1,
-      "ingredientes": [{"a": "queso-cottage", "g": 150, "casera": "¾ taza"}, {"a": "manzana", "g": 130, "casera": "1 manzana pequeña"}],
-      "pasos": ["Picar la manzana y servir con el cottage."]
-    },
-    {
-      "id": "rollos-pavo", "nombre": "Rollitos de pavo con queso y pepino", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "pavo", "dificultad": 1,
-      "ingredientes": [
-        {"a": "pechuga-pavo-tajada", "g": 120, "casera": "6 tajadas"}, {"a": "queso-mozzarella", "g": 20, "casera": "1 tajada en tiras"},
-        {"a": "pepino", "g": 80, "casera": "½ pepino en bastones"}
-      ],
-      "pasos": ["Enrollar cada tajada de pavo con una tira de queso y un bastón de pepino."]
-    },
-    {
-      "id": "huevo-duro-naranja", "nombre": "Huevos duros con naranja", "tipos": ["snack"], "portatil": true, "proteinaPrincipal": "huevo", "dificultad": 1, "lote": true,
-      "ingredientes": [{"a": "huevo", "g": 100, "casera": "2 huevos"}, {"a": "naranja", "g": 130, "casera": "1 naranja"}],
-      "pasos": ["Hervir los huevos 10 minutos y enfriarlos en agua.", "Llevar con la naranja."]
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
     }
-  ]
+   ],
+   "pasos": [
+    "Picar el tomate y la cebolla.",
+    "Sofreírlos 2 minutos con el aceite.",
+    "Agregar los huevos y las claras batidos y revolver hasta que cuajen.",
+    "Servir con el acompañante caliente."
+   ],
+   "variantes": [
+    {
+     "id": "pan",
+     "nombre": "Huevos pericos con pan integral",
+     "cambia": {
+      "arepa": {
+       "a": "pan-integral",
+       "g": 55,
+       "casera": "2 tajadas"
+      }
+     }
+    },
+    {
+     "id": "queso",
+     "nombre": "Huevos pericos con arepa y quesillo",
+     "agrega": [
+      {
+       "a": "queso-doble-crema",
+       "g": 25,
+       "casera": "1 tajada delgada"
+      }
+     ]
+    },
+    {
+     "id": "tortilla",
+     "nombre": "Huevos pericos en tortilla integral",
+     "cambia": {
+      "arepa": {
+       "a": "tortilla-integral",
+       "g": 45,
+       "casera": "1 tortilla"
+      }
+     }
+    },
+    {
+     "id": "maduro",
+     "nombre": "Huevos pericos con plátano maduro",
+     "cambia": {
+      "arepa": {
+       "a": "platano-maduro",
+       "g": 80,
+       "casera": "½ maduro asado"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "avena-proteica",
+   "nombre": "Avena fría con proteína y banano",
+   "tipos": [
+    "desayuno"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "avena",
+     "g": 35,
+     "casera": "4 cucharadas"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 200,
+     "casera": "1 vaso"
+    },
+    {
+     "a": "proteina-polvo",
+     "g": 25,
+     "casera": "1 scoop"
+    },
+    {
+     "a": "banano",
+     "g": 60,
+     "casera": "½ banano"
+    }
+   ],
+   "pasos": [
+    "Mezclar en un frasco la avena, la leche y la proteína.",
+    "Agregar el banano en rodajas.",
+    "Tapar y dejar en la nevera toda la noche.",
+    "Se come fría; se puede llevar a la clínica."
+   ]
+  },
+  {
+   "id": "sandwich-pavo",
+   "nombre": "Sándwich de pavo y queso",
+   "tipos": [
+    "desayuno",
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "pavo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pan-integral",
+     "g": 60,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "pechuga-pavo-tajada",
+     "g": 100,
+     "casera": "5 tajadas"
+    },
+    {
+     "a": "queso-mozzarella",
+     "g": 25,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "2 rodajas"
+    },
+    {
+     "a": "lechuga",
+     "g": 20,
+     "casera": "2 hojas"
+    },
+    {
+     "a": "mostaza",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Untar la mostaza en el pan.",
+    "Armar con el pavo, el queso, el tomate y la lechuga.",
+    "Si se quiere caliente, tostar 2 minutos en sartén."
+   ]
+  },
+  {
+   "id": "yogur-fresa-granola",
+   "nombre": "Yogur griego con fresa y granola",
+   "tipos": [
+    "desayuno",
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "yogur-griego",
+     "g": 250,
+     "casera": "1 taza"
+    },
+    {
+     "a": "fresa",
+     "g": 120,
+     "casera": "8 fresas"
+    },
+    {
+     "a": "granola",
+     "g": 20,
+     "casera": "2 cucharadas"
+    },
+    {
+     "a": "chia",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Servir el yogur en un frasco.",
+    "Agregar las fresas picadas, la granola y la chía."
+   ],
+   "variantes": [
+    {
+     "id": "arandanos",
+     "nombre": "Yogur griego con arándanos y granola",
+     "cambia": {
+      "fresa": {
+       "a": "arandanos",
+       "g": 80,
+       "casera": "½ taza"
+      }
+     }
+    },
+    {
+     "id": "mango",
+     "nombre": "Yogur griego con mango y chía",
+     "cambia": {
+      "fresa": {
+       "a": "mango",
+       "g": 120,
+       "casera": "½ mango"
+      }
+     }
+    },
+    {
+     "id": "frutos-rojos",
+     "nombre": "Yogur griego con frutos rojos",
+     "cambia": {
+      "fresa": {
+       "a": "frutos-rojos",
+       "g": 120,
+       "casera": "1 taza congelados"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "wrap-huevo",
+   "nombre": "Wrap de huevo y queso",
+   "tipos": [
+    "desayuno"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tortilla-integral",
+     "g": 45,
+     "casera": "1 tortilla"
+    },
+    {
+     "a": "huevo",
+     "g": 50,
+     "casera": "1 huevo"
+    },
+    {
+     "a": "clara-huevo",
+     "g": 130,
+     "casera": "4 claras"
+    },
+    {
+     "a": "queso-mozzarella",
+     "g": 20,
+     "casera": "1 tajada delgada"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "2 rodajas"
+    }
+   ],
+   "pasos": [
+    "Batir el huevo con las claras y cocinar como tortilla en sartén antiadherente.",
+    "Poner sobre la tortilla con el queso y el tomate.",
+    "Enrollar y envolver en papel para llevar."
+   ]
+  },
+  {
+   "id": "batido-banano-mani",
+   "nombre": "Batido de proteína con banano",
+   "tipos": [
+    "desayuno"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "leche-descremada",
+     "g": 250,
+     "casera": "1 vaso grande"
+    },
+    {
+     "a": "proteina-polvo",
+     "g": 35,
+     "casera": "1½ scoops"
+    },
+    {
+     "a": "banano",
+     "g": 100,
+     "casera": "1 banano pequeño"
+    },
+    {
+     "a": "mantequilla-mani",
+     "g": 8,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Licuar todo con hielo.",
+    "Servir de inmediato o llevar en termo."
+   ],
+   "variantes": [
+    {
+     "id": "fresa",
+     "nombre": "Batido de proteína con fresa y avena",
+     "cambia": {
+      "banano": {
+       "a": "fresa",
+       "g": 120,
+       "casera": "8 fresas"
+      },
+      "mantequilla-mani": {
+       "a": "avena",
+       "g": 20,
+       "casera": "2 cucharadas de avena"
+      }
+     }
+    },
+    {
+     "id": "mora",
+     "nombre": "Batido de proteína con mora",
+     "cambia": {
+      "banano": {
+       "a": "mora",
+       "g": 100,
+       "casera": "1 taza de mora"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "cottage-papaya-tostada",
+   "nombre": "Queso cottage con papaya y tostada",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "queso-cottage",
+     "g": 200,
+     "casera": "1 taza"
+    },
+    {
+     "a": "papaya",
+     "g": 150,
+     "casera": "1 taza en cubos"
+    },
+    {
+     "a": "pan-integral",
+     "g": 30,
+     "casera": "1 tajada"
+    }
+   ],
+   "pasos": [
+    "Servir el cottage con la papaya picada.",
+    "Tostar el pan y acompañar."
+   ]
+  },
+  {
+   "id": "arepa-queso-huevo",
+   "nombre": "Arepa con queso y huevo",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "arepa",
+     "g": 60,
+     "casera": "1 arepa mediana"
+    },
+    {
+     "a": "queso-campesino",
+     "g": 30,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "huevo",
+     "g": 50,
+     "casera": "1 huevo"
+    },
+    {
+     "a": "clara-huevo",
+     "g": 100,
+     "casera": "3 claras"
+    }
+   ],
+   "pasos": [
+    "Asar la arepa.",
+    "Revolver el huevo con las claras en sartén antiadherente, sin aceite.",
+    "Servir la arepa con el queso encima y los huevos al lado."
+   ]
+  },
+  {
+   "id": "pollo-plancha-arroz",
+   "nombre": "Pollo a la plancha con arroz y ensalada",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 200,
+     "casera": "1 pechuga grande"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 50,
+     "casera": "¼ taza crudo (¾ taza cocido)"
+    },
+    {
+     "a": "tomate",
+     "g": 100,
+     "casera": "1 tomate"
+    },
+    {
+     "a": "lechuga",
+     "g": 50,
+     "casera": "1 taza"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 5,
+     "casera": "1 cucharadita"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Cocinar el acompañante.",
+    "Sazonar la proteína con sal, ajo y limón.",
+    "Asarla en sartén caliente con el aceite, 5 a 6 minutos por lado.",
+    "Servir con la ensalada de tomate y lechuga."
+   ],
+   "tip": "Dejar reposar la pechuga 3 minutos antes de cortarla: queda más jugosa.",
+   "variantes": [
+    {
+     "id": "papa",
+     "nombre": "Pollo a la plancha con papa y ensalada",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "papa",
+       "g": 200,
+       "casera": "1 papa grande cocida"
+      }
+     }
+    },
+    {
+     "id": "integral",
+     "nombre": "Pollo a la plancha con arroz integral",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "arroz-integral",
+       "g": 50,
+       "casera": "¼ taza crudo"
+      }
+     }
+    },
+    {
+     "id": "quinua",
+     "nombre": "Pollo a la plancha con quinua",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "quinua",
+       "g": 45,
+       "casera": "¼ taza cruda"
+      }
+     }
+    },
+    {
+     "id": "cerdo",
+     "nombre": "Chuleta de cerdo con arroz y ensalada",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "chuleta-cerdo",
+       "g": 190,
+       "casera": "1 chuleta grande"
+      }
+     },
+     "proteinaPrincipal": "cerdo"
+    },
+    {
+     "id": "anca",
+     "nombre": "Punta de anca con papa criolla y ensalada",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "punta-anca",
+       "g": 170,
+       "casera": "1 filete"
+      },
+      "arroz-blanco": {
+       "a": "papa",
+       "g": 180,
+       "casera": "6 papas criollas"
+      }
+     },
+     "proteinaPrincipal": "res"
+    },
+    {
+     "id": "pavo",
+     "nombre": "Pechuga de pavo a la plancha con arroz",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "pechuga-pavo",
+       "g": 200,
+       "casera": "1 filete grande"
+      }
+     },
+     "proteinaPrincipal": "pavo"
+    }
+   ]
+  },
+  {
+   "id": "sudado-pollo",
+   "nombre": "Sudado de pollo con papa y yuca",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "muslo-pollo",
+     "g": 220,
+     "casera": "2 muslos sin piel"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "1 papa mediana"
+    },
+    {
+     "a": "yuca",
+     "g": 60,
+     "casera": "1 trozo pequeño"
+    },
+    {
+     "a": "tomate",
+     "g": 100,
+     "casera": "1 tomate"
+    },
+    {
+     "a": "cebolla",
+     "g": 40,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Hacer un hogao con el tomate, la cebolla y el aceite.",
+    "Agregar el pollo sin piel y sellarlo 3 minutos.",
+    "Añadir la papa, la yuca y agua hasta la mitad.",
+    "Tapar y cocinar 30 minutos a fuego bajo.",
+    "Servir con cilantro picado."
+   ]
+  },
+  {
+   "id": "carne-asada-papa",
+   "nombre": "Carne asada con papa y ensalada",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "res-magra",
+     "g": 200,
+     "casera": "1 bistec grande"
+    },
+    {
+     "a": "papa",
+     "g": 200,
+     "casera": "2 papas pequeñas"
+    },
+    {
+     "a": "lechuga",
+     "g": 60,
+     "casera": "1 taza"
+    },
+    {
+     "a": "tomate",
+     "g": 80,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar las papas con cáscara en agua con sal, 20 minutos.",
+    "Asar la carne en sartén muy caliente con el aceite, 3 minutos por lado.",
+    "Servir con la ensalada y el aguacate."
+   ],
+   "tip": "La sartén debe estar bien caliente antes de poner la carne para que selle y no suelte agua."
+  },
+  {
+   "id": "frijolada",
+   "nombre": "Fríjoles con carne y arroz",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 2,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "frijol-rojo",
+     "g": 70,
+     "casera": "⅓ taza seco"
+    },
+    {
+     "a": "res-magra",
+     "g": 130,
+     "casera": "1 bistec mediano en cubos"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 25,
+     "casera": "2 cucharadas crudo"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    }
+   ],
+   "pasos": [
+    "Remojar los fríjoles desde la noche anterior.",
+    "Cocinarlos en olla a presión 30 minutos.",
+    "Agregar la carne en cubos, el tomate y la cebolla picados y cocinar 15 minutos más.",
+    "Servir con el arroz."
+   ]
+  },
+  {
+   "id": "lentejas-pollo",
+   "nombre": "Lentejas con pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "lenteja",
+     "g": 70,
+     "casera": "⅓ taza seca"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 130,
+     "casera": "½ pechuga en cubos"
+    },
+    {
+     "a": "papa",
+     "g": 80,
+     "casera": "1 papa pequeña"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Sofreír el tomate y la cebolla con el aceite.",
+    "Agregar las lentejas, la papa en cubos y 2 tazas de agua.",
+    "Cocinar 20 minutos.",
+    "Añadir el pollo en cubos y cocinar 10 minutos más."
+   ],
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Lentejas con carne de res",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "res-magra",
+       "g": 120,
+       "casera": "1 bistec en cubos"
+      }
+     },
+     "proteinaPrincipal": "res"
+    }
+   ]
+  },
+  {
+   "id": "trucha-papa",
+   "nombre": "Trucha a la plancha con papa",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "trucha",
+     "g": 220,
+     "casera": "1 trucha mediana en filete"
+    },
+    {
+     "a": "papa",
+     "g": 180,
+     "casera": "2 papas pequeñas"
+    },
+    {
+     "a": "tomate",
+     "g": 80,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar las papas con cáscara, 20 minutos.",
+    "Secar la trucha y sazonar con sal, ajo y limón.",
+    "Asarla con el aceite, primero por el lado de la piel, 4 minutos por lado.",
+    "Servir con las papas y el tomate."
+   ],
+   "tip": "Secar bien el pescado con papel antes de asarlo evita que se pegue."
+  },
+  {
+   "id": "tilapia-arroz",
+   "nombre": "Tilapia con arroz y ensalada de repollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tilapia",
+     "g": 240,
+     "casera": "2 filetes"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 50,
+     "casera": "¼ taza crudo"
+    },
+    {
+     "a": "repollo",
+     "g": 80,
+     "casera": "1 taza picado"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar el arroz.",
+    "Sazonar los filetes y asarlos con el aceite, 3 minutos por lado.",
+    "Mezclar el repollo y el tomate con limón y sal.",
+    "Servir con el aguacate."
+   ]
+  },
+  {
+   "id": "lomo-cerdo-yuca",
+   "nombre": "Lomo de cerdo con yuca",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "lomo-cerdo",
+     "g": 220,
+     "casera": "2 medallones gruesos"
+    },
+    {
+     "a": "yuca",
+     "g": 120,
+     "casera": "1 trozo mediano"
+    },
+    {
+     "a": "repollo",
+     "g": 80,
+     "casera": "1 taza picado"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar la yuca en agua con sal hasta que ablande, 25 minutos.",
+    "Sazonar el lomo con sal, ajo y comino.",
+    "Asarlo con el aceite, 5 minutos por lado.",
+    "Servir con la ensalada de repollo y tomate."
+   ]
+  },
+  {
+   "id": "pasta-bolonesa",
+   "nombre": "Pasta integral a la boloñesa",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "pasta-integral",
+     "g": 50,
+     "casera": "1 puñado (1 taza cocida)"
+    },
+    {
+     "a": "res-molida",
+     "g": 170,
+     "casera": "¾ taza"
+    },
+    {
+     "a": "salsa-napolitana",
+     "g": 120,
+     "casera": "½ taza"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "queso-parmesano",
+     "g": 8,
+     "casera": "1 cucharada"
+    }
+   ],
+   "pasos": [
+    "Cocinar la pasta en agua con sal.",
+    "Dorar la carne molida con la cebolla, sin aceite.",
+    "Agregar la salsa y cocinar 5 minutos.",
+    "Mezclar con la pasta y poner el queso encima."
+   ],
+   "variantes": [
+    {
+     "id": "pavo",
+     "nombre": "Pasta boloñesa de pavo",
+     "cambia": {
+      "res-molida": {
+       "a": "pavo-molido",
+       "g": 150,
+       "casera": "1 taza de pavo molido"
+      }
+     },
+     "proteinaPrincipal": "pavo"
+    },
+    {
+     "id": "pollo",
+     "nombre": "Pasta con pollo en salsa napolitana",
+     "cambia": {
+      "res-molida": {
+       "a": "pechuga-pollo",
+       "g": 160,
+       "casera": "1 pechuga en cubos"
+      }
+     },
+     "proteinaPrincipal": "pollo"
+    }
+   ]
+  },
+  {
+   "id": "wrap-pollo",
+   "nombre": "Wrap de pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tortilla-integral",
+     "g": 60,
+     "casera": "1 tortilla grande"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 170,
+     "casera": "1 pechuga mediana"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "1 taza"
+    },
+    {
+     "a": "tomate",
+     "g": 50,
+     "casera": "3 rodajas"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 30,
+     "casera": "2 cucharadas"
+    },
+    {
+     "a": "mostaza",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Asar la pechuga y cortarla en tiras.",
+    "Mezclar el yogur con la mostaza: esa es la salsa.",
+    "Armar la tortilla con todo y enrollar apretado.",
+    "Envolver en papel si es para llevar."
+   ],
+   "variantes": [
+    {
+     "id": "pavo",
+     "nombre": "Wrap de pavo y queso",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "pechuga-pavo-tajada",
+       "g": 120,
+       "casera": "5 tajadas"
+      }
+     },
+     "agrega": [
+      {
+       "a": "queso-mozzarella-light",
+       "g": 25,
+       "casera": "1 tajada"
+      }
+     ],
+     "proteinaPrincipal": "pavo"
+    },
+    {
+     "id": "atun",
+     "nombre": "Wrap de atún",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "atun-agua",
+       "g": 160,
+       "casera": "1 lata escurrida"
+      }
+     },
+     "proteinaPrincipal": "pescado",
+     "agrega": [
+      {
+       "a": "aguacate",
+       "g": 30,
+       "casera": "2 tajadas"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "arroz-con-pollo",
+   "nombre": "Arroz con pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 180,
+     "casera": "1 pechuga mediana"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 60,
+     "casera": "⅓ taza crudo"
+    },
+    {
+     "a": "pimenton",
+     "g": 40,
+     "casera": "¼ de pimentón"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "mazorca",
+     "g": 40,
+     "casera": "3 cucharadas de maíz"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar la pechuga en agua con sal y desmecharla. Guardar el caldo.",
+    "Sofreír la cebolla y el pimentón con el aceite.",
+    "Agregar el arroz, el maíz y el caldo (el doble que de arroz).",
+    "Cuando seque, mezclar con el pollo y tapar 5 minutos."
+   ]
+  },
+  {
+   "id": "hamburguesa-casera",
+   "nombre": "Hamburguesa casera",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "res-molida",
+     "g": 170,
+     "casera": "1 carne grande"
+    },
+    {
+     "a": "pan-integral",
+     "g": 60,
+     "casera": "2 tajadas o 1 pan"
+    },
+    {
+     "a": "queso-mozzarella",
+     "g": 20,
+     "casera": "1 tajada delgada"
+    },
+    {
+     "a": "tomate",
+     "g": 50,
+     "casera": "3 rodajas"
+    },
+    {
+     "a": "lechuga",
+     "g": 30,
+     "casera": "2 hojas"
+    },
+    {
+     "a": "mostaza",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Formar la carne con sal y pimienta, sin amasar mucho.",
+    "Asarla en sartén caliente, 4 minutos por lado.",
+    "Poner el queso encima el último minuto.",
+    "Armar con el pan, el tomate, la lechuga y la mostaza."
+   ],
+   "variantes": [
+    {
+     "id": "pollo",
+     "nombre": "Hamburguesa de pollo",
+     "cambia": {
+      "res-molida": {
+       "a": "pechuga-pollo",
+       "g": 170,
+       "casera": "1 filete de pechuga"
+      }
+     },
+     "proteinaPrincipal": "pollo"
+    }
+   ]
+  },
+  {
+   "id": "pasta-atun",
+   "nombre": "Pasta integral con atún",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pasta-integral",
+     "g": 60,
+     "casera": "1 puñado grande"
+    },
+    {
+     "a": "atun-agua",
+     "g": 160,
+     "casera": "1 lata grande escurrida"
+    },
+    {
+     "a": "salsa-napolitana",
+     "g": 120,
+     "casera": "½ taza"
+    },
+    {
+     "a": "queso-parmesano",
+     "g": 8,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar la pasta.",
+    "Calentar la salsa con el atún escurrido.",
+    "Mezclar con la pasta, el aceite y el queso."
+   ]
+  },
+  {
+   "id": "bowl-res-quinua",
+   "nombre": "Bowl de carne con quinua y aguacate",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "res",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "res-magra",
+     "g": 180,
+     "casera": "1 bistec en tiras"
+    },
+    {
+     "a": "quinua",
+     "g": 50,
+     "casera": "¼ taza cruda"
+    },
+    {
+     "a": "aguacate",
+     "g": 40,
+     "casera": "¼ de aguacate"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "pepino",
+     "g": 60,
+     "casera": "½ pepino"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Lavar la quinua y cocinarla 15 minutos en el doble de agua.",
+    "Asar la carne en tiras.",
+    "Servir en un recipiente con el tomate, el pepino y el aguacate, y el limón encima."
+   ]
+  },
+  {
+   "id": "tacos-pollo",
+   "nombre": "Tacos de pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tortilla-maiz",
+     "g": 75,
+     "casera": "3 tortillas"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 180,
+     "casera": "1 pechuga mediana"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    },
+    {
+     "a": "cebolla",
+     "g": 20,
+     "casera": "2 cucharadas picada"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Asar la proteína y picarla.",
+    "Picar el tomate, la cebolla y el cilantro con limón y sal.",
+    "Calentar las tortillas y armar los tacos con el aguacate."
+   ],
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Tacos de carne molida",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "res-magra",
+       "g": 170,
+       "casera": "1 bistec picado fino"
+      }
+     },
+     "proteinaPrincipal": "res"
+    },
+    {
+     "id": "cerdo",
+     "nombre": "Tacos de cerdo al pastor",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "lomo-cerdo",
+       "g": 170,
+       "casera": "1 trozo de lomo"
+      }
+     },
+     "agrega": [
+      {
+       "a": "pina",
+       "g": 60,
+       "casera": "2 rodajas de piña"
+      }
+     ],
+     "proteinaPrincipal": "cerdo"
+    },
+    {
+     "id": "pescado",
+     "nombre": "Tacos de pescado",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "pescado-blanco",
+       "g": 200,
+       "casera": "1 filete"
+      }
+     },
+     "agrega": [
+      {
+       "a": "repollo-morado",
+       "g": 40,
+       "casera": "½ taza rallado"
+      }
+     ],
+     "proteinaPrincipal": "pescado"
+    },
+    {
+     "id": "frijol",
+     "nombre": "Tacos de pollo y fríjol",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "pechuga-pollo",
+       "g": 130,
+       "casera": "1 pechuga pequeña"
+      }
+     },
+     "agrega": [
+      {
+       "a": "frijol-lata",
+       "g": 70,
+       "casera": "⅓ taza de fríjol de lata"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salmon-papa",
+   "nombre": "Salmón con papa y lechuga",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "salmon",
+     "g": 150,
+     "casera": "1 filete"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "1 papa mediana"
+    },
+    {
+     "a": "lechuga",
+     "g": 60,
+     "casera": "1 taza"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Cocinar la papa con cáscara, 20 minutos.",
+    "Asar el salmón sin aceite, primero por la piel, 4 minutos por lado.",
+    "Servir con la lechuga y el limón."
+   ]
+  },
+  {
+   "id": "omelette-champinon",
+   "nombre": "Omelette con champiñones y queso",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
+    },
+    {
+     "a": "clara-huevo",
+     "g": 165,
+     "casera": "5 claras"
+    },
+    {
+     "a": "champinon",
+     "g": 100,
+     "casera": "1 taza en láminas"
+    },
+    {
+     "a": "queso-mozzarella",
+     "g": 30,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "pan-integral",
+     "g": 30,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Saltear los champiñones con el aceite hasta que doren.",
+    "Batir los huevos con las claras y verter en la sartén.",
+    "Cuando cuaje por debajo, poner el queso y doblar.",
+    "Servir con el pan tostado."
+   ],
+   "tip": "Fuego medio-bajo: el omelette se cocina despacio para que no quede seco."
+  },
+  {
+   "id": "ensalada-cesar-pollo",
+   "nombre": "Ensalada César con pollo",
+   "tipos": [
+    "cena"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 180,
+     "casera": "1 pechuga mediana"
+    },
+    {
+     "a": "lechuga",
+     "g": 120,
+     "casera": "2 tazas"
+    },
+    {
+     "a": "queso-parmesano",
+     "g": 12,
+     "casera": "1½ cucharadas"
+    },
+    {
+     "a": "pan-integral",
+     "g": 30,
+     "casera": "1 tajada en cubos"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 40,
+     "casera": "2 cucharadas"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 5,
+     "casera": "1 cucharadita"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Asar la pechuga y cortarla en tiras.",
+    "Tostar el pan en cubos.",
+    "Mezclar el yogur, el aceite, el limón y la mitad del queso: es el aderezo.",
+    "Revolver todo con la lechuga."
+   ]
+  },
+  {
+   "id": "caldo-pollo-papa",
+   "nombre": "Caldo de pollo con papa",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "caldo-pollo",
+     "g": 400,
+     "casera": "2 tazas"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 150,
+     "casera": "¾ de pechuga"
+    },
+    {
+     "a": "papa",
+     "g": 120,
+     "casera": "1 papa mediana"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 20,
+     "casera": "1 tallo"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    }
+   ],
+   "pasos": [
+    "Hervir el caldo con la papa en cubos y la cebolla.",
+    "Agregar la pechuga y cocinar 15 minutos.",
+    "Desmechar el pollo y devolverlo a la olla.",
+    "Servir con cilantro."
+   ]
+  },
+  {
+   "id": "cerdo-frijol-negro",
+   "nombre": "Cerdo con fríjol negro y arroz",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 2,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "frijol-negro",
+     "g": 50,
+     "casera": "¼ taza seco"
+    },
+    {
+     "a": "lomo-cerdo",
+     "g": 170,
+     "casera": "2 medallones"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 30,
+     "casera": "2 cucharadas crudo"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "1 tomate pequeño"
+    }
+   ],
+   "pasos": [
+    "Remojar los fríjoles desde la noche anterior y cocinarlos en olla a presión 25 minutos.",
+    "Cocinar el arroz.",
+    "Asar el lomo sazonado, 5 minutos por lado.",
+    "Servir con el tomate picado."
+   ]
+  },
+  {
+   "id": "wok-pollo",
+   "nombre": "Wok de pollo con arroz",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 190,
+     "casera": "1 pechuga grande en tiras"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 50,
+     "casera": "¼ taza crudo"
+    },
+    {
+     "a": "pimenton",
+     "g": 60,
+     "casera": "½ pimentón"
+    },
+    {
+     "a": "cebolla",
+     "g": 40,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "champinon",
+     "g": 60,
+     "casera": "½ taza"
+    },
+    {
+     "a": "salsa-soya",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "miel",
+     "g": 5,
+     "casera": "1 cucharadita"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cocinar el arroz.",
+    "Saltear el pollo en tiras con el aceite a fuego alto hasta que dore.",
+    "Agregar las verduras en tiras y saltear 3 minutos.",
+    "Añadir la soya y la miel, revolver 1 minuto y servir sobre el arroz."
+   ],
+   "tip": "Fuego alto y poca cantidad a la vez: así se saltea en vez de hervirse.",
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Wok de res con arroz",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "punta-anca",
+       "g": 160,
+       "casera": "1 filete en tiras"
+      }
+     },
+     "proteinaPrincipal": "res"
+    },
+    {
+     "id": "cerdo",
+     "nombre": "Wok de cerdo con fideos de arroz",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "lomo-cerdo",
+       "g": 170,
+       "casera": "1 trozo en tiras"
+      },
+      "arroz-blanco": {
+       "a": "fideos-arroz",
+       "g": 50,
+       "casera": "1 nido de fideos"
+      }
+     },
+     "proteinaPrincipal": "cerdo"
+    }
+   ]
+  },
+  {
+   "id": "batido-proteina",
+   "nombre": "Batido de proteína",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "agua_g": 300,
+   "ingredientes": [
+    {
+     "a": "proteina-polvo",
+     "g": 50,
+     "casera": "2 scoops"
+    }
+   ],
+   "pasos": [
+    "Mezclar con agua fría en el termo y agitar."
+   ]
+  },
+  {
+   "id": "atun-galletas",
+   "nombre": "Atún con galletas integrales",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "atun-agua",
+     "g": 120,
+     "casera": "1 lata escurrida"
+    },
+    {
+     "a": "galleta-integral",
+     "g": 20,
+     "casera": "4 galletas"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "limon",
+     "g": 5,
+     "casera": "unas gotas"
+    }
+   ],
+   "pasos": [
+    "Mezclar el atún con el tomate picado y el limón.",
+    "Comer sobre las galletas."
+   ]
+  },
+  {
+   "id": "yogur-mora",
+   "nombre": "Yogur griego con mora",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "yogur-griego",
+     "g": 250,
+     "casera": "1 taza"
+    },
+    {
+     "a": "mora",
+     "g": 100,
+     "casera": "¾ taza"
+    }
+   ],
+   "pasos": [
+    "Servir el yogur con las moras encima."
+   ]
+  },
+  {
+   "id": "cottage-manzana",
+   "nombre": "Queso cottage con manzana",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "queso-cottage",
+     "g": 150,
+     "casera": "¾ taza"
+    },
+    {
+     "a": "manzana",
+     "g": 130,
+     "casera": "1 manzana pequeña"
+    }
+   ],
+   "pasos": [
+    "Picar la manzana y servir con el cottage."
+   ]
+  },
+  {
+   "id": "rollos-pavo",
+   "nombre": "Rollitos de pavo con queso y pepino",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "pavo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pechuga-pavo-tajada",
+     "g": 120,
+     "casera": "6 tajadas"
+    },
+    {
+     "a": "queso-mozzarella",
+     "g": 20,
+     "casera": "1 tajada en tiras"
+    },
+    {
+     "a": "pepino",
+     "g": 80,
+     "casera": "½ pepino en bastones"
+    }
+   ],
+   "pasos": [
+    "Enrollar cada tajada de pavo con una tira de queso y un bastón de pepino."
+   ]
+  },
+  {
+   "id": "huevo-duro-naranja",
+   "nombre": "Huevos duros con naranja",
+   "tipos": [
+    "snack"
+   ],
+   "portatil": true,
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "lote": true,
+   "ingredientes": [
+    {
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
+    },
+    {
+     "a": "naranja",
+     "g": 130,
+     "casera": "1 naranja"
+    }
+   ],
+   "pasos": [
+    "Hervir los huevos 10 minutos y enfriarlos en agua.",
+    "Llevar con la naranja."
+   ]
+  },
+  {
+   "id": "calentado",
+   "nombre": "Calentado de fríjol con huevo",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "frijol-rojo",
+     "g": 35,
+     "casera": "½ taza de fríjoles cocidos"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 25,
+     "casera": "½ taza de arroz cocido"
+    },
+    {
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 15,
+     "casera": "1 tallo"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Sofreír el tomate y la cebolla con el aceite.",
+    "Agregar los fríjoles y el arroz del día anterior y calentar 4 minutos.",
+    "Hacer los huevos fritos o revueltos aparte.",
+    "Servir el calentado con los huevos encima."
+   ],
+   "tip": "Sale de lo que sobra de la frijolada: no hay que cocinar fríjol aparte.",
+   "variantes": [
+    {
+     "id": "arepa",
+     "nombre": "Calentado con huevo y arepa",
+     "agrega": [
+      {
+       "a": "arepa",
+       "g": 40,
+       "casera": "1 arepa pequeña"
+      }
+     ],
+     "quita": [
+      "arroz-blanco"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "omelette-jamon-queso",
+   "nombre": "Omelette de jamón y queso con pan",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
+    },
+    {
+     "a": "clara-huevo",
+     "g": 66,
+     "casera": "2 claras"
+    },
+    {
+     "a": "jamon-pavo",
+     "g": 40,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 25,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "pan-integral",
+     "g": 30,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Batir los huevos con las claras y sal.",
+    "Echarlos en la sartén caliente con el aceite.",
+    "Cuando cuajen por debajo, poner el jamón y el queso en una mitad.",
+    "Doblar, tapar 1 minuto y servir con el pan."
+   ],
+   "variantes": [
+    {
+     "id": "champi",
+     "nombre": "Omelette de champiñones y quesillo",
+     "cambia": {
+      "jamon-pavo": {
+       "a": "champinon",
+       "g": 70,
+       "casera": "5 champiñones"
+      }
+     }
+    },
+    {
+     "id": "tomate",
+     "nombre": "Omelette de tomate y cebolla con arepa",
+     "cambia": {
+      "jamon-pavo": {
+       "a": "tomate",
+       "g": 60,
+       "casera": "1 tomate"
+      },
+      "pan-integral": {
+       "a": "arepa",
+       "g": 45,
+       "casera": "1 arepa"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pancakes-avena",
+   "nombre": "Pancakes de avena y banano",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "avena",
+     "g": 40,
+     "casera": "4 cucharadas"
+    },
+    {
+     "a": "banano",
+     "g": 80,
+     "casera": "1 banano pequeño"
+    },
+    {
+     "a": "huevo",
+     "g": 50,
+     "casera": "1 huevo"
+    },
+    {
+     "a": "clara-huevo",
+     "g": 66,
+     "casera": "2 claras"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 100,
+     "casera": "½ taza para servir"
+    },
+    {
+     "a": "miel",
+     "g": 7,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Licuar la avena, el banano, el huevo y las claras.",
+    "Cocinar en sartén antiadherente de a 3 cucharadas, 2 minutos por lado.",
+    "Servir con el yogur y la miel."
+   ],
+   "variantes": [
+    {
+     "id": "proteina",
+     "nombre": "Pancakes proteicos con frutos rojos",
+     "cambia": {
+      "miel": {
+       "a": "frutos-rojos",
+       "g": 80,
+       "casera": "½ taza"
+      }
+     },
+     "agrega": [
+      {
+       "a": "proteina-polvo",
+       "g": 15,
+       "casera": "½ scoop en la mezcla"
+      }
+     ]
+    },
+    {
+     "id": "fresa",
+     "nombre": "Pancakes de avena con fresas",
+     "cambia": {
+      "miel": {
+       "a": "fresa",
+       "g": 100,
+       "casera": "7 fresas"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "avena-nocturna",
+   "nombre": "Avena nocturna con yogur y fruta",
+   "tipos": [
+    "desayuno",
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "avena",
+     "g": 35,
+     "casera": "4 cucharadas"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 150,
+     "casera": "⅔ taza"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 80,
+     "casera": "⅓ vaso"
+    },
+    {
+     "a": "chia",
+     "g": 8,
+     "casera": "2 cucharaditas"
+    },
+    {
+     "a": "mango",
+     "g": 80,
+     "casera": "⅓ de mango"
+    }
+   ],
+   "pasos": [
+    "Mezclar en un frasco la avena, el yogur, la leche y la chía.",
+    "Poner la fruta picada encima.",
+    "Tapar y dejar en la nevera toda la noche."
+   ],
+   "portatil": true,
+   "lote": true,
+   "variantes": [
+    {
+     "id": "cacao",
+     "nombre": "Avena nocturna de cacao y banano",
+     "cambia": {
+      "mango": {
+       "a": "banano",
+       "g": 70,
+       "casera": "½ banano"
+      }
+     },
+     "agrega": [
+      {
+       "a": "chocolate-oscuro",
+       "g": 8,
+       "casera": "1 cuadrito rallado"
+      }
+     ]
+    },
+    {
+     "id": "mora",
+     "nombre": "Avena nocturna con mora",
+     "cambia": {
+      "mango": {
+       "a": "mora",
+       "g": 90,
+       "casera": "¾ taza"
+      }
+     }
+    },
+    {
+     "id": "manzana",
+     "nombre": "Avena nocturna de manzana y canela",
+     "cambia": {
+      "mango": {
+       "a": "manzana",
+       "g": 100,
+       "casera": "½ manzana rallada"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "tostadas-aguacate-huevo",
+   "nombre": "Tostadas con aguacate y huevo",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pan-integral",
+     "g": 60,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "aguacate",
+     "g": 50,
+     "casera": "¼ de aguacate"
+    },
+    {
+     "a": "huevo",
+     "g": 100,
+     "casera": "2 huevos"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "rodajas de tomate"
+    },
+    {
+     "a": "limon",
+     "g": 5,
+     "casera": "unas gotas"
+    }
+   ],
+   "pasos": [
+    "Tostar el pan.",
+    "Machacar el aguacate con limón y sal y untarlo.",
+    "Poner encima los huevos (pochados, fritos o duros) y el tomate."
+   ],
+   "variantes": [
+    {
+     "id": "salmon",
+     "nombre": "Tostadas de aguacate con salmón ahumado",
+     "cambia": {
+      "huevo": {
+       "a": "salmon-ahumado",
+       "g": 60,
+       "casera": "3 tajadas"
+      }
+     },
+     "proteinaPrincipal": "pescado"
+    },
+    {
+     "id": "cottage",
+     "nombre": "Tostadas de aguacate con cottage",
+     "cambia": {
+      "huevo": {
+       "a": "queso-cottage",
+       "g": 120,
+       "casera": "½ taza"
+      }
+     },
+     "proteinaPrincipal": "lacteo"
+    }
+   ]
+  },
+  {
+   "id": "arepa-pollo-queso",
+   "nombre": "Arepa rellena de pollo desmechado y queso",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "arepa",
+     "g": 60,
+     "casera": "1 arepa mediana"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 100,
+     "casera": "½ pechuga desmechada"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 25,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "tomate",
+     "g": 30,
+     "casera": "¼ tomate"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 10,
+     "casera": "½ tallo"
+    }
+   ],
+   "pasos": [
+    "Desmechar el pollo cocido y sofreírlo con tomate y cebolla.",
+    "Abrir la arepa caliente.",
+    "Rellenar con el pollo y el queso y tapar 1 minuto para que se derrita."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "carne",
+     "nombre": "Arepa rellena de carne desmechada",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "sobrebarriga",
+       "g": 90,
+       "casera": "½ taza de carne desmechada"
+      }
+     },
+     "proteinaPrincipal": "res"
+    },
+    {
+     "id": "huevo",
+     "nombre": "Arepa de huevo y queso",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "huevo",
+       "g": 100,
+       "casera": "2 huevos revueltos"
+      }
+     },
+     "proteinaPrincipal": "huevo"
+    }
+   ]
+  },
+  {
+   "id": "sandwich-pollo",
+   "nombre": "Sándwich de pollo",
+   "tipos": [
+    "desayuno",
+    "snack"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pan-integral",
+     "g": 60,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 90,
+     "casera": "½ pechuga cocida"
+    },
+    {
+     "a": "lechuga",
+     "g": 20,
+     "casera": "2 hojas"
+    },
+    {
+     "a": "tomate",
+     "g": 30,
+     "casera": "2 rodajas"
+    },
+    {
+     "a": "mayonesa-light",
+     "g": 10,
+     "casera": "1 cucharadita"
+    },
+    {
+     "a": "mostaza",
+     "g": 5,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Desmechar o tajar el pollo cocido.",
+    "Untar el pan con mayonesa y mostaza.",
+    "Armar con lechuga, tomate y pollo."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "pita",
+     "nombre": "Pan árabe relleno de pollo",
+     "cambia": {
+      "pan-integral": {
+       "a": "pan-arabe-integral",
+       "g": 60,
+       "casera": "1 pan árabe"
+      }
+     }
+    },
+    {
+     "id": "atun",
+     "nombre": "Sándwich de atún",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "atun-agua",
+       "g": 100,
+       "casera": "1 lata escurrida"
+      }
+     },
+     "proteinaPrincipal": "pescado"
+    }
+   ]
+  },
+  {
+   "id": "bagel-salmon",
+   "nombre": "Bagel con queso crema y salmón ahumado",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "bagel",
+     "g": 70,
+     "casera": "½ bagel grande o 1 pequeño"
+    },
+    {
+     "a": "queso-crema",
+     "g": 20,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "salmon-ahumado",
+     "g": 60,
+     "casera": "3 tajadas"
+    },
+    {
+     "a": "pepino",
+     "g": 30,
+     "casera": "rodajas"
+    },
+    {
+     "a": "limon",
+     "g": 5,
+     "casera": "gotas"
+    }
+   ],
+   "pasos": [
+    "Tostar el bagel.",
+    "Untar el queso crema.",
+    "Poner el salmón, el pepino y unas gotas de limón."
+   ]
+  },
+  {
+   "id": "cuajada-melao",
+   "nombre": "Cuajada con arepa y café con leche",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "queso-campesino",
+     "g": 90,
+     "casera": "1 trozo de cuajada"
+    },
+    {
+     "a": "arepa",
+     "g": 50,
+     "casera": "1 arepa"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 150,
+     "casera": "1 pocillo en el café"
+    },
+    {
+     "a": "huevo",
+     "g": 50,
+     "casera": "1 huevo"
+    }
+   ],
+   "pasos": [
+    "Calentar la arepa.",
+    "Servir con la cuajada y el huevo duro o revuelto.",
+    "Café con leche descremada sin azúcar."
+   ]
+  },
+  {
+   "id": "smoothie-bowl",
+   "nombre": "Smoothie bowl de frutos rojos",
+   "tipos": [
+    "desayuno",
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "frutos-rojos",
+     "g": 150,
+     "casera": "1 taza congelados"
+    },
+    {
+     "a": "banano",
+     "g": 60,
+     "casera": "½ banano congelado"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 120,
+     "casera": "½ taza"
+    },
+    {
+     "a": "proteina-polvo",
+     "g": 15,
+     "casera": "½ scoop"
+    },
+    {
+     "a": "granola",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "chia",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Licuar la fruta congelada con el yogur y la proteína, espeso.",
+    "Servir en un plato hondo.",
+    "Poner encima la granola y la chía."
+   ],
+   "variantes": [
+    {
+     "id": "mango",
+     "nombre": "Smoothie bowl de mango y piña",
+     "cambia": {
+      "frutos-rojos": {
+       "a": "mango",
+       "g": 100,
+       "casera": "½ mango"
+      },
+      "banano": {
+       "a": "pina",
+       "g": 80,
+       "casera": "2 rodajas de piña"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "pollo-asado-papa",
+   "nombre": "Pollo asado con papa salada y ensalada",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "muslo-pollo",
+     "g": 220,
+     "casera": "2 muslos sin piel"
+    },
+    {
+     "a": "papa",
+     "g": 180,
+     "casera": "2 papas medianas"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "1 taza"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Adobar el pollo con ajo, comino, sal y limón (mejor desde la noche anterior).",
+    "Hornearlo o en airfryer a 200 °C, 25 minutos.",
+    "Cocinar las papas en agua con sal.",
+    "Servir con la ensalada."
+   ],
+   "lote": true,
+   "variantes": [
+    {
+     "id": "airfryer",
+     "nombre": "Pollo en airfryer con papas fritas de airfryer",
+     "cambia": {
+      "papa": {
+       "a": "papas-airfryer",
+       "g": 120,
+       "casera": "1 taza de papas congeladas"
+      }
+     }
+    },
+    {
+     "id": "arroz",
+     "nombre": "Pollo asado con arroz y maduro",
+     "cambia": {
+      "papa": {
+       "a": "arroz-blanco",
+       "g": 45,
+       "casera": "¾ taza de arroz cocido"
+      }
+     },
+     "agrega": [
+      {
+       "a": "platano-maduro",
+       "g": 60,
+       "casera": "3 tajadas asadas"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "carne-sudada",
+   "nombre": "Carne sudada con papa y arroz",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "res-magra",
+     "g": 160,
+     "casera": "1 trozo de posta"
+    },
+    {
+     "a": "papa",
+     "g": 120,
+     "casera": "1 papa mediana"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 30,
+     "casera": "½ taza de arroz cocido"
+    },
+    {
+     "a": "tomate",
+     "g": 80,
+     "casera": "1 tomate"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Hacer un hogao con el tomate, la cebolla y el aceite.",
+    "Agregar la carne en trozos, sal y comino, y sellar.",
+    "Añadir agua hasta cubrir y cocinar tapado 35 minutos (o 15 en olla a presión).",
+    "Agregar la papa en los últimos 15 minutos y servir con el arroz."
+   ],
+   "lote": true,
+   "variantes": [
+    {
+     "id": "sobrebarriga",
+     "nombre": "Sobrebarriga en salsa criolla con papa",
+     "cambia": {
+      "res-magra": {
+       "a": "sobrebarriga",
+       "g": 160,
+       "casera": "1 porción de sobrebarriga"
+      }
+     }
+    },
+    {
+     "id": "cerdo",
+     "nombre": "Cerdo sudado con yuca",
+     "cambia": {
+      "res-magra": {
+       "a": "pernil-cerdo",
+       "g": 180,
+       "casera": "1 trozo de pernil"
+      },
+      "papa": {
+       "a": "yuca",
+       "g": 70,
+       "casera": "1 trozo de yuca"
+      }
+     },
+     "proteinaPrincipal": "cerdo"
+    },
+    {
+     "id": "pollo",
+     "nombre": "Pollo sudado con papa criolla",
+     "cambia": {
+      "res-magra": {
+       "a": "muslo-pollo",
+       "g": 200,
+       "casera": "2 muslos sin piel"
+      }
+     },
+     "proteinaPrincipal": "pollo"
+    }
+   ]
+  },
+  {
+   "id": "sancocho-gallina",
+   "nombre": "Sancocho de pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "muslo-pollo",
+     "g": 200,
+     "casera": "2 presas sin piel"
+    },
+    {
+     "a": "papa",
+     "g": 100,
+     "casera": "1 papa"
+    },
+    {
+     "a": "yuca",
+     "g": 70,
+     "casera": "1 trozo"
+    },
+    {
+     "a": "platano",
+     "g": 50,
+     "casera": "½ plátano verde"
+    },
+    {
+     "a": "mazorca",
+     "g": 60,
+     "casera": "1 trozo de mazorca"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 20,
+     "casera": "1 tallo"
+    }
+   ],
+   "pasos": [
+    "Poner el pollo en agua con la cebolla larga, sal y ajo, y hervir 20 minutos.",
+    "Agregar el plátano y la mazorca y cocinar 10 minutos.",
+    "Agregar la papa y la yuca y cocinar 20 minutos más.",
+    "Servir con cilantro picado."
+   ],
+   "lote": true,
+   "tip": "Se puede hacer olla grande el día libre: rinde para toda la familia y aguanta 3 días en la nevera.",
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Sancocho de carne",
+     "cambia": {
+      "muslo-pollo": {
+       "a": "res-magra",
+       "g": 170,
+       "casera": "1 trozo de posta"
+      }
+     },
+     "proteinaPrincipal": "res"
+    }
+   ]
+  },
+  {
+   "id": "ajiaco",
+   "nombre": "Ajiaco de pollo",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 170,
+     "casera": "1 pechuga"
+    },
+    {
+     "a": "papa",
+     "g": 200,
+     "casera": "papa sabanera y criolla"
+    },
+    {
+     "a": "mazorca",
+     "g": 60,
+     "casera": "1 trozo"
+    },
+    {
+     "a": "crema-leche",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 20,
+     "casera": "⅓ taza de arroz cocido"
+    }
+   ],
+   "pasos": [
+    "Cocinar la pechuga en agua con guascas, ajo y sal; sacarla y desmecharla.",
+    "En el mismo caldo cocinar las papas picadas 30 minutos hasta que la criolla se deshaga.",
+    "Agregar la mazorca y el pollo y cocinar 10 minutos.",
+    "Servir con la crema, el aguacate y el arroz."
+   ],
+   "lote": true
+  },
+  {
+   "id": "locro-papa",
+   "nombre": "Locro de papa con queso y pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "papa",
+     "g": 220,
+     "casera": "2 papas"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 150,
+     "casera": "1 vaso"
+    },
+    {
+     "a": "queso-campesino",
+     "g": 60,
+     "casera": "1 trozo"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 20,
+     "casera": "1 tallo"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 110,
+     "casera": "½ pechuga desmechada"
+    }
+   ],
+   "pasos": [
+    "Sofreír la cebolla larga, agregar las papas picadas y agua.",
+    "Cocinar 25 minutos hasta que espese.",
+    "Agregar la leche y el queso en cubos y dejar 3 minutos.",
+    "Servir con el pollo desmechado y el aguacate."
+   ]
+  },
+  {
+   "id": "sopa-quinua",
+   "nombre": "Sopa de quinua con pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "quinua",
+     "g": 40,
+     "casera": "¼ taza cruda"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 150,
+     "casera": "1 pechuga pequeña"
+    },
+    {
+     "a": "papa",
+     "g": 100,
+     "casera": "1 papa"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 15,
+     "casera": "1 tallo"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    }
+   ],
+   "pasos": [
+    "Lavar bien la quinua.",
+    "Cocinar el pollo en agua con la cebolla y sal 15 minutos.",
+    "Agregar la quinua, la papa y el tomate y cocinar 20 minutos.",
+    "Desmechar el pollo, devolverlo a la sopa y servir con cilantro."
+   ],
+   "lote": true,
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Sopa de quinua con carne",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "res-magra",
+       "g": 160,
+       "casera": "1 trozo en cubos"
+      }
+     },
+     "proteinaPrincipal": "res"
+    }
+   ]
+  },
+  {
+   "id": "arroz-chaufa",
+   "nombre": "Arroz chaufa de pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "arroz-blanco",
+     "g": 50,
+     "casera": "1 taza de arroz cocido del día anterior"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 140,
+     "casera": "1 pechuga pequeña"
+    },
+    {
+     "a": "huevo",
+     "g": 50,
+     "casera": "1 huevo"
+    },
+    {
+     "a": "cebolla-larga",
+     "g": 20,
+     "casera": "1 tallo"
+    },
+    {
+     "a": "pimenton",
+     "g": 30,
+     "casera": "¼ de pimentón"
+    },
+    {
+     "a": "salsa-soya",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "jengibre",
+     "g": 3,
+     "casera": "un poco rallado"
+    },
+    {
+     "a": "aceite-vegetal",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cortar el pollo en cubos y saltearlo con el aceite.",
+    "Agregar el pimentón, la cebolla y el jengibre, 2 minutos.",
+    "Hacer el huevo revuelto a un lado de la sartén.",
+    "Agregar el arroz frío y la soya y saltear todo a fuego alto 3 minutos."
+   ],
+   "variantes": [
+    {
+     "id": "cerdo",
+     "nombre": "Arroz chaufa de cerdo",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "lomo-cerdo",
+       "g": 140,
+       "casera": "1 trozo en cubos"
+      }
+     },
+     "proteinaPrincipal": "cerdo"
+    },
+    {
+     "id": "mixto",
+     "nombre": "Arroz chaufa de pollo y salchicha",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "pechuga-pollo",
+       "g": 110,
+       "casera": "½ pechuga"
+      }
+     },
+     "agrega": [
+      {
+       "a": "salchicha-pavo",
+       "g": 40,
+       "casera": "1 salchicha"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pollo-teriyaki",
+   "nombre": "Pollo teriyaki con arroz",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 180,
+     "casera": "1 pechuga"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 45,
+     "casera": "¾ taza de arroz cocido"
+    },
+    {
+     "a": "salsa-teriyaki",
+     "g": 25,
+     "casera": "1½ cucharadas"
+    },
+    {
+     "a": "pimenton",
+     "g": 40,
+     "casera": "⅓ de pimentón"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "aceite-vegetal",
+     "g": 4,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Cortar el pollo en tiras y dorarlo con el aceite.",
+    "Agregar el pimentón y la cebolla en tiras, 3 minutos.",
+    "Bañar con la salsa teriyaki y dejar reducir 2 minutos.",
+    "Servir sobre el arroz."
+   ],
+   "variantes": [
+    {
+     "id": "fideos",
+     "nombre": "Pollo teriyaki con fideos de arroz",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "fideos-arroz",
+       "g": 50,
+       "casera": "1 nido"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bowl-pollo",
+   "nombre": "Bowl de pollo, arroz y fríjol",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 150,
+     "casera": "1 pechuga"
+    },
+    {
+     "a": "arroz-integral",
+     "g": 40,
+     "casera": "⅔ taza cocido"
+    },
+    {
+     "a": "frijol-lata",
+     "g": 70,
+     "casera": "⅓ taza"
+    },
+    {
+     "a": "maiz-tierno",
+     "g": 40,
+     "casera": "3 cucharadas"
+    },
+    {
+     "a": "tomate",
+     "g": 50,
+     "casera": "½ tomate en cubos"
+    },
+    {
+     "a": "aguacate",
+     "g": 35,
+     "casera": "¼ de aguacate"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Asar el pollo sazonado con comino y paprika y cortarlo en tiras.",
+    "Calentar el fríjol.",
+    "Armar el bowl: arroz, fríjol, maíz, tomate, aguacate y pollo.",
+    "Terminar con limón y sal."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "res",
+     "nombre": "Bowl de res, arroz y fríjol",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "punta-anca",
+       "g": 130,
+       "casera": "1 filete en tiras"
+      }
+     },
+     "proteinaPrincipal": "res"
+    },
+    {
+     "id": "atun",
+     "nombre": "Bowl de atún tipo poke",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "atun-agua",
+       "g": 170,
+       "casera": "1 lata"
+      },
+      "frijol-lata": {
+       "a": "pepino",
+       "g": 90,
+       "casera": "½ pepino"
+      }
+     },
+     "agrega": [
+      {
+       "a": "salsa-soya",
+       "g": 10,
+       "casera": "2 cucharaditas"
+      }
+     ],
+     "proteinaPrincipal": "pescado"
+    }
+   ]
+  },
+  {
+   "id": "quesadilla-pollo",
+   "nombre": "Quesadilla de pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tortilla-integral",
+     "g": 70,
+     "casera": "2 tortillas"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 130,
+     "casera": "½ pechuga grande desmechada"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 40,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "pimenton",
+     "g": 30,
+     "casera": "¼ de pimentón"
+    },
+    {
+     "a": "cebolla",
+     "g": 20,
+     "casera": "2 cucharadas"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "pico de gallo"
+    }
+   ],
+   "pasos": [
+    "Saltear el pollo con el pimentón y la cebolla.",
+    "Poner en una tortilla el pollo y el queso y tapar con la otra.",
+    "Dorarla en sartén o airfryer 3 minutos por lado.",
+    "Cortar en triángulos y servir con pico de gallo."
+   ],
+   "variantes": [
+    {
+     "id": "frijol",
+     "nombre": "Burrito de pollo y fríjol",
+     "cambia": {
+      "queso-mozzarella-light": {
+       "a": "queso-mozzarella-light",
+       "g": 25,
+       "casera": "1 tajada"
+      }
+     },
+     "agrega": [
+      {
+       "a": "frijol-lata",
+       "g": 50,
+       "casera": "¼ taza"
+      }
+     ]
+    },
+    {
+     "id": "res",
+     "nombre": "Quesadilla de carne",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "punta-anca",
+       "g": 120,
+       "casera": "1 filete en tiras"
+      }
+     },
+     "proteinaPrincipal": "res"
+    }
+   ]
+  },
+  {
+   "id": "pizza-tortilla",
+   "nombre": "Pizza en tortilla (airfryer)",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "tortilla-integral",
+     "g": 45,
+     "casera": "1 tortilla grande"
+    },
+    {
+     "a": "salsa-napolitana",
+     "g": 40,
+     "casera": "2 cucharadas"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 50,
+     "casera": "½ taza rallado"
+    },
+    {
+     "a": "jamon-pavo",
+     "g": 80,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "champinon",
+     "g": 40,
+     "casera": "3 champiñones"
+    },
+    {
+     "a": "pimenton",
+     "g": 20,
+     "casera": "tiras"
+    }
+   ],
+   "pasos": [
+    "Untar la tortilla con la salsa.",
+    "Poner el queso, el jamón y las verduras.",
+    "Airfryer a 180 °C 6 minutos o sartén tapada hasta que el queso se derrita."
+   ],
+   "variantes": [
+    {
+     "id": "pollo",
+     "nombre": "Pizza en tortilla de pollo BBQ",
+     "cambia": {
+      "jamon-pavo": {
+       "a": "pechuga-pollo",
+       "g": 80,
+       "casera": "½ taza de pollo desmechado"
+      },
+      "salsa-napolitana": {
+       "a": "salsa-bbq",
+       "g": 20,
+       "casera": "1 cucharada"
+      }
+     },
+     "proteinaPrincipal": "pollo"
+    }
+   ]
+  },
+  {
+   "id": "lasana",
+   "nombre": "Lasaña de carne",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 3,
+   "ingredientes": [
+    {
+     "a": "pasta-integral",
+     "g": 40,
+     "casera": "3 láminas"
+    },
+    {
+     "a": "res-molida",
+     "g": 120,
+     "casera": "¾ taza"
+    },
+    {
+     "a": "salsa-napolitana",
+     "g": 80,
+     "casera": "⅓ taza"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 40,
+     "casera": "2 tajadas"
+    },
+    {
+     "a": "ricotta",
+     "g": 50,
+     "casera": "¼ taza"
+    },
+    {
+     "a": "cebolla",
+     "g": 20,
+     "casera": "2 cucharadas"
+    }
+   ],
+   "pasos": [
+    "Sofreír la cebolla y la carne y agregar la salsa.",
+    "Armar capas: lámina, carne, ricotta; repetir.",
+    "Terminar con mozzarella.",
+    "Hornear a 180 °C 30 minutos."
+   ],
+   "lote": true,
+   "tip": "Hacer un molde completo el día libre y congelar por porciones.",
+   "variantes": [
+    {
+     "id": "pollo",
+     "nombre": "Lasaña de pollo y champiñones",
+     "cambia": {
+      "res-molida": {
+       "a": "pechuga-pollo",
+       "g": 140,
+       "casera": "1 pechuga desmechada"
+      }
+     },
+     "agrega": [
+      {
+       "a": "champinon",
+       "g": 50,
+       "casera": "4 champiñones"
+      }
+     ],
+     "proteinaPrincipal": "pollo"
+    }
+   ]
+  },
+  {
+   "id": "albondigas",
+   "nombre": "Albóndigas en salsa con arroz",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "res-molida",
+     "g": 160,
+     "casera": "para 5 albóndigas"
+    },
+    {
+     "a": "huevo",
+     "g": 25,
+     "casera": "½ huevo"
+    },
+    {
+     "a": "avena",
+     "g": 10,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "salsa-napolitana",
+     "g": 70,
+     "casera": "⅓ taza"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 30,
+     "casera": "⅔ taza de arroz cocido"
+    },
+    {
+     "a": "cebolla",
+     "g": 20,
+     "casera": "2 cucharadas"
+    }
+   ],
+   "pasos": [
+    "Mezclar la carne con la cebolla picada, el huevo, la avena y sal.",
+    "Formar 5 albóndigas.",
+    "Dorarlas en sartén y luego cocinarlas en la salsa tapadas 12 minutos.",
+    "Servir con el arroz."
+   ],
+   "lote": true,
+   "variantes": [
+    {
+     "id": "pavo",
+     "nombre": "Albóndigas de pavo con pasta",
+     "cambia": {
+      "res-molida": {
+       "a": "pavo-molido",
+       "g": 150,
+       "casera": "para 5 albóndigas"
+      },
+      "arroz-blanco": {
+       "a": "pasta-integral",
+       "g": 50,
+       "casera": "1 taza de pasta cocida"
+      }
+     },
+     "proteinaPrincipal": "pavo"
+    },
+    {
+     "id": "pure",
+     "nombre": "Albóndigas en salsa con puré de papa",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "papa",
+       "g": 180,
+       "casera": "puré de 2 papas"
+      }
+     },
+     "agrega": [
+      {
+       "a": "leche-descremada",
+       "g": 40,
+       "casera": "un chorrito para el puré"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pescado-sierra",
+   "nombre": "Sierra en salsa criolla con arroz y patacón",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "sierra",
+     "g": 180,
+     "casera": "1 posta"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 40,
+     "casera": "⅔ taza de arroz cocido"
+    },
+    {
+     "a": "platano",
+     "g": 70,
+     "casera": "2 patacones horneados"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Adobar el pescado con limón, ajo y sal.",
+    "Asarlo en sartén 4 minutos por lado.",
+    "Hacer una salsa criolla con tomate y cebolla y bañar el pescado.",
+    "Servir con arroz y patacones al horno o airfryer."
+   ],
+   "variantes": [
+    {
+     "id": "merluza",
+     "nombre": "Filete de merluza al ajillo con papa",
+     "cambia": {
+      "sierra": {
+       "a": "pescado-blanco",
+       "g": 200,
+       "casera": "1 filete"
+      },
+      "platano": {
+       "a": "papa",
+       "g": 150,
+       "casera": "1 papa grande"
+      }
+     }
+    },
+    {
+     "id": "trucha",
+     "nombre": "Trucha al ajillo con patacón",
+     "cambia": {
+      "sierra": {
+       "a": "trucha",
+       "g": 200,
+       "casera": "1 trucha mediana"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ceviche-pescado",
+   "nombre": "Ceviche de pescado con galletas",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pescado-blanco",
+     "g": 250,
+     "casera": "1 filete en cubos"
+    },
+    {
+     "a": "limon",
+     "g": 60,
+     "casera": "el jugo de 3 limones"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla morada"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "cilantro",
+     "g": 5,
+     "casera": "1 ramita"
+    },
+    {
+     "a": "galleta-integral",
+     "g": 35,
+     "casera": "5 galletas"
+    },
+    {
+     "a": "aguacate",
+     "g": 40,
+     "casera": "2 tajadas"
+    }
+   ],
+   "pasos": [
+    "Cortar el pescado en cubos pequeños y cubrirlo con el limón y sal.",
+    "Dejar en la nevera 20 minutos hasta que se vea blanco.",
+    "Agregar la cebolla, el tomate y el cilantro picados.",
+    "Servir frío con las galletas y el aguacate."
+   ],
+   "variantes": [
+    {
+     "id": "mango",
+     "nombre": "Ceviche de pescado con mango",
+     "agrega": [
+      {
+       "a": "mango",
+       "g": 60,
+       "casera": "¼ de mango en cubos"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lomo-cerdo-pina",
+   "nombre": "Lomo de cerdo con piña y arroz",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "lomo-cerdo",
+     "g": 190,
+     "casera": "1 trozo"
+    },
+    {
+     "a": "pina",
+     "g": 80,
+     "casera": "2 rodajas"
+    },
+    {
+     "a": "arroz-blanco",
+     "g": 40,
+     "casera": "⅔ taza cocido"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "1 taza"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 3,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Sazonar el lomo con sal, ajo y pimienta.",
+    "Asarlo en sartén 6 minutos por lado.",
+    "Dorar la piña en la misma sartén.",
+    "Servir con arroz y ensalada."
+   ],
+   "variantes": [
+    {
+     "id": "kassler",
+     "nombre": "Lomo de cerdo con puré de papa",
+     "cambia": {
+      "arroz-blanco": {
+       "a": "papa",
+       "g": 180,
+       "casera": "puré de 2 papas"
+      },
+      "pina": {
+       "a": "manzana",
+       "g": 80,
+       "casera": "manzana asada"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "carne-molida-papa",
+   "nombre": "Carne molida guisada con papa criolla",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "res",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "res-molida",
+     "g": 140,
+     "casera": "¾ taza"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "8 papas criollas"
+    },
+    {
+     "a": "tomate",
+     "g": 60,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "maiz-tierno",
+     "g": 30,
+     "casera": "2 cucharadas"
+    }
+   ],
+   "pasos": [
+    "Sofreír la cebolla y el tomate.",
+    "Agregar la carne y cocinar 10 minutos.",
+    "Agregar el maíz.",
+    "Servir con las papas criollas cocidas o asadas."
+   ],
+   "lote": true,
+   "variantes": [
+    {
+     "id": "pavo",
+     "nombre": "Pavo molido guisado con papa",
+     "cambia": {
+      "res-molida": {
+       "a": "pavo-molido",
+       "g": 170,
+       "casera": "¾ taza"
+      }
+     },
+     "proteinaPrincipal": "pavo"
+    }
+   ]
+  },
+  {
+   "id": "pechuga-rellena",
+   "nombre": "Pechuga rellena de jamón y queso",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 170,
+     "casera": "1 pechuga abierta"
+    },
+    {
+     "a": "jamon-pavo",
+     "g": 20,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 25,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "papa",
+     "g": 120,
+     "casera": "1 papa"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "ensalada"
+    }
+   ],
+   "pasos": [
+    "Abrir la pechuga como libro y aplanarla.",
+    "Rellenar con el jamón y el queso y cerrar con palillos.",
+    "Hornear o airfryer a 190 °C 20 minutos.",
+    "Servir con papa y ensalada."
+   ]
+  },
+  {
+   "id": "pasta-pesto",
+   "nombre": "Pasta al pesto con pollo",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pasta-integral",
+     "g": 60,
+     "casera": "1 taza cocida generosa"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 140,
+     "casera": "1 pechuga pequeña"
+    },
+    {
+     "a": "pesto",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "tomate",
+     "g": 50,
+     "casera": "tomates cherry"
+    },
+    {
+     "a": "queso-parmesano",
+     "g": 8,
+     "casera": "1 cucharada"
+    }
+   ],
+   "pasos": [
+    "Cocinar la pasta.",
+    "Asar el pollo y cortarlo en tiras.",
+    "Mezclar la pasta caliente con el pesto, el pollo y el tomate.",
+    "Terminar con parmesano."
+   ],
+   "variantes": [
+    {
+     "id": "atun",
+     "nombre": "Pasta al pesto con atún",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "atun-agua",
+       "g": 120,
+       "casera": "1 lata"
+      }
+     },
+     "proteinaPrincipal": "pescado"
+    },
+    {
+     "id": "camarones",
+     "nombre": "Pasta en salsa rosada con pollo",
+     "cambia": {
+      "pesto": {
+       "a": "crema-leche",
+       "g": 20,
+       "casera": "1 cucharada"
+      },
+      "tomate": {
+       "a": "salsa-napolitana",
+       "g": 60,
+       "casera": "¼ taza"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ensalada-pollo-aguacate",
+   "nombre": "Ensalada de pollo, aguacate y mango",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pechuga-pollo",
+     "g": 160,
+     "casera": "1 pechuga"
+    },
+    {
+     "a": "lechuga",
+     "g": 80,
+     "casera": "2 tazas"
+    },
+    {
+     "a": "aguacate",
+     "g": 40,
+     "casera": "¼ de aguacate"
+    },
+    {
+     "a": "mango",
+     "g": 70,
+     "casera": "¼ de mango"
+    },
+    {
+     "a": "pepino",
+     "g": 50,
+     "casera": "½ pepino"
+    },
+    {
+     "a": "galleta-integral",
+     "g": 15,
+     "casera": "3 galletas"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 5,
+     "casera": "1 cucharadita"
+    },
+    {
+     "a": "limon",
+     "g": 10,
+     "casera": "½ limón"
+    }
+   ],
+   "pasos": [
+    "Asar el pollo y cortarlo en tiras.",
+    "Picar la lechuga, el pepino, el mango y el aguacate.",
+    "Aliñar con aceite, limón y sal.",
+    "Servir con las galletas."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "atun",
+     "nombre": "Ensalada de atún con huevo",
+     "cambia": {
+      "pechuga-pollo": {
+       "a": "atun-agua",
+       "g": 170,
+       "casera": "1 lata"
+      },
+      "mango": {
+       "a": "huevo",
+       "g": 50,
+       "casera": "1 huevo duro"
+      }
+     },
+     "proteinaPrincipal": "pescado"
+    },
+    {
+     "id": "feta",
+     "nombre": "Ensalada griega con pollo",
+     "cambia": {
+      "mango": {
+       "a": "queso-feta",
+       "g": 30,
+       "casera": "2 cucharadas"
+      },
+      "aguacate": {
+       "a": "tomate",
+       "g": 60,
+       "casera": "½ tomate"
+      }
+     },
+     "agrega": [
+      {
+       "a": "pan-pita",
+       "g": 40,
+       "casera": "½ pan pita"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crema-champinon",
+   "nombre": "Crema de champiñones con pollo",
+   "tipos": [
+    "cena"
+   ],
+   "proteinaPrincipal": "pollo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "champinon",
+     "g": 150,
+     "casera": "1 bandeja"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 200,
+     "casera": "1 vaso"
+    },
+    {
+     "a": "cebolla",
+     "g": 30,
+     "casera": "¼ de cebolla"
+    },
+    {
+     "a": "pechuga-pollo",
+     "g": 170,
+     "casera": "½ pechuga"
+    },
+    {
+     "a": "pan-integral",
+     "g": 30,
+     "casera": "1 tajada tostada"
+    }
+   ],
+   "pasos": [
+    "Sofreír la cebolla y los champiñones.",
+    "Agregar la leche y cocinar 10 minutos.",
+    "Licuar.",
+    "Servir con el pollo asado en cubos y el pan tostado."
+   ],
+   "variantes": [
+    {
+     "id": "tomate",
+     "nombre": "Crema de tomate con queso y pollo",
+     "cambia": {
+      "champinon": {
+       "a": "tomate",
+       "g": 200,
+       "casera": "2 tomates"
+      }
+     },
+     "agrega": [
+      {
+       "a": "queso-mozzarella-light",
+       "g": 20,
+       "casera": "1 tajada"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sandwich-cubano",
+   "nombre": "Sándwich de pernil",
+   "tipos": [
+    "almuerzo",
+    "cena"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pan-blanco",
+     "g": 70,
+     "casera": "1 pan"
+    },
+    {
+     "a": "pernil-cerdo",
+     "g": 110,
+     "casera": "tajadas de pernil"
+    },
+    {
+     "a": "queso-holandes",
+     "g": 20,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "pepinillos",
+     "g": 20,
+     "casera": "3 rodajas"
+    },
+    {
+     "a": "mostaza",
+     "g": 5,
+     "casera": "½ cucharadita"
+    }
+   ],
+   "pasos": [
+    "Calentar el pernil en tajadas.",
+    "Armar el pan con mostaza, pernil, queso y pepinillos.",
+    "Prensar en sartén caliente 2 minutos por lado."
+   ],
+   "tip": "Bueno para usar el pernil que sobra."
+  },
+  {
+   "id": "tortilla-espanola",
+   "nombre": "Tortilla española",
+   "tipos": [
+    "desayuno"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "huevo",
+     "g": 150,
+     "casera": "3 huevos"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "1 papa grande"
+    },
+    {
+     "a": "cebolla",
+     "g": 40,
+     "casera": "⅓ de cebolla"
+    },
+    {
+     "a": "aceite-oliva",
+     "g": 6,
+     "casera": "2 cucharaditas"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "ensalada"
+    }
+   ],
+   "pasos": [
+    "Cortar la papa en láminas finas y cocinarla en la sartén tapada con el aceite y la cebolla 12 minutos.",
+    "Batir los huevos con sal y mezclar con la papa.",
+    "Cuajar a fuego bajo tapado 6 minutos.",
+    "Voltear con un plato y dorar 2 minutos más."
+   ],
+   "lote": true
+  },
+  {
+   "id": "hornado-pastuso",
+   "nombre": "Hornado con papa y ensalada",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "pernil-cerdo",
+     "g": 170,
+     "casera": "1 porción de hornado"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "2 papas pequeñas"
+    },
+    {
+     "a": "lechuga",
+     "g": 40,
+     "casera": "ensalada"
+    },
+    {
+     "a": "tomate",
+     "g": 40,
+     "casera": "½ tomate"
+    },
+    {
+     "a": "aguacate",
+     "g": 30,
+     "casera": "2 tajadas"
+    }
+   ],
+   "pasos": [
+    "Calentar el hornado.",
+    "Servir con la papa cocida y la ensalada."
+   ],
+   "tip": "Sirve para el fin de semana en restaurante: pide porción mediana y sin cuero."
+  },
+  {
+   "id": "frito-pastuso",
+   "nombre": "Frito pastuso (versión casera al horno)",
+   "tipos": [
+    "almuerzo"
+   ],
+   "proteinaPrincipal": "cerdo",
+   "dificultad": 2,
+   "ingredientes": [
+    {
+     "a": "pernil-cerdo",
+     "g": 140,
+     "casera": "trozos de cerdo"
+    },
+    {
+     "a": "papa",
+     "g": 150,
+     "casera": "papa en trozos"
+    },
+    {
+     "a": "mani",
+     "g": 15,
+     "casera": "ají de maní"
+    },
+    {
+     "a": "platano",
+     "g": 50,
+     "casera": "½ plátano"
+    }
+   ],
+   "pasos": [
+    "Adobar el cerdo con ajo, comino y sal.",
+    "Hornear o airfryer a 200 °C 25 minutos hasta dorar.",
+    "Asar la papa y el plátano.",
+    "Servir con ají de maní."
+   ]
+  },
+  {
+   "id": "huevos-codorniz",
+   "nombre": "Huevos de codorniz con tomate cherry",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "huevo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "huevo-codorniz",
+     "g": 80,
+     "casera": "8 huevitos"
+    },
+    {
+     "a": "tomate",
+     "g": 80,
+     "casera": "8 tomates cherry"
+    },
+    {
+     "a": "limon",
+     "g": 5,
+     "casera": "gotas"
+    }
+   ],
+   "pasos": [
+    "Cocinar los huevos 4 minutos, pelarlos.",
+    "Servir con los tomates, sal y limón."
+   ],
+   "portatil": true
+  },
+  {
+   "id": "kumis-granola",
+   "nombre": "Kumis con granola y fresa",
+   "tipos": [
+    "snack",
+    "desayuno"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "kumis",
+     "g": 200,
+     "casera": "1 vaso"
+    },
+    {
+     "a": "granola",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "fresa",
+     "g": 80,
+     "casera": "5 fresas"
+    }
+   ],
+   "pasos": [
+    "Servir el kumis frío con la granola y las fresas picadas."
+   ],
+   "portatil": true
+  },
+  {
+   "id": "ricotta-frutos",
+   "nombre": "Ricotta con frutos rojos y miel",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "ricotta",
+     "g": 120,
+     "casera": "½ taza"
+    },
+    {
+     "a": "frutos-rojos",
+     "g": 80,
+     "casera": "½ taza"
+    },
+    {
+     "a": "miel",
+     "g": 5,
+     "casera": "1 cucharadita"
+    }
+   ],
+   "pasos": [
+    "Servir la ricotta con los frutos rojos y la miel."
+   ]
+  },
+  {
+   "id": "fruta-queso",
+   "nombre": "Fruta picada con queso campesino",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "papaya",
+     "g": 150,
+     "casera": "1 tajada"
+    },
+    {
+     "a": "queso-campesino",
+     "g": 50,
+     "casera": "1 trozo"
+    }
+   ],
+   "pasos": [
+    "Picar la fruta y acompañar con el queso."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "pina",
+     "nombre": "Piña con queso campesino",
+     "cambia": {
+      "papaya": {
+       "a": "pina",
+       "g": 150,
+       "casera": "2 rodajas"
+      }
+     }
+    },
+    {
+     "id": "mango",
+     "nombre": "Mango con queso campesino",
+     "cambia": {
+      "papaya": {
+       "a": "mango",
+       "g": 120,
+       "casera": "½ mango"
+      }
+     }
+    },
+    {
+     "id": "pera",
+     "nombre": "Pera con queso holandés",
+     "cambia": {
+      "papaya": {
+       "a": "pera",
+       "g": 150,
+       "casera": "1 pera"
+      },
+      "queso-campesino": {
+       "a": "queso-holandes",
+       "g": 25,
+       "casera": "1 tajada"
+      }
+     }
+    },
+    {
+     "id": "uchuva",
+     "nombre": "Uchuvas con queso campesino",
+     "cambia": {
+      "papaya": {
+       "a": "uchuva",
+       "g": 100,
+       "casera": "1 taza"
+      }
+     }
+    },
+    {
+     "id": "feijoa",
+     "nombre": "Feijoas con queso",
+     "cambia": {
+      "papaya": {
+       "a": "feijoa",
+       "g": 120,
+       "casera": "3 feijoas"
+      }
+     }
+    },
+    {
+     "id": "kiwi",
+     "nombre": "Kiwi con queso cottage",
+     "cambia": {
+      "papaya": {
+       "a": "kiwi",
+       "g": 140,
+       "casera": "2 kiwis"
+      },
+      "queso-campesino": {
+       "a": "queso-cottage",
+       "g": 100,
+       "casera": "½ taza"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "frutos-secos",
+   "nombre": "Mezcla de frutos secos y manzana",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "almendras",
+     "g": 15,
+     "casera": "12 almendras"
+    },
+    {
+     "a": "nueces",
+     "g": 10,
+     "casera": "4 mitades"
+    },
+    {
+     "a": "manzana",
+     "g": 150,
+     "casera": "1 manzana"
+    }
+   ],
+   "pasos": [
+    "Llevar en una bolsita con la manzana."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "maranon",
+     "nombre": "Marañón con mandarina",
+     "cambia": {
+      "almendras": {
+       "a": "maranon",
+       "g": 20,
+       "casera": "15 marañones"
+      },
+      "manzana": {
+       "a": "mandarina",
+       "g": 150,
+       "casera": "2 mandarinas"
+      }
+     },
+     "quita": [
+      "nueces"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "galleta-arroz-mani",
+   "nombre": "Galletas de arroz con mantequilla de maní y banano",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "galleta-arroz",
+     "g": 18,
+     "casera": "2 galletas"
+    },
+    {
+     "a": "mantequilla-mani",
+     "g": 15,
+     "casera": "1 cucharada"
+    },
+    {
+     "a": "banano",
+     "g": 50,
+     "casera": "½ banano en rodajas"
+    }
+   ],
+   "pasos": [
+    "Untar las galletas y poner el banano encima."
+   ],
+   "portatil": true
+  },
+  {
+   "id": "crispetas-yogur",
+   "nombre": "Crispetas con yogur griego",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "crispetas",
+     "g": 20,
+     "casera": "2 tazas hechas sin aceite"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 150,
+     "casera": "⅔ taza"
+    }
+   ],
+   "pasos": [
+    "Hacer las crispetas en microondas o airfryer sin aceite.",
+    "Acompañar con el yogur."
+   ]
+  },
+  {
+   "id": "chocolate-fresas",
+   "nombre": "Fresas con chocolate oscuro y yogur",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "fresa",
+     "g": 150,
+     "casera": "10 fresas"
+    },
+    {
+     "a": "chocolate-oscuro",
+     "g": 10,
+     "casera": "2 cuadritos"
+    },
+    {
+     "a": "yogur-griego",
+     "g": 120,
+     "casera": "½ taza"
+    }
+   ],
+   "pasos": [
+    "Derretir el chocolate 20 segundos en microondas.",
+    "Mojar las fresas.",
+    "Acompañar con el yogur."
+   ]
+  },
+  {
+   "id": "jugo-proteina",
+   "nombre": "Jugo de lulo o maracuyá en leche con proteína",
+   "tipos": [
+    "snack",
+    "desayuno"
+   ],
+   "proteinaPrincipal": "lacteo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "lulo",
+     "g": 100,
+     "casera": "1 pulpa"
+    },
+    {
+     "a": "leche-descremada",
+     "g": 250,
+     "casera": "1 vaso"
+    },
+    {
+     "a": "proteina-polvo",
+     "g": 20,
+     "casera": "⅔ scoop"
+    }
+   ],
+   "pasos": [
+    "Licuar la fruta con la leche, la proteína y hielo.",
+    "Endulzar con endulzante sin calorías si hace falta."
+   ],
+   "portatil": true,
+   "variantes": [
+    {
+     "id": "maracuya",
+     "nombre": "Jugo de maracuyá en leche con proteína",
+     "cambia": {
+      "lulo": {
+       "a": "maracuya",
+       "g": 60,
+       "casera": "2 maracuyás"
+      }
+     }
+    },
+    {
+     "id": "guanabana",
+     "nombre": "Jugo de guanábana en leche con proteína",
+     "cambia": {
+      "lulo": {
+       "a": "guanabana",
+       "g": 120,
+       "casera": "1 pulpa"
+      }
+     }
+    },
+    {
+     "id": "mora",
+     "nombre": "Jugo de mora en leche con proteína",
+     "cambia": {
+      "lulo": {
+       "a": "mora",
+       "g": 120,
+       "casera": "1 taza"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "rollitos-jamon-queso",
+   "nombre": "Rollitos de jamón y queso con pepino",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "pavo",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "jamon-pavo",
+     "g": 60,
+     "casera": "3 tajadas"
+    },
+    {
+     "a": "queso-mozzarella-light",
+     "g": 30,
+     "casera": "1½ tajada"
+    },
+    {
+     "a": "pepino",
+     "g": 80,
+     "casera": "½ pepino"
+    }
+   ],
+   "pasos": [
+    "Enrollar el queso en el jamón.",
+    "Acompañar con palitos de pepino."
+   ],
+   "portatil": true
+  },
+  {
+   "id": "sardinas-galletas",
+   "nombre": "Sardinas con galletas y limón",
+   "tipos": [
+    "snack"
+   ],
+   "proteinaPrincipal": "pescado",
+   "dificultad": 1,
+   "ingredientes": [
+    {
+     "a": "sardina-lata",
+     "g": 90,
+     "casera": "1 lata escurrida"
+    },
+    {
+     "a": "galleta-integral",
+     "g": 20,
+     "casera": "4 galletas"
+    },
+    {
+     "a": "limon",
+     "g": 5,
+     "casera": "gotas"
+    },
+    {
+     "a": "cebolla",
+     "g": 15,
+     "casera": "1 cucharada"
+    }
+   ],
+   "pasos": [
+    "Escurrir las sardinas.",
+    "Mezclar con cebolla y limón.",
+    "Comer sobre las galletas."
+   ],
+   "portatil": true
+  }
+ ]
 }
