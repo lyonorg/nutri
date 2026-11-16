@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nutri — Hoy (prueba)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#0d0c0b; --tarjeta:#171513; --tarjeta2:#1e1b18; --linea:#2b2723;
+  --texto:#f3eee6; --suave:#a59d92; --tenue:#6e675e;
+  --rojo:#e0322b; --verde:#1f9d55; --amarillo:#f4b41a; --azul:#2563c9; --rosa:#e85d8a;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--fondo);color:var(--texto);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 28px);max-width:440px;margin:0 auto}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.display{font-family:'Bricolage Grotesque',Inter,sans-serif}
+
+/* franja mopa-mopa: rombos escalonados en los cuatro colores del barniz */
+.barniz{height:10px;border-radius:6px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 5 0 10 5 5 10Z' fill='%23e0322b'/%3E%3Cpath d='M10 5 15 0 20 5 15 10Z' fill='%23f4b41a'/%3E%3Cpath d='M20 5 25 0 30 5 25 10Z' fill='%231f9d55'/%3E%3Cpath d='M30 5 35 0 40 5 35 10Z' fill='%232563c9'/%3E%3Cpath d='M3 5 5 3 7 5 5 7Z' fill='%230d0c0b'/%3E%3Cpath d='M13 5 15 3 17 5 15 7Z' fill='%230d0c0b'/%3E%3Cpath d='M23 5 25 3 27 5 25 7Z' fill='%230d0c0b'/%3E%3Cpath d='M33 5 35 3 37 5 35 7Z' fill='%230d0c0b'/%3E%3C/svg%3E");background-size:40px 10px;opacity:.95}
+.zigzag{position:absolute;inset:auto 0 0 0;height:6px;background:
+  linear-gradient(135deg,var(--c) 25%,transparent 25%) -6px 0/12px 12px,
+  linear-gradient(225deg,var(--c) 25%,transparent 25%) -6px 0/12px 12px;opacity:.9}
+
+header{display:flex;align-items:flex-end;justify-content:space-between;margin:4px 2px 12px}
+.fecha{color:var(--suave);font-size:13px;letter-spacing:.02em}
+h1{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--tarjeta);border:1px solid var(--linea)}
+
+.turnos{display:flex;gap:6px;overflow-x:auto;margin:12px -14px 14px;padding:0 14px;scrollbar-width:none}
+.turnos::-webkit-scrollbar{display:none}
+.turno{flex:none;padding:9px 14px;border-radius:999px;background:var(--tarjeta);border:1px solid var(--linea);color:var(--suave);font-size:14px;font-weight:500}
+.turno[aria-pressed=true]{background:var(--texto);color:var(--fondo);border-color:var(--texto);font-weight:600}
+
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{position:relative;background:var(--tarjeta);border:1px solid var(--linea);border-radius:var(--r);padding:16px;overflow:hidden}
+.span2{grid-column:span 2}
+.etq{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--suave);font-weight:600}
+
+/* resumen */
+.resumen{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding-bottom:20px}
+.anillo{position:relative;width:132px;height:132px}
+.anillo svg{transform:rotate(-90deg)}
+.anillo .centro{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.anillo .num{font-size:34px;font-weight:800;line-height:1;letter-spacing:-.03em}
+.anillo .sub{font-size:11px;color:var(--suave);margin-top:4px}
+.barra{height:10px;border-radius:6px;background:var(--tarjeta2);overflow:hidden;margin:6px 0 4px}
+.barra i{display:block;height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.fila{display:flex;justify-content:space-between;align-items:baseline;font-size:13px}
+.fila b{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-size:18px}
+.macro+.macro{margin-top:12px}
+
+/* siguiente comida */
+.siguiente{background:linear-gradient(160deg,#241a14 0%,var(--tarjeta) 60%)}
+.siguiente h2{font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin:8px 0 6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+.chip{font-size:12px;padding:5px 9px;border-radius:999px;background:var(--tarjeta2);color:var(--suave);border:1px solid var(--linea)}
+.chip.k{color:var(--amarillo)} .chip.p{color:#7fb3ff}
+.acciones{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+.btn{padding:14px;border-radius:16px;font-weight:600;font-size:15px;text-align:center}
+.btn.primario{background:var(--rojo);color:#fff}
+.btn.sec{background:var(--tarjeta2);border:1px solid var(--linea)}
+.btn:active{transform:scale(.98)}
+
+/* lista de comidas */
+.comida{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--linea)}
+.comida:first-of-type{border-top:0}
+.hora{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-weight:700;font-size:15px;color:var(--suave)}
+.comida .n{font-size:15px;font-weight:500;line-height:1.25}
+.comida .m{font-size:12px;color:var(--tenue);margin-top:2px}
+.check{width:30px;height:30px;border-radius:50%;border:2px solid var(--linea);display:grid;place-items:center}
+.comida.hecha .check{background:var(--verde);border-color:var(--verde)}
+.comida.hecha .n{color:var(--suave);text-decoration:line-through;text-decoration-color:var(--tenue)}
+.comida.actual .hora{color:var(--amarillo)}
+
+/* mosaicos pequeños */
+.mini .grande{font-family:'Bricolage Grotesque',Inter,system-ui,sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.mini .pie{font-size:12px;color:var(--suave);margin-top:2px}
+.peso svg{display:block;margin-top:8px}
+.hambre{background:var(--azul);border-color:var(--azul);text-align:left}
+.hambre .etq,.hambre .pie{color:#dbe6ff}
+.dormir{background:var(--tarjeta2)}
+
+/* hoja inferior */
+.velo{position:fixed;inset:0;background:#0009;opacity:0;pointer-events:none;transition:opacity .25s}
+.velo.on{opacity:1;pointer-events:auto}
+.hoja{visibility:hidden;position:fixed;left:0;right:0;bottom:0;max-width:440px;margin:0 auto;background:var(--tarjeta);border-radius:26px 26px 0 0;border:1px solid var(--linea);padding:10px 16px calc(env(safe-area-inset-bottom) + 20px);transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.hoja.on{transform:none;visibility:visible}
+.asa{width:40px;height:5px;border-radius:3px;background:var(--linea);margin:0 auto 14px}
+.hoja h3{font-size:20px;font-weight:700;margin:12px 0 4px}
+.hoja p.t{color:var(--suave);font-size:13px;margin-bottom:12px}
+.opcion{display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px;border-radius:16px;background:var(--tarjeta2);border:1px solid var(--linea);margin-top:8px;text-align:left}
+.opcion small{display:block;color:var(--suave);font-size:12px;margin-top:2px}
+.aviso{margin-top:14px;font-size:12px;color:var(--tenue);text-align:center}
+.nota{margin:18px 4px 0;font-size:12px;color:var(--tenue);line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="fecha">Martes 17 de noviembre</div>
+    <h1 class="display">Hoy</h1>
+  </div>
+  <div class="logo" aria-hidden="true">
+    <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 1 21 11 11 21 1 11Z" fill="#e0322b"/><path d="M11 5 17 11 11 17 5 11Z" fill="#f4b41a"/><path d="M11 8 14 11 11 14 8 11Z" fill="#1f9d55"/></svg>
+  </div>
+</header>
+
+<div class="barniz" aria-hidden="true"></div>
+
+<nav class="turnos" aria-label="Hoy estoy en">
+  <button class="turno" data-t="manana">Mañana</button>
+  <button class="turno" data-t="tarde" aria-pressed="true">Tarde</button>
+  <button class="turno" data-t="noche">Noche</button>
+  <button class="turno" data-t="post-noche">Post-noche</button>
+  <button class="turno" data-t="libre">Libre</button>
+</nav>
+
+<main class="bento">
+  <section class="card span2 resumen" style="--c:var(--amarillo)">
+    <div class="anillo">
+      <svg width="132" height="132" viewBox="0 0 132 132">
+        <circle cx="66" cy="66" r="56" fill="none" stroke="#2b2723" stroke-width="14"/>
+        <circle id="arco" cx="66" cy="66" r="56" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="352" style="transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)"/>
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#f4b41a"/><stop offset="1" stop-color="#e0322b"/></linearGradient></defs>
+      </svg>
+      <div class="centro"><div class="num display" id="restan">1500</div><div class="sub">kcal te quedan</div></div>
+    </div>
+    <div>
+      <div class="macro">
+        <div class="fila"><span class="etq">Calorías</span><span><b id="kcal">0</b> <span style="color:var(--tenue)">/ <span id="kcalMeta"></span></span></span></div>
+        <div class="barra"><i id="bK" style="width:0;background:var(--amarillo)"></i></div>
+      </div>
+      <div class="macro">
+        <div class="fila"><span class="etq">Proteína</span><span><b id="prot">0</b> <span style="color:var(--tenue)">/ <span id="protMeta"></span> g</span></span></div>
+        <div class="barra"><i id="bP" style="width:0;background:#4b8ef0"></i></div>
+      </div>
+      <div class="macro">
+        <div class="fila"><span class="etq">Fibra</span><span><b id="fib">0</b> <span style="color:var(--tenue)">/ 21 g</span></span></div>
+        <div class="barra"><i id="bF" style="width:0;background:var(--verde)"></i></div>
+      </div>
+    </div>
+    <div class="zigzag"></div>
+  </section>
+
+  <section class="card span2 siguiente" id="sig"></section>
+
+  <section class="card span2" aria-label="Comidas del día">
+    <div class="etq" style="margin-bottom:6px">Comidas de hoy · turno <span id="turnoTxt">tarde</span></div>
+    <div id="lista"></div>
+  </section>
+
+  <section class="card mini peso">
+    <div class="etq">Peso</div>
+    <div class="grande">85,6<span style="font-size:15px;color:var(--suave)"> kg</span></div>
+    <div class="pie">−0,6 kg esta semana</div>
+    <svg width="100%" height="34" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="0,6 20,9 40,8 60,14 80,17 100,22 120,25" fill="none" stroke="#1f9d55" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="#6e675e"><circle cx="0" cy="4" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="40" cy="6" r="2"/><circle cx="60" cy="16" r="2"/><circle cx="80" cy="15" r="2"/><circle cx="100" cy="24" r="2"/><circle cx="120" cy="24" r="2"/></g>
+    </svg>
+  </section>
+
+  <section class="card mini" style="--c:var(--rosa)">
+    <div class="etq">Comida libre</div>
+    <div class="grande">225<span style="font-size:15px;color:var(--suave)"> / 450</span></div>
+    <div class="pie">kcal ahorradas para el sábado</div>
+    <div class="barra" style="margin-top:10px"><i style="width:50%;background:var(--rosa)"></i></div>
+  </section>
+
+  <button class="card mini hambre" id="btnHambre">
+    <div class="etq">Tengo hambre</div>
+    <div class="grande" style="font-size:22px">Algo que llene</div>
+    <div class="pie">con pocas calorías</div>
+  </button>
+
+  <button class="card mini dormir" id="btnDormir" style="text-align:left">
+    <div class="etq">Cerrar el día</div>
+    <div class="grande" style="font-size:22px">Me voy a dormir</div>
+    <div class="pie" id="dormirPie">el día se guarda completo</div>
+  </button>
+</main>
+
+<p class="nota">Pantalla de prueba con datos reales del motor: el plan de un día de turno de tarde a 1.500 kcal y 140 g de proteína. Los botones funcionan, pero no se guarda nada todavía.</p>
+
+<div class="velo" id="velo"></div>
+<div class="hoja" id="hoja" role="dialog" aria-modal="true"></div>
+
+<script>
+const DATOS = {"turno":"tarde","presupuesto":{"kcal":1500,"proteina":140,"descontado":0},"comidas":[{"slot":"desayuno","tipo":"desayuno","hora":"08:30","recetaId":"yogur-fresa-granola","nombre":"Yogur griego con fresa y granola","factor":1,"kcal":308,"proteina":30,"fibra":6,"ingredientes":["Yogur griego natural sin grasa","Fresa","Granola","Chía"],"portatil":true,"opciones":[{"nombre":"Sándwich de pavo y queso","kcal":328,"proteina":31,"factor":1},{"nombre":"Wrap de huevo y queso","kcal":337,"proteina":30,"factor":1},{"nombre":"Queso cottage con papaya y tostada","kcal":302,"proteina":25,"factor":1}]},{"slot":"almuerzo","tipo":"almuerzo","hora":"12:15","recetaId":"frijolada","nombre":"Fríjoles con carne y arroz","factor":1,"kcal":507,"proteina":49,"fibra":12,"ingredientes":["Fríjol rojo seco","Carne de res magra (posta, bola)","Arroz blanco","Tomate","Cebolla cabezona"],"portatil":false,"opciones":[{"nombre":"Lentejas con pollo","kcal":513,"proteina":49,"factor":1},{"nombre":"Lomo de cerdo con yuca","kcal":498,"proteina":49,"factor":1},{"nombre":"Wok de pollo con arroz","kcal":517,"proteina":50,"factor":1}]},{"slot":"snack","tipo":"snack","hora":"16:30","recetaId":"yogur-mora","nombre":"Yogur griego con mora","factor":1,"kcal":191,"proteina":27,"fibra":5,"ingredientes":["Yogur griego natural sin grasa","Mora"],"portatil":true,"opciones":[{"nombre":"Batido de proteína","kcal":180,"proteina":29,"factor":1},{"nombre":"Atún con galletas integrales","kcal":197,"proteina":26,"factor":1},{"nombre":"Rollitos de pavo con queso y pepino","kcal":183,"proteina":25,"factor":1}]},{"slot":"cena","tipo":"cena","hora":"20:00","recetaId":"pasta-atun","nombre":"Pasta integral con atún","factor":1,"kcal":469,"proteina":43,"fibra":8,"ingredientes":["Pasta integral","Atún en agua, escurrido","Salsa de tomate para pasta","Queso parmesano rallado","Aceite de oliva"],"portatil":false,"opciones":[{"nombre":"Bowl de carne con quinua y aguacate","kcal":488,"proteina":51,"factor":1},{"nombre":"Tacos de pollo","kcal":450,"proteina":46,"factor":1},{"nombre":"Trucha a la plancha con papa","kcal":492,"proteina":48,"factor":1}]}]};
+const meta = DATOS.presupuesto;
+const comidas = DATOS.comidas.map(c => ({ ...c, hecha: false }));
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => n.toLocaleString('es-CO');
+const nombresTipo = { desayuno: 'Desayuno', almuerzo: 'Almuerzo', snack: 'Snack', cena: 'Cena' };
+
+$('kcalMeta').textContent = fmt(meta.kcal);
+$('protMeta').textContent = meta.proteina;
+
+function totales() {
+  return comidas.filter(c => c.hecha).reduce((t, c) => ({ k: t.k + c.kcal, p: t.p + c.proteina, f: t.f + c.fibra }), { k: 0, p: 0, f: 0 });
+}
+
+function pintar() {
+  const t = totales();
+  $('kcal').textContent = fmt(t.k);
+  $('prot').textContent = t.p;
+  $('fib').textContent = t.f;
+  $('restan').textContent = fmt(Math.max(meta.kcal - t.k, 0));
+  $('bK').style.width = Math.min(100, t.k / meta.kcal * 100) + '%';
+  $('bP').style.width = Math.min(100, t.p / meta.proteina * 100) + '%';
+  $('bF').style.width = Math.min(100, t.f / 21 * 100) + '%';
+  $('arco').style.strokeDashoffset = 352 * (1 - Math.min(1, t.k / meta.kcal));
+
+  const sig = comidas.find(c => !c.hecha);
+  const s = $('sig');
+  if (sig) {
+    s.innerHTML = `
+      <div class="etq">Siguiente · ${sig.hora} · ${nombresTipo[sig.tipo]}</div>
+      <h2 class="display">${sig.nombre}</h2>
+      <div style="color:var(--suave);font-size:13px">${sig.ingredientes.slice(0, 4).join(' · ')}</div>
+      <div class="chips">
+        <span class="chip k">${sig.kcal} kcal</span><span class="chip p">${sig.proteina} g proteína</span>
+        ${sig.factor !== 1 ? `<span class="chip">porción ×${String(sig.factor).replace('.', ',')}</span>` : ''}
+        ${sig.portatil ? '<span class="chip">para llevar</span>' : ''}
+      </div>
+      <div class="acciones">
+        <button class="btn primario" data-comi="${sig.slot}">Comí lo planeado</button>
+        <button class="btn sec" data-cambiar="${sig.slot}">Cambiar</button>
+      </div>`;
+  } else {
+    s.innerHTML = `<div class="etq">Listo</div><h2 class="display">Cumpliste el plan de hoy</h2>
+      <div style="color:var(--suave);font-size:14px">${fmt(totales().k)} kcal y ${totales().p} g de proteína.</div>`;
+  }
+
+  $('lista').innerHTML = comidas.map(c => `
+    <div class="comida ${c.hecha ? 'hecha' : ''} ${sig && c.slot === sig.slot ? 'actual' : ''}">
+      <div class="hora">${c.hora}</div>
+      <div><div class="n">${c.nombre}</div><div class="m">${nombresTipo[c.tipo]} · ${c.kcal} kcal · ${c.proteina} g</div></div>
+      <button class="check" data-toggle="${c.slot}" aria-label="Marcar ${c.nombre}">${c.hecha ? '<svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}</button>
+    </div>`).join('');
+}
+
+function abrirHoja(html) { $('hoja').innerHTML = '<div class="asa"></div>' + html; $('hoja').classList.add('on'); $('velo').classList.add('on'); }
+function cerrarHoja() { $('hoja').classList.remove('on'); $('velo').classList.remove('on'); }
+$('velo').onclick = cerrarHoja;
+
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.dataset.comi) { comidas.find(c => c.slot === b.dataset.comi).hecha = true; pintar(); }
+  if (b.dataset.toggle) { const c = comidas.find(x => x.slot === b.dataset.toggle); c.hecha = !c.hecha; pintar(); }
+  if (b.dataset.cambiar) {
+    const c = comidas.find(x => x.slot === b.dataset.cambiar);
+    abrirHoja(`<h3 class="display">Cambiar ${nombresTipo[c.tipo].toLowerCase()}</h3>
+      <p class="t">Opciones con calorías y proteína parecidas a ${c.kcal} kcal y ${c.proteina} g.</p>
+      ${c.opciones.map((o, i) => `<button class="opcion" data-elegir="${c.slot}" data-i="${i}">
+        <span><b>${o.nombre}</b><small>${o.factor !== 1 ? 'porción ×' + String(o.factor).replace('.', ',') + ' · ' : ''}${o.kcal} kcal · ${o.proteina} g proteína</small></span>
+        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M7 4l5 5-5 5" fill="none" stroke="#a59d92" stroke-width="2" stroke-linecap="round"/></svg></button>`).join('')}`);
+  }
+  if (b.dataset.elegir) {
+    const c = comidas.find(x => x.slot === b.dataset.elegir);
+    const o = c.opciones[+b.dataset.i];
+    const anterior = { nombre: c.nombre, kcal: c.kcal, proteina: c.proteina, factor: c.factor };
+    Object.assign(c, { nombre: o.nombre, kcal: o.kcal, proteina: o.proteina, factor: o.factor, ingredientes: [], portatil: false });
+    c.opciones[+b.dataset.i] = anterior;
+    cerrarHoja(); pintar();
+  }
+  if (b.id === 'btnHambre') {
+    const ops = [['Caldo o consomé de pollo desgrasado', '1 taza', '15–40'], ['Pepino, rábano o tomate cherry con limón', '1 taza', '20–30'], ['Gelatina sin azúcar', '1 vaso', '10'], ['Yogur griego natural', '½ taza', '~70, con proteína'], ['Atún en agua', '1 lata pequeña', '~100, con proteína'], ['Café, té o aromática', '', '0–5']];
+    abrirHoja(`<h3 class="display">Tengo hambre</h3><p class="t">Mucho volumen, pocas calorías. Lo de menos de 30 kcal no mueve el plan.</p>
+      ${ops.map(o => `<button class="opcion"><span><b>${o[0]}</b><small>${o[1] ? o[1] + ' · ' : ''}${o[2]} kcal</small></span></button>`).join('')}
+      <p class="aviso">Si tienes hambre casi todos los días de una semana, la app propone subir 100–150 kcal.</p>`);
+  }
+  if (b.id === 'btnDormir') { $('dormirPie').textContent = 'día cerrado · buenas noches'; }
+  if (b.classList.contains('turno')) {
+    document.querySelectorAll('.turno').forEach(t => t.setAttribute('aria-pressed', t === b));
+    $('turnoTxt').textContent = b.textContent.toLowerCase();
+  }
+});
+
+pintar();
+</script>
+</body>
+</html>
